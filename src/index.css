@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 207 82% 9%;
+    --foreground: 0 0% 100%;
+
+    --card: 207 75% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 207 82% 9%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 27 30% 66%;
+    --primary-foreground: 207 82% 9%;
+
+    --secondary: 207 60% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 207 40% 20%;
+    --muted-foreground: 210 20% 70%;
+
+    --accent: 27 30% 66%;
+    --accent-foreground: 207 82% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 207 30% 25%;
+    --input: 207 30% 25%;
+    --ring: 27 30% 66%;
+
+    --radius: 0rem;
+
+    --sidebar-background: 207 82% 9%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 27 30% 66%;
+    --sidebar-primary-foreground: 207 82% 9%;
+    --sidebar-accent: 207 60% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 207 30% 25%;
+    --sidebar-ring: 27 30% 66%;
+
+    /* Custom design tokens */
+    --gradient-hero: linear-gradient(180deg, hsl(207 82% 9%) 0%, hsl(207 75% 6%) 100%);
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(207 82% 9% / 0.8) 100%);
+    --shadow-glow: 0 0 60px hsl(27 30% 66% / 0.15);
+    --shadow-card: 0 20px 40px hsl(207 82% 5% / 0.5);
+    
+    /* Animation durations */
+    --duration-fast: 0.2s;
+    --duration-normal: 0.4s;
+    --duration-slow: 0.8s;
+    --duration-slower: 1.2s;
+  }
+
+  .dark {
+    --background: 207 82% 9%;
+    --foreground: 0 0% 100%;
+    --card: 207 75% 12%;
+    --card-foreground: 0 0% 100%;
+    --popover: 207 82% 9%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 27 30% 66%;
+    --primary-foreground: 207 82% 9%;
+    --secondary: 207 60% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 207 40% 20%;
+    --muted-foreground: 210 20% 70%;
+    --accent: 27 30% 66%;
+    --accent-foreground: 207 82% 9%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 207 30% 25%;
+    --input: 207 30% 25%;
+    --ring: 27 30% 66%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--muted-foreground)) 100%);
+  }
+
+  .bg-hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .bg-overlay-gradient {
+    background: var(--gradient-overlay);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Smooth scroll */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  /* Line animation */
+  .line-reveal {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .line-reveal::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: hsl(var(--primary));
+    transition: width var(--duration-slow) ease;
+  }
+
+  .line-reveal:hover::after {
+    width: 100%;
+  }
+
+  /* Image hover zoom */
+  .image-zoom {
+    overflow: hidden;
+  }
+
+  .image-zoom img {
+    transition: transform var(--duration-slow) ease;
+  }
+
+  .image-zoom:hover img {
+    transform: scale(1.05);
+  }
+}
