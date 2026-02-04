@@ -74,7 +74,7 @@ export const Header = () => {
                 className="hidden md:flex items-center gap-2 text-sm font-medium text-primary hover:text-foreground transition-colors duration-300"
               >
                 <Phone className="w-4 h-4" />
-                <span>+212 [Votre Numéro]</span>
+                <span>+212 5 39 35 51 33</span>
               </a>
               
               <button
@@ -146,7 +146,7 @@ export const Header = () => {
               >
                 <div className="space-y-8">
                   <div>
-                    <p className="text-sm text-muted-foreground mb-2">Address</p>
+                    <p className="text-sm text-muted-foreground mb-2">Adresse</p>
                     <p className="text-foreground">
                       Avenue Moulay Youssef,  n°69.3ème étage, Appart 7  (à côté de la Mosquée Badr).<br />
                       Tanger, Maroc.
@@ -155,15 +155,15 @@ export const Header = () => {
                   <div>
                     <p className="text-sm text-muted-foreground mb-2">Contact</p>
                     <p className="text-foreground">
-                      +1 (234) 567-890<br />
-                      hello@klaas.dental
+                      +212 5 39 35 51 33<br />
+                      contact@alboughaz.dental
                     </p>
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground mb-2">Hours</p>
+                    <p className="text-sm text-muted-foreground mb-2">Horaires</p>
                     <p className="text-foreground">
-                      Mon - Fri: 9:00 - 18:00<br />
-                      Saturday: 10:00 - 14:00
+                       Lun-Ven : 09h00 - 18h00<br />
+                      Sam : 10h00 - 14h00
                     </p>
                   </div>
                 </div>
