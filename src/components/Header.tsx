@@ -3,11 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
 
 const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Team', href: '#team' },
-  { name: 'Gallery', href: '#gallery' },
+  { name: 'Accueil', href: '#home' },
+  { name: 'À Propos', href: '#about' },
+  { name: 'Services Dentaires', href: '#services' },
+  { name: 'Notre Équipe', href: '#team' },
+ 
+ 
+  { name: 'Blog', href: '#blog' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -44,11 +46,13 @@ export const Header = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20 lg:h-24">
             {/* Logo */}
-            <a href="#home" className="relative z-50">
-              <span className="font-serif text-2xl lg:text-3xl font-semibold text-foreground tracking-tight">
-                Tanger Clinique
-              </span>
-            </a>
+          <a href="#home" className="relative z-50 flex items-center min-w-[200px]">
+  <img
+    src="/logo.png"
+    alt="Centre Dentaire Al Boughaz - Dr Amine Khanboubi"
+    className="h-28 md:h-36 lg:h-44 w-auto object-contain transform scale-110 origin-left" 
+  />
+</a>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
@@ -70,7 +74,7 @@ export const Header = () => {
                 className="hidden md:flex items-center gap-2 text-sm font-medium text-primary hover:text-foreground transition-colors duration-300"
               >
                 <Phone className="w-4 h-4" />
-                <span>+1 (234) 567-890</span>
+                <span>+212 [Votre Numéro]</span>
               </a>
               
               <button
@@ -144,8 +148,8 @@ export const Header = () => {
                   <div>
                     <p className="text-sm text-muted-foreground mb-2">Address</p>
                     <p className="text-foreground">
-                      123 Dental Street<br />
-                      Berlin, Germany 10115
+                      Avenue Moulay Youssef,  n°69.3ème étage, Appart 7  (à côté de la Mosquée Badr).<br />
+                      Tanger, Maroc.
                     </p>
                   </div>
                   <div>

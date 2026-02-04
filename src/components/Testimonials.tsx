@@ -4,17 +4,17 @@ import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Anna Hoffmann',
-    role: 'Business Owner',
+    name: 'Sam Nigrasco',
+    
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80',
-    content: 'The team at Klaas Dental completely transformed my smile. I was nervous about getting veneers, but Dr. Schmidt made the entire process comfortable and painless. I couldn\'t be happier with the results!',
+    content: 'Je suis patient du Dr. Amine depuis plus de 10 ans. Même après avoir passé trois ans hors du Maroc, il a été la première personne vers qui je me suis tourné pour une urgence dentaire. Il m\'a reçu sur l\'Avenue Moulay Youssef dans un délai très court et a terminé le traitement en une semaine avec un professionnalisme exemplaire. Dr. Khanboubi est véritablement dévoué à ses patients. Hautement recommandé !',
     rating: 5,
   },
   {
-    name: 'Marcus Klein',
-    role: 'Software Engineer',
+    name: 'Najlae Laaroussi',
+    
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80',
-    content: 'I\'ve been coming to Klaas for years and the quality of care is consistently excellent. The modern facilities and friendly staff make every visit a pleasant experience.',
+    content: ' Je tiens à vous remercier de rendre chaque visite si confortable, surtout pour quelqu\'un comme moi qui avait un véritable traumatisme des dentistes. J\'ai énormément apprécié votre gentillesse et le temps que vous avez pris pour tout m\'expliquer et simplifier chaque étape. Cela m\'a permis de mieux comprendre ma santé bucco-dentaire et, aujourd\'hui, je n\'ai plus peur. Tout cela grâce à votre soutien et votre accompagnement. ❤️🥰 Merci infiniment pour le magnifique sourire que vous m\'avez donné ! 😁❤️🦷',
     rating: 5,
   },
   {
@@ -40,7 +40,7 @@ export const Testimonials = () => {
   };
 
   return (
-    <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
+    <section id="testimonials" className="py-24 lg:py-32 bg-background relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-card hidden lg:block" />
       
@@ -54,14 +54,13 @@ export const Testimonials = () => {
             transition={{ duration: 0.8 }}
           >
             <span className="text-sm font-medium tracking-widest uppercase text-primary mb-4 block">
-              Testimonials
+              Témoignages
             </span>
             <h2 className="font-serif text-4xl lg:text-5xl xl:text-6xl font-medium text-foreground mb-6">
-              What Our Patients Say
+              Ce que nos patients disent de nous
             </h2>
             <p className="text-muted-foreground text-lg mb-12">
-              Don't just take our word for it. Hear from our satisfied patients 
-              about their experience at Klaas Dental.
+              Ne vous contentez pas de nous croire sur parole. Écoutez ce que nos patients satisfaits disent de leur expérience au Centre Dentaire Al Boughaz.
             </p>
 
             {/* Navigation */}

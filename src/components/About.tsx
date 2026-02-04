@@ -3,10 +3,10 @@ import { useRef } from 'react';
 import { Award, Users, Clock, Shield } from 'lucide-react';
 
 const stats = [
-  { icon: Award, value: '25+', label: 'Years Experience' },
-  { icon: Users, value: '15K+', label: 'Happy Patients' },
-  { icon: Clock, value: '50K+', label: 'Treatments Done' },
-  { icon: Shield, value: '100%', label: 'Safety Protocol' },
+  { icon: Award, value: '10+', label: 'Ans d\'Expérience en Chirurgie' },
+  { icon: Users, value: '8K+', label: ' Patients Satisfaits à Tanger' },
+  { icon: Clock, value: '20K+', label: 'Soins et Interventions Réalisés' },
+  { icon: Shield, value: '100%', label: 'Stérilisation et Protocoles de Sécurité' },
 ];
 
 export const About = () => {
@@ -50,20 +50,19 @@ export const About = () => {
             transition={{ duration: 1, delay: 0.2 }}
           >
             <span className="text-sm font-medium tracking-widest uppercase text-primary mb-4 block">
-              About Us
+              À Propos
             </span>
             <h2 className="font-serif text-4xl lg:text-5xl xl:text-6xl font-medium text-foreground mb-6 leading-tight">
-              Leading the Way in Modern Dentistry
+               Leader de la Dentisterie Moderne et de l'Esthétique à Tanger
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              At Klaas Dental, we believe that everyone deserves a beautiful, healthy smile. 
-              Our state-of-the-art clinic combines the latest technology with a warm, 
-              welcoming atmosphere to provide an exceptional dental experience.
+              Au Centre Dentaire Al Boughaz, nous pensons que tout le monde mérite un sourire radieux. Notre clinique dentaire
+               à la pointe de la technologie sur l'Av. Moulay Youssef combine les derniers protocoles internationaux à une atmosphère chaleureuse pour offrir une expertise reconnue en plein centre de Tanger.
+
             </p>
             <p className="text-muted-foreground mb-12 leading-relaxed">
-              Founded in 1998, our practice has grown to become one of the most trusted 
-              dental clinics in Berlin. We're proud to serve our community with comprehensive 
-              dental care, from routine check-ups to advanced cosmetic procedures.
+               Établi comme l'un des cabinets dentaires les plus fiables à proximité de la Mosquée Badr, nous accompagnons 
+               notre communauté avec des soins complets, du simple détartrage à la réhabilitation esthétique la plus avancée.
             </p>
 
             {/* Stats */}

@@ -13,6 +13,7 @@ const footerLinks = {
     { name: 'About Us', href: '#about' },
     { name: 'Our Team', href: '#team' },
     { name: 'Gallery', href: '#gallery' },
+    { name: 'Blog', href: '#blog' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'Contact', href: '#contact' },
   ],
@@ -44,7 +45,7 @@ export const Footer = () => {
           <div className="lg:col-span-2">
             <a href="#home" className="inline-block mb-6">
               <span className="font-serif text-3xl font-semibold text-foreground">
-                Rifi
+                Centre Dentaire Al Boughaz
               </span>
             </a>
             <p className="text-muted-foreground mb-8 max-w-sm leading-relaxed">

@@ -5,38 +5,38 @@ import { ArrowRight, Sparkles, Shield, Smile, Activity, Heart, Zap } from 'lucid
 const services = [
   {
     icon: Sparkles,
-    title: 'Cosmetic Dentistry',
-    description: 'Transform your smile with veneers, whitening, and aesthetic treatments.',
+    title: 'Esthétique Dentaire & Facettes',
+    description: 'Redessinez votre sourire avec des facettes en céramique et des soins de dentisterie esthétique pour un résultat naturel.',
     image: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=600&q=80',
   },
   {
     icon: Shield,
-    title: 'Preventive Care',
-    description: 'Regular check-ups, cleanings, and early detection to maintain oral health.',
+    title: 'Blanchiment Dentaire Professionnel',
+    description: ' Éclaircissez vos dents avec notre technologie de blanchiment au laser haute performance.',
     image: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80',
   },
   {
     icon: Smile,
-    title: 'Orthodontics',
-    description: 'Invisible aligners and braces for perfectly straight teeth.',
+    title: 'Orthodontie & Aligneurs Invisibles',
+    description: 'Correction de l\'alignement dentaire pour enfants et adultes via bagues ou gouttières invisibles.',
     image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=80',
   },
   {
     icon: Activity,
-    title: 'Dental Implants',
-    description: 'Permanent tooth replacement solutions that look and feel natural.',
+    title: ' Implantologie & Prothèses',
+    description: ' Pose d\'implants dentaires et solutions de remplacement permanent pour retrouver une fonction masticatoire parfaite.',
     image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80',
   },
   {
     icon: Heart,
-    title: 'Pediatric Dentistry',
-    description: 'Gentle, kid-friendly care to establish healthy habits early.',
+    title: 'Dentisterie Pédiatrique (Enfants)',
+    description: 'Soins doux pour enfants afin de prévenir les caries et instaurer une hygiène bucco-dentaire durable.',
     image: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80',
   },
   {
     icon: Zap,
-    title: 'Emergency Care',
-    description: '24/7 emergency services for urgent dental needs.',
+    title: 'Urgences Dentaires Tanger',
+    description: 'Soulagement immédiat des douleurs dentaires aiguës sur l\'Avenue Moulay Youssef, près de la Mosquée Badr.',
     image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80',
   },
 ];
@@ -58,14 +58,15 @@ export const Services = () => {
           className="text-center mb-16 lg:mb-24"
         >
           <span className="text-sm font-medium tracking-widest uppercase text-primary mb-4 block">
-            Our Services
+           Services Dentaires
           </span>
           <h2 className="font-serif text-4xl lg:text-5xl xl:text-6xl font-medium text-foreground mb-6">
-            Comprehensive Dental Care
+            Services Dentaires et Expertise en Esthétique du Sourire
           </h2>
           <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
-            From routine check-ups to advanced cosmetic procedures, we offer a full range 
-            of dental services to meet all your oral health needs.
+            De la prévention à la chirurgie dentaire complexe, 
+            nous offrons une gamme complète de traitements pour votre santé dentaire.
+
           </p>
         </motion.div>
 
