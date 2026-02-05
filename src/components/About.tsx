@@ -28,14 +28,14 @@ export const About = () => {
             <div className="relative z-10 image-zoom">
               <img
                 src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80"
-                alt="Dental procedure"
+                alt="Intervention de blanchiment dentaire au Centre Al Boughaz Tanger"
                 className="w-full aspect-[4/5] object-cover"
               />
             </div>
             <div className="absolute -bottom-8 -right-8 w-2/3 z-20 shadow-card image-zoom">
               <img
                 src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80"
-                alt="Dental team"
+                alt="Équipe médicale du Dr Amine Khanboubi à Tanger"
                 className="w-full aspect-square object-cover"
               />
             </div>

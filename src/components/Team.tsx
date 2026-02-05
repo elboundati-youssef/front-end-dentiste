@@ -49,7 +49,7 @@ export const Team = () => {
             <div className="relative overflow-hidden image-zoom shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&q=80"
-                alt="Dr. Amine Khanboubi"
+                alt="Dr. Amine Khanboubi - meilleur-dentiste-tanger-moulay-youssef"
                 className="w-full h-[500px] lg:h-[700px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
               />
 
@@ -149,7 +149,7 @@ export const Team = () => {
             <div className="relative h-48 lg:h-64 overflow-hidden image-zoom shadow-lg group">
               <img
                 src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80"
-                alt="Cabinet dentaire"
+                alt="cabinet-dentaire-mosquee-badr-tanger equipement moderne"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
               />
 

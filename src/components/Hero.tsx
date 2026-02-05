@@ -116,7 +116,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-10" />
         <img
           src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80"
-          alt="Modern dental clinic"
+          alt="Centre Dentaire Al Boughaz Tanger - Cabinet moderne sur l'Avenue Moulay Youssef près de la Mosquée Badr"
           className="w-full h-full object-cover"
         />
       </div>
@@ -140,8 +140,8 @@ export const Hero = () => {
           ref={headingRef}
           className="font-serif text-5xl md:text-7xl lg:text-8xl xl:text-7xl font-medium text-foreground mb-8 leading-tight"
         >
-          Excellence,<br />
-          <span className="text-primary">Esthétique et Innovation au Centre Dentaire Al Boughaz</span>
+          Excellence Esthétique et Innovation,<br />
+          <span className="text-primary"> au Centre Dentaire Al Boughaz</span>
         </h1>
 
         {/* Subtitle */}
@@ -180,7 +180,7 @@ export const Hero = () => {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
       >
         <div className="flex flex-col items-center gap-2 text-muted-foreground">
-          <span className="text-xs tracking-[0.3em] uppercase">Scroll</span>
+          <span className="text-xs tracking-[0.3em] uppercase">Défiler</span>
           <ArrowDown className="w-4 h-4" />
         </div>
       </div>

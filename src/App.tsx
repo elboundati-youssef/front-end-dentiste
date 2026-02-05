@@ -5,13 +5,16 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-// 1. Import de HelmetProvider
 import { HelmetProvider } from 'react-helmet-async';
+import BlogPost from "./pages/BlogPost";
+
+// 1. IMPORTEZ LA NOUVELLE PAGE ICI
+// Assurez-vous d'avoir bien créé le fichier dans src/pages/ServiceDetails.tsx
+import ServiceDetails from "./pages/ServiceDetails"; 
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  // 2. On enveloppe TOUTE l'application ici
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -20,7 +23,11 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            
+            {/* 2. AJOUTEZ CETTE ROUTE POUR LES SERVICES */}
+            {/* Le ":id" permet de récupérer quel service a été cliqué (ex: "blanchiment") */}
+            <Route path="/service/:id" element={<ServiceDetails />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

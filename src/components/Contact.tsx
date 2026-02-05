@@ -192,10 +192,18 @@ export const Contact = () => {
                     <label className="block text-sm text-primary font-medium tracking-wide uppercase mb-2">Numéro de Téléphone</label>
                     <input type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full px-4 py-4 bg-background border border-border text-foreground focus:outline-none focus:border-primary transition-all duration-300" placeholder="+212 6..." required />
                   </div>
-                  <div className="form-field">
-                    <label className="block text-sm text-primary font-medium tracking-wide uppercase mb-2">Date Souhaitée</label>
-                    <input type="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} className="w-full px-4 py-4 bg-background border border-border text-foreground focus:outline-none focus:border-primary transition-all duration-300" required />
-                  </div>
+                 <div className="form-field">
+  <label className="block text-sm text-primary font-medium tracking-wide uppercase mb-2">
+    Date Souhaitée
+  </label>
+  <input 
+    type="date" 
+    value={formData.date} 
+    onChange={(e) => setFormData({ ...formData, date: e.target.value })} 
+    className="w-full px-4 py-4 bg-background border border-border text-foreground focus:outline-none focus:border-primary transition-all duration-300 [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert [&::-webkit-calendar-picker-indicator]:opacity-70 hover:[&::-webkit-calendar-picker-indicator]:opacity-100" 
+    required 
+  />
+</div>
                 </div>
 
                 <div className="form-field">

@@ -1,3 +1,5 @@
+import { useEffect } from "react"; // 1. Import pour gérer le moment du chargement
+import { useLocation } from "react-router-dom"; // 2. Import pour lire l'URL (le #contact)
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
@@ -8,30 +10,48 @@ import { Testimonials } from '@/components/Testimonials';
 import { CTA } from '@/components/CTA';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
-// 1. Import de Helmet pour gérer le SEO
 import { Helmet } from 'react-helmet-async';
 import { Blog } from '@/components/Blog';
 
 const Index = () => {
+  // 3. On récupère le "hash" de l'URL (ex: #contact ou #services)
+  const { hash } = useLocation();
+
+  // 4. Ce code s'active quand la page charge
+  useEffect(() => {
+    if (hash) {
+      // On attend 100ms que la page soit prête, puis on scroll
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, [hash]);
+
   return (
     <div className="smooth-scroll">
-      {/* 2. Configuration SEO pour la page d'accueil */}
+      {/* Configuration SEO mise à jour avec vos données */}
       <Helmet>
-        {/* Le titre qui apparaît dans l'onglet du navigateur et sur Google */}
-        <title>Cabinet Dentaire Tanger - Dr. Elboundati | Urgences & Esthétique</title>
+        {/* Title Tag */}
+        <title>Dentiste Tanger | Centre Dentaire Al Boughaz | Av. Moulay Youssef</title>
         
-        {/* La description sous le titre dans les résultats Google */}
+        {/* Meta Description */}
         <meta 
           name="description" 
-          content="Votre dentiste de confiance à Tanger. Soins dentaires complets : implants, orthodontie, blanchiment et urgences. Prenez rendez-vous en ligne pour un sourire éclatant." 
+          content="Cabinet dentaire du Dr. Amine Khanboubi à Tanger. Expert en implants, facettes et blanchiment dentaire. Situé Avenue Moulay Youssef, près de la Mosquée Badr." 
         />
         
-        {/* Mots-clés pour aider (moins important qu'avant mais utile) */}
-        <meta name="keywords" content="dentiste tanger, cabinet dentaire maroc, urgence dentaire tanger, implantologie, blanchiment des dents, orthodontie tanger" />
+        {/* Keywords */}
+        <meta 
+          name="keywords" 
+          content="dentiste tanger, cabinet dentaire tanger, blanchiment dentaire tanger, facettes dentaires maroc, implants dentaires tanger, urgence dentaire tanger, avenue moulay youssef tanger" 
+        />
         
-        {/* Pour que le lien soit joli quand on le partage sur WhatsApp/Facebook */}
-        <meta property="og:title" content="Cabinet Dentaire Tanger - Dr. Elboundati" />
-        <meta property="og:description" content="Soins dentaires d'excellence à Tanger. Prenez rendez-vous aujourd'hui." />
+        {/* Open Graph (Social Media) - Mis à jour pour correspondre */}
+        <meta property="og:title" content="Dentiste Tanger | Centre Dentaire Al Boughaz" />
+        <meta property="og:description" content="Expert en implants, facettes et blanchiment dentaire à Tanger. Dr. Amine Khanboubi." />
         <meta property="og:type" content="website" />
       </Helmet>
 
@@ -43,9 +63,9 @@ const Index = () => {
         <Team />
         <Gallery />
         <Testimonials />
-        <Blog />  {/* <--- AJOUTE-LE ICI */}
+        <Blog />
         <CTA />
-        {/* Ton composant Contact qui est relié à Laravel */}
+        {/* Formulaire relié au backend */}
         <Contact />
       </main>
       <Footer />

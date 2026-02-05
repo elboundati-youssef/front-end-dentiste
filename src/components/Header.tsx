@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
 
 const navLinks = [
-  { name: 'Accueil', href: '#home' },
-  { name: 'À Propos', href: '#about' },
-  { name: 'Services Dentaires', href: '#services' },
-  { name: 'Notre Expertise', href: '#team' },
+  { name: 'Accueil', href: '/#home' },
+  { name: 'À Propos', href: '/#about' },
+  { name: 'Services Dentaires', href: '/#services' },
+  { name: 'Notre Expertise', href: '/#team' },
  
  
-  { name: 'Blog', href: '#blog' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Blog', href: '/#blog' },
+  { name: 'Contact', href: '/#contact' },
 ];
 
 export const Header = () => {
