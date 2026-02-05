@@ -3,8 +3,8 @@ import { useRef } from 'react';
 import { Award, Users, Clock, Shield } from 'lucide-react';
 
 const stats = [
-  { icon: Award, value: '10+', label: 'Ans d\'Expérience en Chirurgie' },
-  { icon: Users, value: '8K+', label: ' Patients Satisfaits à Tanger' },
+  { icon: Award, value: '10+', label: "Ans d'Expérience en Chirurgie Dentaire" },
+  { icon: Users, value: '8K+', label: 'Patients Satisfaits à Tanger' },
   { icon: Clock, value: '20K+', label: 'Soins et Interventions Réalisés' },
   { icon: Shield, value: '100%', label: 'Stérilisation et Protocoles de Sécurité' },
 ];
@@ -14,48 +14,54 @@ export const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 lg:py-32 bg-background">
+    <section id="about" className="py-16 md:py-24 lg:py-32 bg-background overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Images */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+          
+          {/* --- MODIFICATION 1 : IMAGES --- */}
+          {/* Ajout de 'max-w-md mx-auto' pour limiter la taille sur mobile */}
           <motion.div
             ref={ref}
             initial={{ opacity: 0, x: -60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1 }}
-            className="relative"
+            className="relative max-w-md mx-auto lg:max-w-none w-full"
           >
             <div className="relative z-10 image-zoom">
               <img
                 src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80"
                 alt="Intervention de blanchiment dentaire au Centre Al Boughaz Tanger"
-                className="w-full aspect-[4/5] object-cover"
+                className="w-full aspect-[4/5] object-cover rounded shadow-lg"
               />
             </div>
-            <div className="absolute -bottom-8 -right-8 w-2/3 z-20 shadow-card image-zoom">
+            {/* Ajustement de la position pour mobile (-bottom-4 au lieu de -8) */}
+            <div className="absolute -bottom-4 -right-4 lg:-bottom-8 lg:-right-8 w-2/3 z-20 shadow-card image-zoom">
               <img
                 src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80"
                 alt="Équipe médicale du Dr Amine Khanboubi à Tanger"
-                className="w-full aspect-square object-cover"
+                className="w-full aspect-square object-cover rounded border-4 border-background"
               />
             </div>
-            {/* Decorative */}
             <div className="absolute top-8 -left-8 w-24 h-24 border border-primary/30 hidden lg:block" />
           </motion.div>
 
-          {/* Content */}
+          {/* --- MODIFICATION 2 : TEXTE --- */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
+            className="mt-8 lg:mt-0 text-center lg:text-left" // Centré sur mobile
           >
-            <span className="text-sm font-medium tracking-widest uppercase text-primary mb-4 block">
-              À Propos
+            <span className="text-base md:text-sm font-medium tracking-widest uppercase text-primary mb-4 block">
+              À Propos du Cabinet
             </span>
-            <h2 className="font-serif text-2xl lg:text-4xl xl:text-5xl font-medium text-foreground mb-6 leading-tight">
+            
+            {/* Titre agrandi sur mobile (text-3xl) */}
+            <h2 className="font-serif text-3xl lg:text-4xl xl:text-5xl font-medium text-foreground mb-6 leading-tight">
                Leader de la Dentisterie Moderne et de l'Esthétique à Tanger
             </h2>
-           <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+            
+             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
   Au Centre&nbsp;Dentaire Al&nbsp;Boughaz, nous sommes convaincus que chaque patient mérite un&nbsp;sourire d'exception. 
   Notre clinique, idéalement située Avenue&nbsp;Moulay&nbsp;Youssef, allie les dernières innovations technologiques 
   à&nbsp;une approche personnalisée pour offrir une&nbsp;expertise de&nbsp;référence au&nbsp;cœur de&nbsp;Tanger.
@@ -67,23 +73,23 @@ export const About = () => {
 </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-6 md:gap-8">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                  className="flex items-start gap-4"
+                  className="flex flex-col md:flex-row items-center md:items-start gap-3 md:gap-4 text-center md:text-left"
                 >
-                  <div className="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary">
+                  <div className="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-full shrink-0">
                     <stat.icon className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="font-serif text-3xl font-semibold text-foreground">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm md:text-base text-muted-foreground leading-tight">
                       {stat.label}
                     </div>
                   </div>

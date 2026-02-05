@@ -24,7 +24,7 @@ export const Services = () => {
             Services Dentaires
           </span>
           <h2 className="font-serif text-4xl lg:text-5xl xl:text-6xl font-medium text-foreground mb-6">
-            Services Dentaires et Expertise en Esthétique du Sourire
+            Services dentaires et expertise en esthétique du sourire
           </h2>
           <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
             De la prévention à la chirurgie dentaire complexe, nous offrons une
