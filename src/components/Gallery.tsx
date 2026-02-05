@@ -2,23 +2,26 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Expand } from 'lucide-react';
 
-const tabs = ['All', 'Before & After', 'Clinic', 'Team'];
+// Traduction des onglets
+const tabs = ['Tous', 'Avant & Après', 'Clinique', 'Équipe'];
 
+// Traduction des catégories dans les données
 const galleryItems = [
-  { src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80', category: 'Clinic', span: 'col-span-2 row-span-2' },
-  { src: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80', category: 'Before & After', span: '' },
-  { src: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80', category: 'Team', span: '' },
-  { src: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=600&q=80', category: 'Before & After', span: '' },
-  { src: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80', category: 'Clinic', span: '' },
-  { src: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80', category: 'Before & After', span: 'col-span-2' },
+  { src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80', category: 'Clinique', span: 'col-span-2 row-span-2' },
+  { src: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80', category: 'Avant & Après', span: '' },
+  { src: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80', category: 'Équipe', span: '' },
+  { src: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=600&q=80', category: 'Avant & Après', span: '' },
+  { src: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80', category: 'Clinique', span: '' },
+  { src: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80', category: 'Avant & Après', span: 'col-span-2' },
 ];
 
 export const Gallery = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [activeTab, setActiveTab] = useState('All');
+  const [activeTab, setActiveTab] = useState('Tous'); // État initial traduit
 
-  const filteredItems = activeTab === 'All' 
+  // Filtrage adapté aux nouvelles catégories françaises
+  const filteredItems = activeTab === 'Tous' 
     ? galleryItems 
     : galleryItems.filter(item => item.category === activeTab);
 
@@ -34,10 +37,10 @@ export const Gallery = () => {
           className="text-center mb-12"
         >
           <span className="text-sm font-medium tracking-widest uppercase text-primary mb-4 block">
-            Gallery
+            Galerie
           </span>
           <h2 className="font-serif text-4xl lg:text-5xl xl:text-6xl font-medium text-foreground mb-8">
-            See Our Work
+            Découvrez Nos Réalisations
           </h2>
 
           {/* Tabs */}
@@ -75,7 +78,7 @@ export const Gallery = () => {
             >
               <img
                 src={item.src}
-                alt={`Gallery ${index + 1}`}
+                alt={`Galerie ${index + 1}`}
                 className="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110"
               />
               {/* Overlay */}

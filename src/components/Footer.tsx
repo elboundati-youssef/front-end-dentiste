@@ -3,24 +3,23 @@ import { Facebook, Instagram, Twitter, Linkedin, ArrowUp } from 'lucide-react';
 
 const footerLinks = {
   services: [
-    { name: 'Cosmetic Dentistry', href: '#services' },
-    { name: 'Preventive Care', href: '#services' },
-    { name: 'Orthodontics', href: '#services' },
-    { name: 'Dental Implants', href: '#services' },
-    { name: 'Pediatric Dentistry', href: '#services' },
+    { name: 'Esthétique Dentaire', href: '#services' },
+    { name: 'Soins Préventifs', href: '#services' },
+    { name: 'Orthodontie', href: '#services' },
+    { name: 'Implants Dentaires', href: '#services' },
+    { name: 'Dentisterie Pédiatrique', href: '#services' },
   ],
   company: [
-    { name: 'About Us', href: '#about' },
-    { name: 'Our Team', href: '#team' },
-    { name: 'Gallery', href: '#gallery' },
+    { name: 'À Propos', href: '#about' },
+    { name: 'Galerie', href: '#gallery' },
     { name: 'Blog', href: '#blog' },
-    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'Témoignages', href: '#testimonials' },
     { name: 'Contact', href: '#contact' },
   ],
   legal: [
-    { name: 'Privacy Policy', href: '#' },
-    { name: 'Terms of Service', href: '#' },
-    { name: 'Cookie Policy', href: '#' },
+    { name: 'Politique de Confidentialité', href: '#' },
+    { name: 'Conditions Générales', href: '#' },
+    { name: 'Politique des Cookies', href: '#' },
   ],
 };
 
@@ -49,8 +48,8 @@ export const Footer = () => {
               </span>
             </a>
             <p className="text-muted-foreground mb-8 max-w-sm leading-relaxed">
-              Experience world-class dental care in a modern, comfortable environment. 
-              Your smile is our passion.
+              Découvrez des soins dentaires de classe mondiale dans un environnement moderne et confortable. 
+              Votre sourire est notre passion.
             </p>
             {/* Social Links */}
             <div className="flex items-center gap-4">
@@ -69,7 +68,7 @@ export const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-medium text-foreground mb-6">Services</h4>
+            <h4 className="font-medium text-foreground mb-6">Nos Services</h4>
             <ul className="space-y-4">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
@@ -86,7 +85,7 @@ export const Footer = () => {
 
           {/* Company */}
           <div>
-            <h4 className="font-medium text-foreground mb-6">Company</h4>
+            <h4 className="font-medium text-foreground mb-6">Le Centre</h4>
             <ul className="space-y-4">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -105,19 +104,19 @@ export const Footer = () => {
           <div>
             <h4 className="font-medium text-foreground mb-6">Newsletter</h4>
             <p className="text-muted-foreground mb-4 text-sm">
-              Subscribe for dental tips and updates.
+              Inscrivez-vous pour recevoir nos conseils dentaires.
             </p>
             <form className="flex flex-col gap-3">
               <input
                 type="email"
-                placeholder="Your email"
+                placeholder="Votre email"
                 className="px-4 py-3 bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors duration-300"
               />
               <button
                 type="submit"
                 className="px-4 py-3 bg-primary text-primary-foreground font-medium hover:bg-foreground hover:text-background transition-colors duration-300"
               >
-                Subscribe
+                S'abonner
               </button>
             </form>
           </div>
@@ -129,7 +128,7 @@ export const Footer = () => {
         <div className="container mx-auto px-6 lg:px-12 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Rifi Dental. All rights reserved.
+              © {new Date().getFullYear()} Centre Dentaire Al Boughaz. Tous droits réservés.
             </p>
             <div className="flex items-center gap-6">
               {footerLinks.legal.map((link) => (

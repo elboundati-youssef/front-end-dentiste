@@ -6,7 +6,7 @@ const navLinks = [
   { name: 'Accueil', href: '#home' },
   { name: 'À Propos', href: '#about' },
   { name: 'Services Dentaires', href: '#services' },
-  { name: 'Notre Équipe', href: '#team' },
+  { name: 'Notre Expertise', href: '#team' },
  
  
   { name: 'Blog', href: '#blog' },

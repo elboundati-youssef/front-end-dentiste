@@ -98,20 +98,19 @@ export const CTA = () => {
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div ref={contentRef} className="max-w-4xl mx-auto text-center">
-          <h2 className="cta-heading font-serif text-4xl lg:text-5xl xl:text-6xl font-medium text-primary-foreground mb-6 leading-tight">
-            Ready to Transform Your Smile?
-          </h2>
-          <p className="text-primary-foreground/80 text-lg lg:text-xl mb-12 max-w-2xl mx-auto">
-            Schedule your consultation today and discover how we can help you achieve 
-            the smile you've always dreamed of.
-          </p>
+        <h2 className="cta-heading font-serif text-4xl lg:text-5xl xl:text-6xl font-medium text-primary-foreground mb-6 leading-tight">
+  Prêt à transformer votre sourire?
+</h2>
+<p className="text-primary-foreground/80 text-lg lg:text-xl mb-12 max-w-2xl mx-auto">
+  Planifiez votre&nbsp;consultation dès&nbsp;aujourd'hui et&nbsp;découvrez comment nous&nbsp;pouvons vous&nbsp;aider à&nbsp;obtenir le&nbsp;sourire dont vous&nbsp;avez toujours&nbsp;rêvé.
+</p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#contact"
               className="cta-button group px-8 py-4 bg-primary-foreground text-primary font-medium inline-flex items-center gap-3 hover:bg-background transition-all duration-300 hover:scale-105"
             >
-              Book Appointment
+              Prendre Rendez-vous en Ligne
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
             <a
@@ -119,7 +118,7 @@ export const CTA = () => {
               className="cta-button px-8 py-4 border border-primary-foreground/30 text-primary-foreground font-medium inline-flex items-center gap-3 hover:bg-primary-foreground/10 transition-all duration-300 hover:scale-105"
             >
               <Phone className="w-4 h-4" />
-              +1 (234) 567-890
+              +212 5 39 35 51 33
             </a>
           </div>
         </div>

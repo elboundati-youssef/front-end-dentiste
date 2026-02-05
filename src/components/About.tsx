@@ -52,18 +52,19 @@ export const About = () => {
             <span className="text-sm font-medium tracking-widest uppercase text-primary mb-4 block">
               À Propos
             </span>
-            <h2 className="font-serif text-4xl lg:text-5xl xl:text-6xl font-medium text-foreground mb-6 leading-tight">
+            <h2 className="font-serif text-2xl lg:text-4xl xl:text-5xl font-medium text-foreground mb-6 leading-tight">
                Leader de la Dentisterie Moderne et de l'Esthétique à Tanger
             </h2>
-            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              Au Centre Dentaire Al Boughaz, nous pensons que tout le monde mérite un sourire radieux. Notre clinique dentaire
-               à la pointe de la technologie sur l'Av. Moulay Youssef combine les derniers protocoles internationaux à une atmosphère chaleureuse pour offrir une expertise reconnue en plein centre de Tanger.
-
-            </p>
+           <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+  Au Centre&nbsp;Dentaire Al&nbsp;Boughaz, nous sommes convaincus que chaque patient mérite un&nbsp;sourire d'exception. 
+  Notre clinique, idéalement située Avenue&nbsp;Moulay&nbsp;Youssef, allie les dernières innovations technologiques 
+  à&nbsp;une approche personnalisée pour offrir une&nbsp;expertise de&nbsp;référence au&nbsp;cœur de&nbsp;Tanger.
+</p>
             <p className="text-muted-foreground mb-12 leading-relaxed">
-               Établi comme l'un des cabinets dentaires les plus fiables à proximité de la Mosquée Badr, nous accompagnons 
-               notre communauté avec des soins complets, du simple détartrage à la réhabilitation esthétique la plus avancée.
-            </p>
+  Référence de&nbsp;confiance à&nbsp;proximité immédiate de&nbsp;la&nbsp;Mosquée&nbsp;Badr, nous accompagnons 
+  notre patientèle avec des&nbsp;soins d'excellence, allant de&nbsp;la&nbsp;prévention essentielle 
+  aux&nbsp;réhabilitations esthétiques les&nbsp;plus&nbsp;complexes.
+</p>
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-8">
