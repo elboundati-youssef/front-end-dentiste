@@ -109,7 +109,8 @@ export const Hero = () => {
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient"
+      // --- MODIFICATION MOBILE : Hauteur réduite (85vh) + padding ajusté ---
+      className="relative min-h-[85vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient pt-20 pb-10 lg:py-0"
     >
       {/* Background Image with Parallax */}
       <div ref={imageRef} className="absolute inset-0 z-0">
@@ -126,39 +127,39 @@ export const Hero = () => {
         ref={contentRef}
         className="relative z-20 container mx-auto px-6 lg:px-12 text-center"
       >
-        {/* Tagline */}
-        <div ref={taglineRef} className="flex items-center justify-center gap-3 mb-8">
-          <Star className="w-4 h-4 text-primary fill-primary" />
-          <span className="text-sm font-medium tracking-[0.3em] uppercase text-primary">
+        {/* Tagline : Marges réduites sur mobile */}
+        <div ref={taglineRef} className="flex items-center justify-center gap-3 mb-4 lg:mb-8">
+          <Star className="w-3 h-3 lg:w-4 lg:h-4 text-primary fill-primary" />
+          <span className="text-xs lg:text-sm font-medium tracking-[0.2em] lg:tracking-[0.3em] uppercase text-primary">
             Soins Dentaires Premium au Cœur de Tanger
           </span>
-          <Star className="w-4 h-4 text-primary fill-primary" />
+          <Star className="w-3 h-3 lg:w-4 lg:h-4 text-primary fill-primary" />
         </div>
 
-        {/* Main Heading */}
+        {/* Main Heading : Taille ajustée mobile */}
         <h1
           ref={headingRef}
-          className="font-serif text-5xl md:text-7xl lg:text-8xl xl:text-7xl font-medium text-foreground mb-8 leading-tight"
+          className="font-serif text-4xl md:text-7xl lg:text-8xl xl:text-7xl font-medium text-foreground mb-6 lg:mb-8 leading-tight"
         >
           Excellence Esthétique et Innovation,<br />
-          <span className="text-primary"> au Centre Dentaire Al Boughaz</span>
+          <span className="text-primary block mt-2 lg:inline"> au Centre Dentaire Al Boughaz</span>
         </h1>
 
-        {/* Subtitle */}
+        {/* Subtitle : Marges réduites */}
         <p
           ref={subtitleRef}
-          className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-12"
+          className="max-w-2xl mx-auto text-base lg:text-xl text-muted-foreground mb-8 lg:mb-12"
         >
           Vous recherchez le meilleur dentiste à Tanger ? Découvrez une expérience de soins bucco-dentaires d'exception sur l’Avenue Moulay Youssef. Le Dr. Amine Khanboubi allie chirurgie dentaire de pointe et attention personnalisée pour créer des sourires sains et éclatants, à deux pas de la Mosquée Badr.
         </p>
 
-        {/* CTA Buttons */}
-        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        {/* CTA Buttons : Stack vertical sur mobile */}
+        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-3 lg:gap-4">
           <a
             href="#contact"
-            className="group relative px-8 py-4 bg-primary text-primary-foreground font-medium overflow-hidden transition-all duration-500 hover:shadow-glow"
+            className="w-full sm:w-auto group relative px-6 py-3 lg:px-8 lg:py-4 bg-primary text-primary-foreground font-medium overflow-hidden transition-all duration-500 hover:shadow-glow rounded lg:rounded-none"
           >
-            <span className="relative z-10">Prendre Rendez-vous en Ligne</span>
+            <span className="relative z-10 text-sm lg:text-base">Prendre Rendez-vous en Ligne</span>
             <div className="absolute inset-0 bg-foreground transform translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
             <span className="absolute inset-0 flex items-center justify-center text-background opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
               Prendre Rendez-vous en Ligne
@@ -166,18 +167,17 @@ export const Hero = () => {
           </a>
           <a
             href="#services"
-            className="group px-8 py-4 border border-foreground/20 text-foreground font-medium hover:border-primary hover:text-primary transition-all duration-300"
+            className="w-full sm:w-auto px-6 py-3 lg:px-8 lg:py-4 border border-foreground/20 text-foreground font-medium hover:border-primary hover:text-primary transition-all duration-300 rounded lg:rounded-none text-sm lg:text-base"
           >
             Explorer nos Soins
-
           </a>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator : Caché sur mobile pour gagner de la place */}
       <div
         ref={scrollIndicatorRef}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
+        className="absolute bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 z-20 hidden md:block"
       >
         <div className="flex flex-col items-center gap-2 text-muted-foreground">
           <span className="text-xs tracking-[0.3em] uppercase">Défiler</span>
