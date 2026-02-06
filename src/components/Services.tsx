@@ -13,24 +13,35 @@ export const Services = () => {
     <section id="services" className="py-24 lg:py-32 bg-card relative">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Header */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16 lg:mb-24"
-        >
-          <span className="text-sm font-medium tracking-widest uppercase text-primary mb-4 block">
-            Services Dentaires
-          </span>
-          <h2 className="font-serif text-4xl lg:text-5xl xl:text-6xl font-medium text-foreground mb-6">
-            Services dentaires et expertise en esthétique du sourire
-          </h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
-            De la prévention à la chirurgie dentaire complexe, nous offrons une
-            gamme complète de traitements pour votre santé dentaire.
-          </p>
-        </motion.div>
+       <motion.div
+  ref={ref}
+  initial={{ opacity: 0, y: 40 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.8 }}
+  className="text-center mb-16 lg:mb-24"
+>
+  {/* 1. Sous-titre avec les lignes dorées */}
+  <div className="inline-flex items-center gap-3 mb-6">
+    <div className="w-12 h-px bg-primary" />
+    <span className="text-sm font-medium tracking-[0.3em] uppercase text-primary">
+      Services Dentaires
+    </span>
+    <div className="w-12 h-px bg-primary" />
+  </div>
+
+  {/* 2. Grand Titre Luxueux (Style copié) */}
+  <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-6 leading-tight">
+    Services dentaires 
+    <br />
+    <span className="text-primary">Et esthétique du sourire</span>
+  </h2>
+
+  {/* 3. Description */}
+  <p className="max-w-2xl mx-auto text-muted-foreground text-lg lg:text-xl">
+    De la prévention à la chirurgie dentaire complexe, nous offrons une
+    gamme complète de traitements pour votre santé dentaire.
+  </p>
+</motion.div>
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">

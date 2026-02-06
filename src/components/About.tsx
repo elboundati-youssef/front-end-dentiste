@@ -47,19 +47,26 @@ export const About = () => {
 
           {/* --- MODIFICATION 2 : TEXTE --- */}
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="mt-8 lg:mt-0 text-center lg:text-left" // Centré sur mobile
-          >
-            <span className="text-base md:text-sm font-medium tracking-widest uppercase text-primary mb-4 block">
-              À Propos du Cabinet
-            </span>
+  initial={{ opacity: 0, x: 60 }}
+  animate={isInView ? { opacity: 1, x: 0 } : {}}
+  transition={{ duration: 1, delay: 0.2 }}
+  className="mt-8 lg:mt-0 text-center lg:text-left"
+>
+  {/* 1. Sous-titre discret (Lignes dorées plus courtes) */}
+  <div className="inline-flex items-center gap-3 mb-4 mx-auto lg:mx-0">
+    <div className="w-8 h-px bg-primary" />
+    <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary">
+      À Propos du Cabinet
+    </span>
+    <div className="w-8 h-px bg-primary" />
+  </div>
             
             {/* Titre agrandi sur mobile (text-3xl) */}
             <h2 className="font-serif text-3xl lg:text-4xl xl:text-5xl font-medium text-foreground mb-6 leading-tight">
-               Leader de la Dentisterie Moderne et de l'Esthétique à Tanger
-            </h2>
+    Leader de la dentisterie
+    <br />
+    <span className="text-primary">Moderne et esthétique</span>
+  </h2>
             
              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
   Au Centre&nbsp;Dentaire Al&nbsp;Boughaz, nous sommes convaincus que chaque patient mérite un&nbsp;sourire d'exception. 

@@ -11,30 +11,36 @@ export const Team = () => {
       <div className="container mx-auto px-6 lg:px-12">
 
         {/* Header style du premier code */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 lg:mb-24"
-        >
-          <div>
-            <span className="text-sm font-medium tracking-widest uppercase text-primary mb-4 block">
-              Notre Expertise
-            </span>
+       <motion.div
+  ref={ref}
+  initial={{ opacity: 0, y: 40 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.8 }}
+  className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 lg:mb-24"
+>
+  <div>
+    {/* 1. Sous-titre avec lignes dorées */}
+    <div className="inline-flex items-center gap-3 mb-6">
+      <div className="w-12 h-px bg-primary" />
+      <span className="text-sm font-medium tracking-[0.3em] uppercase text-primary">
+        Notre Expertise
+      </span>
+      <div className="w-12 h-px bg-primary" />
+    </div>
 
-            <h2 className="font-serif text-4xl lg:text-5xl xl:text-6xl font-medium text-foreground">
-              Rencontrez le&nbsp;Dr.&nbsp;Amine&nbsp;Khanboubi
-            </h2>
-            <br></br>
-            
-            <p className="max-w-md text-muted-foreground mt-6 lg:mt-0">
-            Un parcours d'excellence dédié à la santé et à la beauté de votre sourire à Tanger.
-          </p>
-          </div>
+    {/* 2. Grand Titre */}
+    <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-6 leading-tight">
+      Rencontrez 
+      <br />
+      <span className="text-primary">Le Dr. Amine Khanboubi</span>
+    </h2>
 
-          
-        </motion.div>
+    {/* 3. Description */}
+    <p className="max-w-lg text-muted-foreground text-lg lg:text-xl mt-6 lg:mt-0 leading-relaxed">
+      Un parcours d'excellence dédié à la santé et à la beauté de votre sourire à Tanger.
+    </p>
+  </div>
+</motion.div>
 
         {/* Layout principal */}
         <div className="flex flex-col lg:flex-row items-stretch gap-12 lg:gap-20">

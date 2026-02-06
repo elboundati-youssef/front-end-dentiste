@@ -48,20 +48,32 @@ export const Testimonials = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <motion.div
-            ref={ref}
-            initial={{ opacity: 0, x: -60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="text-sm font-medium tracking-widest uppercase text-primary mb-4 block">
-              Témoignages
-            </span>
-            <h2 className="font-serif text-4xl lg:text-5xl xl:text-6xl font-medium text-foreground mb-6">
-              Ce que nos patients disent de nous
-            </h2>
-            <p className="text-muted-foreground text-lg mb-12">
-              Ne vous contentez pas de nous croire sur parole. Écoutez ce que nos patients satisfaits disent de leur expérience au Centre Dentaire Al Boughaz.
-            </p>
+  ref={ref}
+  initial={{ opacity: 0, x: -60 }}
+  animate={isInView ? { opacity: 1, x: 0 } : {}}
+  transition={{ duration: 0.8 }}
+>
+  {/* 1. Sous-titre avec lignes dorées */}
+  <div className="inline-flex items-center gap-3 mb-6">
+    <div className="w-12 h-px bg-primary" />
+    <span className="text-sm font-medium tracking-[0.3em] uppercase text-primary">
+      Témoignages
+    </span>
+    <div className="w-12 h-px bg-primary" />
+  </div>
+
+  {/* 2. Grand Titre */}
+  <h2 className="font-serif text-2xl lg:text-4xl xl:text-6xl font-medium text-foreground mb-6 leading-tight">
+    Ce que nos patients
+    <br />
+    <span className="text-primary">disent de nous</span>
+  </h2>
+
+  {/* 3. Description */}
+  <p className="text-muted-foreground text-lg lg:text-xl mb-12 leading-relaxed">
+    Ne vous contentez pas de nous croire sur parole. Écoutez ce que nos patients satisfaits disent de leur expérience au Centre Dentaire Al Boughaz.
+  </p>
+
 
             {/* Navigation */}
             <div className="flex items-center gap-4">
