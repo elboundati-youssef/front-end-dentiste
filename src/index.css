@@ -6,6 +6,7 @@
 
 @layer base {
   :root {
+    /* --- CONFIGURATION DES COULEURS --- */
     --background: 207 82% 9%;
     --foreground: 0 0% 100%;
 
@@ -15,7 +16,9 @@
     --popover: 207 82% 9%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 27 30% 66%;
+    /* IMPORTANT : --primary doit rester une couleur solide (HSL) pour Tailwind */
+    /* HSL pour #e1b01c (Or Foncé) */
+    --primary: 46 80% 60%;
     --primary-foreground: 207 82% 9%;
 
     --secondary: 207 60% 15%;
@@ -32,23 +35,28 @@
 
     --border: 207 30% 25%;
     --input: 207 30% 25%;
-    --ring: 27 30% 66%;
+    --ring: 45 78% 50%; /* Focus en Or */
 
     --radius: 0rem;
 
+    /* Sidebar */
     --sidebar-background: 207 82% 9%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 27 30% 66%;
+    --sidebar-primary: 45 78% 50%;
     --sidebar-primary-foreground: 207 82% 9%;
     --sidebar-accent: 207 60% 15%;
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 207 30% 25%;
-    --sidebar-ring: 27 30% 66%;
+    --sidebar-ring: 45 78% 50%;
 
     /* Custom design tokens */
     --gradient-hero: linear-gradient(180deg, hsl(207 82% 9%) 0%, hsl(207 75% 6%) 100%);
     --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(207 82% 9% / 0.8) 100%);
-    --shadow-glow: 0 0 60px hsl(27 30% 66% / 0.15);
+    
+    /* Variables de dégradé (pour usage dans utilities) */
+    --gold-gradient: linear-gradient(135deg, #e1b01c 0%, #f7dc72 100%);
+
+    --shadow-glow: 0 0 60px hsl(45 78% 50% / 0.15);
     --shadow-card: 0 20px 40px hsl(207 82% 5% / 0.5);
     
     /* Animation durations */
@@ -61,12 +69,12 @@
   .dark {
     --background: 207 82% 9%;
     --foreground: 0 0% 100%;
+    --primary: 45 78% 50%;
+    --primary-foreground: 207 82% 9%;
     --card: 207 75% 12%;
     --card-foreground: 0 0% 100%;
     --popover: 207 82% 9%;
     --popover-foreground: 0 0% 100%;
-    --primary: 27 30% 66%;
-    --primary-foreground: 207 82% 9%;
     --secondary: 207 60% 15%;
     --secondary-foreground: 0 0% 100%;
     --muted: 207 40% 20%;
@@ -77,7 +85,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 207 30% 25%;
     --input: 207 30% 25%;
-    --ring: 27 30% 66%;
+    --ring: 45 78% 50%;
   }
 }
 
@@ -97,11 +105,18 @@
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--muted-foreground)) 100%);
+  /* 1. CLASSE POUR LE FOND EN DÉGRADÉ (BOUTONS) */
+  .bg-gradient-gold {
+    background-image: var(--gold-gradient);
   }
 
+  /* 2. CLASSE POUR LE TEXTE EN DÉGRADÉ */
+  .text-gradient {
+    background-image: var(--gold-gradient);
+    @apply bg-clip-text text-transparent;
+  }
+
+  /* Autres utilitaires */
   .bg-hero-gradient {
     background: var(--gradient-hero);
   }

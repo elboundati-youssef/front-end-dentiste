@@ -23,7 +23,7 @@ export const Services = () => {
   {/* 1. Sous-titre avec les lignes dorées */}
   <div className="inline-flex items-center gap-3 mb-6">
     <div className="w-12 h-px bg-primary" />
-    <span className="text-sm font-medium tracking-[0.3em] uppercase text-primary">
+    <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
       Services Dentaires
     </span>
     <div className="w-12 h-px bg-primary" />
@@ -33,7 +33,7 @@ export const Services = () => {
   <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-6 leading-tight">
     Services dentaires 
     <br />
-    <span className="text-primary">Et esthétique du sourire</span>
+    <span className="text-gradient">Et esthétique du sourire</span>
   </h2>
 
   {/* 3. Description */}

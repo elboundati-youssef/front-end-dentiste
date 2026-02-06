@@ -236,7 +236,7 @@ export const Contact = () => {
         <div ref={headerRef} className="text-center mb-16 lg:mb-20">
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-12 h-px bg-primary" />
-            <span className="text-sm font-medium tracking-[0.3em] uppercase text-primary">
+            <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
               Prendre Rendez-vous
             </span>
             <div className="w-12 h-px bg-primary" />
@@ -244,7 +244,7 @@ export const Contact = () => {
           <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-6 leading-tight">
             Planifiez votre Sourire Parfait
             <br />
-            <span className="text-primary">Consultation Dentaire</span>
+            <span className="text-gradient">Consultation Dentaire</span>
           </h2>
           <p className="max-w-2xl mx-auto text-muted-foreground text-lg lg:text-xl">
             Découvrez des soins dentaires d'exception. Réservez votre

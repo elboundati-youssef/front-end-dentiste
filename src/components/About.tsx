@@ -55,28 +55,24 @@ export const About = () => {
   {/* 1. Sous-titre discret (Lignes dorées plus courtes) */}
   <div className="inline-flex items-center gap-3 mb-4 mx-auto lg:mx-0">
     <div className="w-8 h-px bg-primary" />
-    <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary">
+    <span className="text-xs font-medium tracking-[0.2em] uppercase text-gradient">
       À Propos du Cabinet
     </span>
     <div className="w-8 h-px bg-primary" />
   </div>
             
             {/* Titre agrandi sur mobile (text-3xl) */}
-            <h2 className="font-serif text-3xl lg:text-4xl xl:text-5xl font-medium text-foreground mb-6 leading-tight">
-    Leader de la dentisterie
+            <h2 className="font-serif text-1xl lg:text-3xl xl:text-4xl font-medium text-foreground mb-6 leading-tight">
+    Plus qu'un Cabinet dentaire,
     <br />
-    <span className="text-primary">Moderne et esthétique</span>
+    <span className="text-gradient">une Signature de Soins à Tanger.</span>
   </h2>
             
              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-  Au Centre&nbsp;Dentaire Al&nbsp;Boughaz, nous sommes convaincus que chaque patient mérite un&nbsp;sourire d'exception. 
-  Notre clinique, idéalement située Avenue&nbsp;Moulay&nbsp;Youssef, allie les dernières innovations technologiques 
-  à&nbsp;une approche personnalisée pour offrir une&nbsp;expertise de&nbsp;référence au&nbsp;cœur de&nbsp;Tanger.
+ Situé sur l'Avenue Moulay Youssef, le Centre Dentaire Al Boughaz a été conçu comme un sanctuaire dédié à la santé et à l'esthétique de votre sourire. Notre vision dépasse la dentisterie conventionnelle : nous croyons en une approche globale où la haute technologie rencontre le confort absolu.
 </p>
             <p className="text-muted-foreground mb-12 leading-relaxed">
-  Référence de&nbsp;confiance à&nbsp;proximité immédiate de&nbsp;la&nbsp;Mosquée&nbsp;Badr, nous accompagnons 
-  notre patientèle avec des&nbsp;soins d'excellence, allant de&nbsp;la&nbsp;prévention essentielle 
-  aux&nbsp;réhabilitations esthétiques les&nbsp;plus&nbsp;complexes.
+  Dans un cadre moderne et apaisant, nous avons investi dans les dernières innovations numériques (Scanner 3D, Laser) pour garantir des diagnostics d'une précision chirurgicale et des traitements d'une douceur inégalée. Ici, chaque patient est unique, et chaque sourire est une œuvre d'art que nous protégeons.
 </p>
 
             {/* Stats */}

@@ -56,7 +56,7 @@ export const Testimonials = () => {
   {/* 1. Sous-titre avec lignes dorées */}
   <div className="inline-flex items-center gap-3 mb-6">
     <div className="w-12 h-px bg-primary" />
-    <span className="text-sm font-medium tracking-[0.3em] uppercase text-primary">
+    <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
       Témoignages
     </span>
     <div className="w-12 h-px bg-primary" />
@@ -66,7 +66,7 @@ export const Testimonials = () => {
   <h2 className="font-serif text-2xl lg:text-4xl xl:text-6xl font-medium text-foreground mb-6 leading-tight">
     Ce que nos patients
     <br />
-    <span className="text-primary">disent de nous</span>
+    <span className="text-gradient">disent de nous</span>
   </h2>
 
   {/* 3. Description */}

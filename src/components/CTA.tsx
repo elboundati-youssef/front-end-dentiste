@@ -88,7 +88,9 @@ export const CTA = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 lg:py-32 bg-primary relative overflow-hidden">
+    // MODIFICATION ICI : Utilisation de 'bg-gradient-gold' pour le fond
+    <section ref={sectionRef} className="py-24 lg:py-32 bg-gradient-gold relative overflow-hidden">
+      
       {/* Background Pattern */}
       <div className="absolute inset-0">
         <div className="cta-circle absolute top-0 left-0 w-96 h-96 border border-primary-foreground rounded-full -translate-x-1/2 -translate-y-1/2" />
@@ -98,12 +100,15 @@ export const CTA = () => {
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div ref={contentRef} className="max-w-4xl mx-auto text-center">
-        <h2 className="cta-heading font-serif text-4xl lg:text-5xl xl:text-6xl font-medium text-primary-foreground mb-6 leading-tight">
-  Prêt à transformer votre sourire?
-</h2>
-<p className="text-primary-foreground/80 text-lg lg:text-xl mb-12 max-w-2xl mx-auto">
-  Planifiez votre&nbsp;consultation dès&nbsp;aujourd'hui et&nbsp;découvrez comment nous&nbsp;pouvons vous&nbsp;aider à&nbsp;obtenir le&nbsp;sourire dont vous&nbsp;avez toujours&nbsp;rêvé.
-</p>
+          
+          {/* Titre en Bleu Nuit (primary-foreground) sur fond Or */}
+          <h2 className="cta-heading font-serif text-4xl lg:text-5xl xl:text-6xl font-medium text-primary-foreground mb-6 leading-tight">
+            Prêt à transformer votre sourire?
+          </h2>
+          
+          <p className="text-primary-foreground/80 text-lg lg:text-xl mb-12 max-w-2xl mx-auto">
+            Planifiez votre&nbsp;consultation dès&nbsp;aujourd'hui et&nbsp;découvrez comment nous&nbsp;pouvons vous&nbsp;aider à&nbsp;obtenir le&nbsp;sourire dont vous&nbsp;avez toujours&nbsp;rêvé.
+          </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a

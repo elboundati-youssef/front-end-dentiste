@@ -66,13 +66,18 @@ export const Header = () => {
 
             {/* CTA + Menu Button */}
             <div className="flex items-center gap-4">
-              <a
-                href="tel:+212539355133"
-                className="hidden md:flex items-center gap-2 text-sm font-medium text-primary hover:text-foreground transition-colors duration-300"
-              >
-                <Phone className="w-4 h-4" />
-                <span>+212 5 39 35 51 33</span>
-              </a>
+           <a
+  href="tel:+212539355133"
+  className="hidden md:flex items-center gap-2 text-sm font-medium group transition-all duration-300"
+>
+  {/* 1. L'icône : Passe de l'Or (primary) au Blanc au survol */}
+  <Phone className="w-4 h-4 text-primary group-hover:text-white transition-colors duration-300" />
+  
+  {/* 2. Le texte : On force le blanc et on désactive le dégradé au survol */}
+  <span className="text-gradient font-bold transition-all duration-300 group-hover:text-white group-hover:[background:none] group-hover:[-webkit-text-fill-color:white]">
+    +212 5 39 35 51 33
+  </span>
+</a>
 
               <button
                 onClick={() => setIsMenuOpen(true)}

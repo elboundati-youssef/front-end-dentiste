@@ -69,7 +69,7 @@ export const Gallery = () => {
   {/* 1. Sous-titre avec lignes dorées */}
   <div className="inline-flex items-center gap-3 mb-6">
     <div className="w-12 h-px bg-primary" />
-    <span className="text-sm font-medium tracking-[0.3em] uppercase text-primary">
+    <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
       Galerie Photos
     </span>
     <div className="w-12 h-px bg-primary" />
@@ -79,7 +79,7 @@ export const Gallery = () => {
   <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-8 leading-tight">
     Découvrez 
     <br />
-    <span className="text-primary">Nos réalisations</span>
+    <span className="text-gradient">Nos réalisations</span>
   </h2>
 
           {/* Tabs */}

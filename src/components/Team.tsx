@@ -22,7 +22,7 @@ export const Team = () => {
     {/* 1. Sous-titre avec lignes dorées */}
     <div className="inline-flex items-center gap-3 mb-6">
       <div className="w-12 h-px bg-primary" />
-      <span className="text-sm font-medium tracking-[0.3em] uppercase text-primary">
+      <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
         Notre Expertise
       </span>
       <div className="w-12 h-px bg-primary" />
@@ -32,7 +32,7 @@ export const Team = () => {
     <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-6 leading-tight">
       Rencontrez 
       <br />
-      <span className="text-primary">Le Dr. Amine Khanboubi</span>
+      <span className="text-gradient">Le Dr. Amine Khanboubi</span>
     </h2>
 
     {/* 3. Description */}
@@ -91,12 +91,11 @@ export const Team = () => {
             className="lg:w-1/2 flex flex-col justify-center"
           >
             <h3 className="font-serif text-2xl lg:text-4xl font-medium text-foreground mb-6">
-              Chirurgien Dentiste & Expert en Esthétique
+              Une Double Expertise <br/> Internationale : Rabat & Paris.
             </h3>
 
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Passionné par la dentisterie moderne, le Dr. Amine Khanboubi met un point d'honneur à offrir des soins de haute précision.
-              Il combine savoir-faire technique et approche humaine pour rassurer et soigner chaque patient.
+              La force du Centre Al Boughaz repose sur le parcours d'excellence de son fondateur. Le Dr. Amine Khanboubi est un Spécialiste en Orthodontie diplômé de Rabat, une formation de référence garantissant une rigueur clinique et scientifique totale.
             </p>
 
             {/* Compétences avec style adapté */}
@@ -113,7 +112,7 @@ export const Team = () => {
                   </h4>
 
                   <p className="text-muted-foreground text-sm">
-                    Maîtrise des protocoles internationaux en implantologie et esthétique.
+                    Maîtrise des protocoles internationaux pour des soins précis et durables.
                   </p>
                 </div>
               </div>
@@ -129,7 +128,7 @@ export const Team = () => {
                   </h4>
 
                   <p className="text-muted-foreground text-sm">
-                    Mise à jour constante sur les dernières technologies dentaires.
+                    Actualisation constante des compétences et technologies dentaires.
                   </p>
                 </div>
               </div>
@@ -145,7 +144,7 @@ export const Team = () => {
                   </h4>
 
                   <p className="text-muted-foreground text-sm">
-                    Des soins sans douleur pour un confort absolu.
+                    Des soins confortables, précis et pratiquement sans douleur.
                   </p>
                 </div>
               </div>

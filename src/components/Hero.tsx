@@ -129,10 +129,14 @@ export const Hero = () => {
       >
         {/* Tagline : Marges réduites sur mobile */}
         <div ref={taglineRef} className="flex items-center justify-center gap-3 mb-4 lg:mb-8">
+            {/* ETOILE EN GRADIENT (Optionnel : fill-transparent stroke-primary si vous voulez un contour) */}
           <Star className="w-3 h-3 lg:w-4 lg:h-4 text-primary fill-primary" />
-          <span className="text-xs lg:text-sm font-medium tracking-[0.2em] lg:tracking-[0.3em] uppercase text-primary">
+          
+          {/* TEXTE GRADIENT */}
+          <span className="text-xs lg:text-sm font-medium tracking-[0.2em] lg:tracking-[0.3em] uppercase text-gradient">
             Soins Dentaires Premium au Cœur de Tanger
           </span>
+          
           <Star className="w-3 h-3 lg:w-4 lg:h-4 text-primary fill-primary" />
         </div>
 
@@ -141,8 +145,9 @@ export const Hero = () => {
           ref={headingRef}
           className="font-serif text-4xl md:text-7xl lg:text-8xl xl:text-7xl font-medium text-foreground mb-6 lg:mb-8 leading-tight"
         >
-          Excellence Esthétique et Innovation,<br />
-          <span className="text-primary block mt-2 lg:inline"> au Centre Dentaire Al Boughaz</span>
+          Retrouvez la confiance,<br />
+          {/* TEXTE GRADIENT DEJA PRESENT ICI */}
+          <span className="text-gradient block mt-2 lg:inline"> d’un sourire éclatant</span>
         </h1>
 
         {/* Subtitle : Marges réduites */}
@@ -150,26 +155,37 @@ export const Hero = () => {
           ref={subtitleRef}
           className="max-w-2xl mx-auto text-base lg:text-xl text-muted-foreground mb-8 lg:mb-12"
         >
-          Vous recherchez le meilleur dentiste à Tanger ? Découvrez une expérience de soins bucco-dentaires d'exception sur l’Avenue Moulay Youssef. Le Dr. Amine Khanboubi allie chirurgie dentaire de pointe et attention personnalisée pour créer des sourires sains et éclatants, à deux pas de la Mosquée Badr.
+          Vous recherchez l'excellence dentaire à Tanger ?
+  À deux pas de la Mosquée Badr. le Dr. Amine Khanboubi déploie au sein du Centre Dentaire Al Boughaz ses meilleures technologies et une expertise internationale en implants et orthodontie pour transformer votre sourire.
         </p>
 
         {/* CTA Buttons : Stack vertical sur mobile */}
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-3 lg:gap-4">
           <a
             href="#contact"
-            className="w-full sm:w-auto group relative px-6 py-3 lg:px-8 lg:py-4 bg-primary text-primary-foreground font-medium overflow-hidden transition-all duration-500 hover:shadow-glow rounded lg:rounded-none"
+            // ICI : J'applique 'bg-gradient-gold' pour le fond en dégradé
+            // et 'text-primary-foreground' (bleu foncé) pour que le texte soit lisible sur l'or
+            className="w-full sm:w-auto group relative px-6 py-3 lg:px-8 lg:py-4 bg-gradient-gold text-primary-foreground font-medium overflow-hidden transition-all duration-500 hover:shadow-glow rounded lg:rounded-none"
           >
-            <span className="relative z-10 text-sm lg:text-base">Prendre Rendez-vous en Ligne</span>
+            {/* Le texte est au-dessus du fond dégradé */}
+            <span className="relative z-10 text-sm lg:text-base font-bold">
+              Commencer ma Transformation
+            </span>
+            
+            {/* Effet au survol : un volet sombre qui passe dessus */}
             <div className="absolute inset-0 bg-foreground transform translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-            <span className="absolute inset-0 flex items-center justify-center text-background opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-              Prendre Rendez-vous en Ligne
+            
+            {/* Texte qui apparaît au survol (en doré dégradé sur fond sombre) */}
+            <span className="absolute inset-0 flex items-center justify-center text-background opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-gradient">
+              Commencer ma Transformation
             </span>
           </a>
+          
           <a
             href="#services"
             className="w-full sm:w-auto px-6 py-3 lg:px-8 lg:py-4 border border-foreground/20 text-foreground font-medium hover:border-primary hover:text-primary transition-all duration-300 rounded lg:rounded-none text-sm lg:text-base"
           >
-            Explorer nos Soins
+            <span className="group-hover:text-gradient transition-colors">Explorer nos Soins</span>
           </a>
         </div>
       </div>
