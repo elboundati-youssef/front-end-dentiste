@@ -70,7 +70,7 @@ const BlogPost = () => {
                 <p className="text-muted-foreground mb-6 text-lg">
                     Prenez rendez-vous au cabinet pour discuter de votre situation spécifique.
                 </p>
-                <a href="/#contact" className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded hover:bg-foreground transition-colors">
+                <a href="..#contact" className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded hover:bg-foreground transition-colors">
                     Prendre Rendez-vous
                 </a>
             </div>
