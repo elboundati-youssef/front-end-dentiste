@@ -11,6 +11,7 @@ import BlogPost from "./pages/BlogPost";
 // 1. IMPORTEZ LA NOUVELLE PAGE ICI
 // Assurez-vous d'avoir bien créé le fichier dans src/pages/ServiceDetails.tsx
 import ServiceDetails from "./pages/ServiceDetails"; 
+import AllBlogs from "./pages/AllBlogs";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
             {/* Le ":id" permet de récupérer quel service a été cliqué (ex: "blanchiment") */}
             <Route path="/service/:id" element={<ServiceDetails />} />
             <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/blog" element={<AllBlogs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

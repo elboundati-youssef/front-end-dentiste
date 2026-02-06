@@ -2,8 +2,8 @@ import { useRef, useEffect } from 'react';
 import { ArrowRight, Calendar } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Link } from 'react-router-dom'; // Import pour la navigation
-import { blogData } from '@/data/blogData'; // Import des données statiques
+import { Link } from 'react-router-dom';
+import { blogData } from '@/data/blogData';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,12 +11,14 @@ export const Blog = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const postsRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null); // Nouveau ref pour le bouton
 
-  // On prend les 3 premiers articles
+  // On prend les 3 premiers articles pour l'accueil
   const posts = blogData.slice(0, 3);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Animation Header
       gsap.fromTo(headerRef.current,
         { opacity: 0, y: 50 },
         {
@@ -25,6 +27,7 @@ export const Blog = () => {
         }
       );
 
+      // Animation Cartes
       gsap.fromTo('.blog-card',
         { opacity: 0, y: 50 },
         {
@@ -32,6 +35,16 @@ export const Blog = () => {
           scrollTrigger: { trigger: postsRef.current, start: 'top 75%', }
         }
       );
+
+      // Animation Bouton "Voir plus" (NOUVEAU)
+      gsap.fromTo(buttonRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1, y: 0, duration: 0.8, delay: 0.4, ease: 'power3.out',
+          scrollTrigger: { trigger: postsRef.current, start: 'bottom 90%', }
+        }
+      );
+
     }, sectionRef);
 
     return () => ctx.revert();
@@ -41,7 +54,7 @@ export const Blog = () => {
     <section ref={sectionRef} id="blog" className="py-24 bg-secondary/5">
       <div className="container mx-auto px-6 lg:px-12">
         
-        {/* En-tête de section */}
+        {/* En-tête */}
         <div ref={headerRef} className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-12 h-px bg-primary" />
@@ -59,11 +72,9 @@ export const Blog = () => {
         </div>
 
         {/* Grille des Articles */}
-        <div ref={postsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={postsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"> {/* Ajout de mb-16 pour l'espace */}
           {posts.map((post) => (
             <article key={post.id} className="blog-card group bg-background border border-border overflow-hidden hover:shadow-lg transition-all duration-300">
-              
-              {/* Le lien englobe toute la carte pour une meilleure ergonomie */}
               <Link to={`/blog/${post.id}`} className="block h-full">
                   <div className="relative h-64 overflow-hidden">
                     <img 
@@ -97,6 +108,17 @@ export const Blog = () => {
               </Link>
             </article>
           ))}
+        </div>
+
+        {/* Bouton Voir Plus (NOUVEAU) */}
+        <div ref={buttonRef} className="text-center">
+            <Link 
+                to="/blog" // Ce lien pointera vers une nouvelle page listant tous les articles
+                className="inline-flex items-center gap-2 px-8 py-4 border border-foreground/20 text-foreground font-medium hover:border-primary hover:text-primary hover:bg-primary/5 transition-all duration-300 group"
+            >
+                Voir tous les articles
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
         </div>
 
       </div>

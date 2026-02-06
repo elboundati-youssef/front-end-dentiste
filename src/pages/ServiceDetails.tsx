@@ -20,7 +20,7 @@ const ServiceDetails = () => {
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-4">Service introuvable</h2>
-          <Link to="/" className="text-primary hover:underline">Retour à l'accueil</Link>
+          <Link to="/#services" className="text-primary hover:underline">Retour à l'accueil</Link>
         </div>
       </div>
     );
@@ -61,7 +61,7 @@ const ServiceDetails = () => {
         {/* Détails */}
         <section className="py-20 bg-background">
             <div className="container mx-auto px-6 lg:px-12">
-                <Link to="/" className="inline-flex items-center text-muted-foreground hover:text-primary mb-8 transition-colors">
+                <Link to="/#services" className="inline-flex items-center text-muted-foreground hover:text-primary mb-8 transition-colors">
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     Retour à l'accueil
                 </Link>
