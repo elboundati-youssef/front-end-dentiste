@@ -1,11 +1,11 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { Expand } from 'lucide-react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import { Expand, X } from 'lucide-react';
 
 // Traduction des onglets
 const tabs = ['Tous', 'Avant & Après', 'Clinique', 'Équipe'];
 
-// Traduction des catégories dans les données AVEC les textes SEO (alt)
+// Données de la galerie
 const galleryItems = [
   { 
     src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80', 
@@ -49,38 +49,51 @@ export const Gallery = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [activeTab, setActiveTab] = useState('Tous');
+  
+  // État pour gérer l'image sélectionnée (Lightbox)
+  const [selectedImage, setSelectedImage] = useState(null);
 
-  // Filtrage adapté aux nouvelles catégories françaises
+  // Filtrage
   const filteredItems = activeTab === 'Tous' 
     ? galleryItems 
     : galleryItems.filter(item => item.category === activeTab);
 
+  // Empêcher le scroll quand la lightbox est ouverte
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [selectedImage]);
+
   return (
     <section id="gallery" className="py-24 lg:py-32 bg-card">
       <div className="container mx-auto px-6 lg:px-12">
+        
         {/* Header */}
-       <motion.div
-  ref={ref}
-  initial={{ opacity: 0, y: 40 }}
-  animate={isInView ? { opacity: 1, y: 0 } : {}}
-  transition={{ duration: 0.8 }}
-  className="text-center mb-16 lg:mb-20"
->
-  {/* 1. Sous-titre avec lignes dorées */}
-  <div className="inline-flex items-center gap-3 mb-6">
-    <div className="w-12 h-px bg-primary" />
-    <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
-      Galerie Photos
-    </span>
-    <div className="w-12 h-px bg-primary" />
-  </div>
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 lg:mb-20"
+        >
+          {/* Sous-titre */}
+          <div className="inline-flex items-center gap-3 mb-6">
+            <div className="w-12 h-px bg-primary" />
+            <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
+              Galerie Photos
+            </span>
+            <div className="w-12 h-px bg-primary" />
+          </div>
 
-  {/* 2. Grand Titre */}
-  <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-8 leading-tight">
-    Découvrez 
-    <br />
-    <span className="text-gradient">Nos réalisations</span>
-  </h2>
+          {/* Titre */}
+          <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-8 leading-tight">
+            Découvrez 
+            <br />
+            <span className="text-gradient">Nos réalisations</span>
+          </h2>
 
           {/* Tabs */}
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -113,18 +126,18 @@ export const Gallery = () => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
+              // AJOUT DU CLIC POUR OUVRIR LA LIGHTBOX
+              onClick={() => setSelectedImage(item)}
               className={`group relative overflow-hidden cursor-pointer ${item.span}`}
             >
               <img
                 src={item.src}
-                // --- OPTIMISATION SEO SANS ERREUR ---
-                // Si item.alt existe, on l'utilise, sinon on met un texte par défaut
                 alt={item.alt ? `${item.alt} - Centre Al Boughaz Tanger` : `Galerie dentaire ${index + 1}`}
                 className="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110"
               />
-              {/* Overlay */}
+              {/* Overlay avec icône Expand */}
               <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                <div className="w-14 h-14 flex items-center justify-center bg-primary text-primary-foreground">
+                <div className="w-14 h-14 flex items-center justify-center bg-primary text-primary-foreground rounded-full shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-500 delay-100">
                   <Expand className="w-6 h-6" />
                 </div>
               </div>
@@ -132,6 +145,51 @@ export const Gallery = () => {
           ))}
         </motion.div>
       </div>
+
+      {/* --- LIGHTBOX (MODAL PLEIN ÉCRAN) --- */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            // Ferme la modal si on clique sur le fond noir
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-md p-4 lg:p-10"
+          >
+            {/* Bouton Fermer */}
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-6 right-6 lg:top-10 lg:right-10 w-12 h-12 flex items-center justify-center bg-background border border-border text-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-300 rounded-full z-50"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Image en Grand */}
+            <motion.img
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+              // Empêche la fermeture si on clique sur l'image elle-même
+              onClick={(e) => e.stopPropagation()}
+            />
+            
+            {/* Légende en bas (optionnel) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="absolute bottom-6 lg:bottom-10 left-0 right-0 text-center px-4"
+            >
+              <p className="text-white/80 text-lg font-medium">{selectedImage.alt}</p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

@@ -10,58 +10,58 @@ export const Team = () => {
     <section id="team" className="py-24 lg:py-32 bg-background overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12">
 
-        {/* Header style du premier code */}
-       <motion.div
-  ref={ref}
-  initial={{ opacity: 0, y: 40 }}
-  animate={isInView ? { opacity: 1, y: 0 } : {}}
-  transition={{ duration: 0.8 }}
-  className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 lg:mb-24"
->
-  <div>
-    {/* 1. Sous-titre avec lignes dorées */}
-    <div className="inline-flex items-center gap-3 mb-6">
-      <div className="w-12 h-px bg-primary" />
-      <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
-        Notre Expertise
-      </span>
-      <div className="w-12 h-px bg-primary" />
-    </div>
+        {/* Header */}
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 lg:mb-24"
+        >
+          <div>
+            {/* 1. Sous-titre avec lignes dorées */}
+            <div className="inline-flex items-center gap-3 mb-6">
+              <div className="w-12 h-px bg-primary" />
+              <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
+                Notre Expertise
+              </span>
+              <div className="w-12 h-px bg-primary" />
+            </div>
 
-    {/* 2. Grand Titre */}
-    <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-6 leading-tight">
-      Rencontrez 
-      <br />
-      <span className="text-gradient">Le Dr. Amine Khanboubi</span>
-    </h2>
+            {/* 2. Grand Titre */}
+            <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-6 leading-tight">
+              Rencontrez 
+              <br />
+              <span className="text-gradient">Le Dr. Amine Khanboubi</span>
+            </h2>
 
-    {/* 3. Description */}
-    <p className="max-w-2g text-muted-foreground text-lg lg:text-xl mt-6 lg:mt-0 leading-relaxed">
-      Un parcours d'excellence dédié à la santé et à la beauté de votre sourire à Tanger.
-    </p>
-  </div>
-</motion.div>
+            {/* 3. Description */}
+            <p className="max-w-2g text-muted-foreground text-lg lg:text-xl mt-6 lg:mt-0 leading-relaxed">
+              Un parcours d'excellence dédié à la santé et à la beauté de votre sourire à Tanger.
+            </p>
+          </div>
+        </motion.div>
 
         {/* Layout principal */}
         <div className="flex flex-col lg:flex-row items-stretch gap-12 lg:gap-20">
 
-          {/* Photo docteur avec style du premier */}
+          {/* Photo docteur */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:w-1/2 group"
           >
-            <div className="relative overflow-hidden image-zoom shadow-2xl">
+            <div className="relative overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&q=80"
-                alt="Dr. Amine Khanboubi - meilleur-dentiste-tanger-moulay-youssef"
-                className="w-full h-[500px] lg:h-[700px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                alt="Dr. Amine Khanboubi"
+                // grayscale au début, grayscale-0 au survol
+                className="w-full h-[500px] lg:h-[700px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out group-hover:scale-105"
               />
 
-              {/* Overlay hover */}
-              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-500" />
-
+              {/* Suppression de l'overlay jaune/primary */}
+              
               {/* Social icons */}
               <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
                 <a href="#" className="w-10 h-10 flex items-center justify-center bg-background text-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-300">
@@ -91,14 +91,14 @@ export const Team = () => {
             className="lg:w-1/2 flex flex-col justify-center"
           >
             <h3 className="font-serif text-2xl lg:text-4xl font-medium text-foreground mb-6">
-              Une Double Expertise <br/> Internationale : Rabat & Paris.
+              Une Double Expertise <br/> Internationale : Rabat et Paris.
             </h3>
 
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
               La force du Centre Al Boughaz repose sur le parcours d'excellence<br /> de son fondateur. Le Dr. Amine Khanboubi est un Spécialiste <br />en Orthodontie diplômé de Rabat, une formation de référence garantissant une rigueur clinique et scientifique totale.
             </p>
 
-            {/* Compétences avec style adapté */}
+            {/* Compétences */}
             <div className="space-y-6 mb-12">
 
               <div className="flex items-start gap-4">
@@ -150,15 +150,14 @@ export const Team = () => {
               </div>
             </div>
 
-            {/* Image cabinet avec style hover */}
+            {/* Image cabinet */}
             <div className="relative h-48 lg:h-64 overflow-hidden image-zoom shadow-lg group">
               <img
                 src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80"
                 alt="cabinet-dentaire-mosquee-badr-tanger equipement moderne"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-              />
-
-              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-500" />
+                // CORRECTION ICI AUSSI : Suppression de grayscale
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"  />
+              {/* Suppression de l'overlay jaune */}
             </div>
 
           </motion.div>
