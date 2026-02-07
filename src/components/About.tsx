@@ -3,10 +3,10 @@ import { useRef } from 'react';
 import { Award, Users, Clock, Shield } from 'lucide-react';
 
 const stats = [
-  { icon: Award, value: '10+', label: "Ans d'Expérience en Chirurgie Dentaire" },
+  { icon: Award, value: '10+', label: "Ans d'Expérience \n en Chirurgie Dentaire" },
   { icon: Users, value: '8K+', label: 'Patients Satisfaits à Tanger' },
   { icon: Clock, value: '20K+', label: 'Soins et Interventions Réalisés' },
-  { icon: Shield, value: '100%', label: 'Stérilisation et Protocoles de Sécurité' },
+  { icon: Shield, value: '100%', label: 'Stérilisation et Protocoles \n de Sécurité' },
 ];
 
 export const About = () => {
@@ -69,10 +69,11 @@ export const About = () => {
   </h2>
             
              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
- Situé sur l'Avenue Moulay Youssef, le Centre Dentaire Al Boughaz a été conçu comme un sanctuaire dédié à la santé et à l'esthétique de votre sourire. Notre vision dépasse la dentisterie conventionnelle : nous croyons en une approche globale où la haute technologie rencontre le confort absolu.
+  Situé sur l’avenue Moulay Youssef, le Centre Dentaire Al Boughaz <br /> a été conçu comme un sanctuaire dédié à la santé et à l’esthétique <br /> de votre sourire. <br /> Notre vision dépasse la dentisterie conventionnelle : nous croyons <br />en une approche globale où la haute technologie rencontre le confort absolu.
 </p>
+
             <p className="text-muted-foreground mb-12 leading-relaxed">
-  Dans un cadre moderne et apaisant, nous avons investi dans les dernières innovations numériques (Scanner 3D, Laser) pour garantir des diagnostics d'une précision chirurgicale et des traitements d'une douceur inégalée. Ici, chaque patient est unique, et chaque sourire est une œuvre d'art que nous protégeons.
+  Dans un cadre moderne et apaisant, nous avons investi dans les dernières innovations numériques (Scanner 3D, Laser) pour garantir des diagnostics d'une précision chirurgicale et des traitements d'une douceur inégalée.<br /> Ici, chaque patient est unique, et chaque sourire est une œuvre d'art <br /> que nous protégeons.
 </p>
 
             {/* Stats */}
@@ -92,7 +93,7 @@ export const About = () => {
                     <div className="font-serif text-3xl font-semibold text-foreground">
                       {stat.value}
                     </div>
-                    <div className="text-sm md:text-base text-muted-foreground leading-tight">
+                    <div className="text-sm md:text-base text-muted-foreground leading-tight whitespace-pre-line">
                       {stat.label}
                     </div>
                   </div>

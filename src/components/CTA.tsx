@@ -115,7 +115,7 @@ export const CTA = () => {
               href="#contact"
               className="cta-button group px-8 py-4 bg-primary-foreground text-primary font-medium inline-flex items-center gap-3 hover:bg-background transition-all duration-300 hover:scale-105"
             >
-              Prendre Rendez-vous en Ligne
+              Prendre Rendez-vous
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
             <a

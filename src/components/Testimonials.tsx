@@ -3,27 +3,29 @@ import { useRef, useState } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const testimonials = [
+   {
+    name: 'Lucman Bounoider',
+    //role: 'Marketing Director',
+    image: 'https://lh3.googleusercontent.com/a-/ALV-UjW5XWYZItGZCSv5iJeZg5O1kUPn3IaDa4FH6KnzfqdmLwbWWck=w97-h97-p-rp-mo-br100',
+    content: 'Je vous avoue que j’ai généralement peur des Dentiste, mais avec le Dr. Amine c’est juste incroyable j’ai surmonté ma phobie et en plus de ça il est très compréhensif il explique très bien il ne juge pas, petit plus il parle français, les femmes avec qui il travaille sont juste adorables, même pour la barrière de la langue, on arrive quand même à se faire comprendre je vous le recommande fortement !! Encore merci au docteur amine et son équipe 😊.',
+    rating: 5,
+  },
+
   {
     name: 'Sam Nigrasco',
     
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80',
+    image: 'https://media.istockphoto.com/id/2151669184/vector/vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral.jpg?s=612x612&w=0&k=20&c=UEa7oHoOL30ynvmJzSCIPrwwopJdfqzBs0q69ezQoM8=',
     content: 'Je suis patient du Dr. Amine depuis plus de 10 ans. Même après avoir passé trois ans hors du Maroc, il a été la première personne vers qui je me suis tourné pour une urgence dentaire. Il m\'a reçu sur l\'Avenue Moulay Youssef dans un délai très court et a terminé le traitement en une semaine avec un professionnalisme exemplaire. Dr. Khanboubi est véritablement dévoué à ses patients. Hautement recommandé !',
     rating: 5,
   },
   {
     name: 'Najlae Laaroussi',
     
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80',
+    image: 'https://media.istockphoto.com/id/2151669184/vector/vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral.jpg?s=612x612&w=0&k=20&c=UEa7oHoOL30ynvmJzSCIPrwwopJdfqzBs0q69ezQoM8=',
     content: ' Je tiens à vous remercier de rendre chaque visite si confortable, surtout pour quelqu\'un comme moi qui avait un véritable traumatisme des dentistes. J\'ai énormément apprécié votre gentillesse et le temps que vous avez pris pour tout m\'expliquer et simplifier chaque étape. Cela m\'a permis de mieux comprendre ma santé bucco-dentaire et, aujourd\'hui, je n\'ai plus peur. Tout cela grâce à votre soutien et votre accompagnement. ❤️🥰 Merci infiniment pour le magnifique sourire que vous m\'avez donné ! 😁❤️🦷',
     rating: 5,
   },
-  {
-    name: 'Sophie Wagner',
-    role: 'Marketing Director',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80',
-    content: 'After years of being self-conscious about my teeth, I finally have the smile I\'ve always wanted. The Invisalign treatment was seamless, and the results exceeded my expectations.',
-    rating: 5,
-  },
+ 
 ];
 
 export const Testimonials = () => {
@@ -138,9 +140,9 @@ export const Testimonials = () => {
                   <div className="font-medium text-foreground">
                     {testimonials[currentIndex].name}
                   </div>
-                  <div className="text-sm text-muted-foreground">
+                  {/*<div className="text-sm text-muted-foreground">
                     {testimonials[currentIndex].role}
-                  </div>
+                  </div>*/}
                 </div>
               </div>
             </motion.div>

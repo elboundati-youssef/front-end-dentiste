@@ -36,7 +36,7 @@ export const Team = () => {
     </h2>
 
     {/* 3. Description */}
-    <p className="max-w-lg text-muted-foreground text-lg lg:text-xl mt-6 lg:mt-0 leading-relaxed">
+    <p className="max-w-2g text-muted-foreground text-lg lg:text-xl mt-6 lg:mt-0 leading-relaxed">
       Un parcours d'excellence dédié à la santé et à la beauté de votre sourire à Tanger.
     </p>
   </div>
@@ -95,7 +95,7 @@ export const Team = () => {
             </h3>
 
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              La force du Centre Al Boughaz repose sur le parcours d'excellence de son fondateur. Le Dr. Amine Khanboubi est un Spécialiste en Orthodontie diplômé de Rabat, une formation de référence garantissant une rigueur clinique et scientifique totale.
+              La force du Centre Al Boughaz repose sur le parcours d'excellence<br /> de son fondateur. Le Dr. Amine Khanboubi est un Spécialiste <br />en Orthodontie diplômé de Rabat, une formation de référence garantissant une rigueur clinique et scientifique totale.
             </p>
 
             {/* Compétences avec style adapté */}
