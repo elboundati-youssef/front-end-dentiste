@@ -100,12 +100,12 @@ export const Testimonials = () => {
 <p className="text-muted-foreground text-2xl lg:text-xl mb-14 lg:mb-12 leading-relaxed font-medium lg:font-normal">
   Ne vous contentez pas de nous croire sur parole. Écoutez ce que nos patients satisfaits disent de leur expérience au Centre Dentaire Al Boughaz.
 </p>
-            {/* --- NAVIGATION DESKTOP (Cachée sur mobile) --- */}
+              {/* --- NAVIGATION DESKTOP (Cachée sur mobile) --- */}
             <NavigationButtons className="hidden lg:flex" />
 
           </motion.div>
 
-          {/* Right Content - Testimonial Card */}
+          {/* Right Content - Testimonial Card - AGRANDIE sur mobile */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -118,32 +118,32 @@ export const Testimonials = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="bg-card p-8 lg:p-12 relative"
+              className="bg-card p-12 lg:p-12 relative"
             >
-              {/* Quote Icon */}
-              <Quote className="w-12 h-12 text-primary/20 mb-6" />
+              {/* Quote Icon - AGRANDI sur mobile */}
+              <Quote className="w-20 h-20 lg:w-12 lg:h-12 text-primary/20 mb-8 lg:mb-6" />
               
-              {/* Stars */}
-              <div className="flex items-center gap-1 mb-6">
+              {/* Stars - AGRANDIES sur mobile */}
+              <div className="flex items-center gap-2 lg:gap-1 mb-8 lg:mb-6">
                 {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-primary fill-primary" />
+                  <Star key={i} className="w-8 h-8 lg:w-5 lg:h-5 text-primary fill-primary" />
                 ))}
               </div>
 
-              {/* Content */}
-              <p className="text-foreground text-lg lg:text-xl leading-relaxed mb-8">
+              {/* Content - AGRANDI sur mobile */}
+              <p className="text-foreground text-2xl lg:text-xl leading-relaxed mb-10 lg:mb-8">
                 "{testimonials[currentIndex].content}"
               </p>
 
-              {/* Author */}
-              <div className="flex items-center gap-4">
+              {/* Author - AGRANDI sur mobile */}
+              <div className="flex items-center gap-6 lg:gap-4">
                 <img
                   src={testimonials[currentIndex].image}
                   alt={testimonials[currentIndex].name}
-                  className="w-14 h-14 object-cover"
+                  className="w-20 h-20 lg:w-14 lg:h-14 object-cover"
                 />
                 <div>
-                  <div className="font-medium text-foreground">
+                  <div className="font-medium text-foreground text-2xl lg:text-base">
                     {testimonials[currentIndex].name}
                   </div>
                 </div>
@@ -153,13 +153,12 @@ export const Testimonials = () => {
             {/* Decorative Border */}
             <div className="absolute -bottom-4 -right-4 w-full h-full border border-primary/30 -z-10" />
 
-           
-
           </motion.div>
-           {/* --- NAVIGATION MOBILE (Visible uniquement sur mobile, en dessous de la carte) --- */}
-            <div className="mt-8 flex justify-center lg:hidden">
-              <NavigationButtons />
-            </div>
+
+          {/* --- NAVIGATION MOBILE (Visible uniquement sur mobile, en dessous de la carte) --- */}
+          <div className="mt-10 lg:mt-8 flex justify-center lg:hidden">
+            <NavigationButtons />
+          </div>
         </div>
       </div>
     </section>

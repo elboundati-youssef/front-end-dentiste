@@ -109,7 +109,7 @@ export const Hero = () => {
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient pt-28 pb-16 lg:py-0"
+      className="relative h-screen lg:min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient pt-32 pb-20 lg:py-0"
     >
       {/* Background Image with Parallax */}
       <div ref={imageRef} className="absolute inset-0 z-0">
@@ -126,30 +126,30 @@ export const Hero = () => {
         ref={contentRef}
         className="relative z-20 container mx-auto px-6 lg:px-12 text-center"
       >
-        {/* Tagline - DOUBLE TAILLE sur mobile */}
-        <div ref={taglineRef} className="flex items-center justify-center gap-6 mb-10 lg:mb-8">
-          <Star className="w-5 h-5 lg:w-4 lg:h-4 text-primary fill-primary" />
+        {/* Tagline - ÉNORME sur mobile */}
+        <div ref={taglineRef} className="flex items-center justify-center gap-6 mb-8 lg:mb-8">
+          <Star className="w-7 h-7 lg:w-4 lg:h-4 text-primary fill-primary" />
           
-          <span className="text-1xl lg:text-sm font-medium tracking-[0.25em] lg:tracking-[0.3em] uppercase text-gradient">
+          <span className="text-2xl lg:text-sm font-bold lg:font-medium tracking-[0.2em] lg:tracking-[0.3em] uppercase text-gradient">
             Soins Dentaires Premium au Cœur de Tanger
           </span>
           
-          <Star className="w-5 h-5 lg:w-4 lg:h-4 text-primary fill-primary" />
+          <Star className="w-7 h-7 lg:w-4 lg:h-4 text-primary fill-primary" />
         </div>
 
-        {/* Main Heading - DOUBLE TAILLE sur mobile */}
+        {/* Main Heading - TRÈS ÉNORME sur mobile */}
         <h1
           ref={headingRef}
-          className="font-serif text-9xl md:text-7xl lg:text-8xl xl:text-7xl font-medium text-foreground mb-12 lg:mb-8 leading-tight"
+          className="font-serif text-[5.5rem] leading-[1] md:text-9xl lg:text-8xl xl:text-7xl font-bold lg:font-medium text-foreground mb-10 lg:mb-8 lg:leading-tight"
         >
           Retrouvez la confiance,<br />
-          <span className="text-gradient block mt-6 lg:mt-2 lg:inline"> d'un sourire éclatant</span>
+          <span className="text-gradient block mt-4 lg:mt-2 lg:inline"> d'un sourire éclatant</span>
         </h1>
 
-        {/* Subtitle - DOUBLE TAILLE sur mobile */}
+        {/* Subtitle - ÉNORME sur mobile */}
         <p
           ref={subtitleRef}
-          className="max-w-4xl mx-auto text-4xl lg:text-xl text-muted-foreground mb-14 lg:mb-12 leading-relaxed"
+          className="max-w-4xl mx-auto text-[2.8rem] leading-tight lg:text-xl text-muted-foreground mb-12 lg:mb-12 lg:leading-relaxed font-medium lg:font-normal"
         >
           Vous recherchez l'excellence dentaire à Tanger ?<br />
           À deux pas de la Mosquée Badr, le Dr Amine Khanboubi déploie<br />
