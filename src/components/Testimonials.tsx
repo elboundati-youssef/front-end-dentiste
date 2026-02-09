@@ -3,29 +3,26 @@ import { useRef, useState } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import lucmanImg from "../assets/images/Lucman Bounoider.png";
 import photonull from "../assets/images/photo null.jpg";
+
 const testimonials = [
-   {
+  {
     name: 'Lucman Bounoider',
     image: lucmanImg,
     content: 'Je vous avoue que j’ai généralement peur des Dentiste, mais avec le Dr. Amine c’est juste incroyable j’ai surmonté ma phobie et en plus de ça il est très compréhensif il explique très bien il ne juge pas, petit plus il parle français, les femmes avec qui il travaille sont juste adorables, même pour la barrière de la langue, on arrive quand même à se faire comprendre je vous le recommande fortement !! Encore merci au docteur amine et son équipe 😊.',
     rating: 5,
   },
-
   {
     name: 'Sam Nigrasco',
-    
     image: photonull,
     content: 'Je suis patient du Dr. Amine depuis plus de 10 ans. Même après avoir passé trois ans hors du Maroc, il a été la première personne vers qui je me suis tourné pour une urgence dentaire. Il m\'a reçu sur l\'Avenue Moulay Youssef dans un délai très court et a terminé le traitement en une semaine avec un professionnalisme exemplaire. Dr. Khanboubi est véritablement dévoué à ses patients. Hautement recommandé !',
     rating: 5,
   },
   {
     name: 'Najlae Laaroussi',
-    
     image: photonull,
     content: ' Je tiens à vous remercier de rendre chaque visite si confortable, surtout pour quelqu\'un comme moi qui avait un véritable traumatisme des dentistes. J\'ai énormément apprécié votre gentillesse et le temps que vous avez pris pour tout m\'expliquer et simplifier chaque étape. Cela m\'a permis de mieux comprendre ma santé bucco-dentaire et, aujourd\'hui, je n\'ai plus peur. Tout cela grâce à votre soutien et votre accompagnement. ❤️🥰 Merci infiniment pour le magnifique sourire que vous m\'avez donné ! 😁❤️🦷',
     rating: 5,
   },
- 
 ];
 
 export const Testimonials = () => {
@@ -41,6 +38,29 @@ export const Testimonials = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  // Composant Boutons de Navigation (pour éviter la duplication de code)
+  const NavigationButtons = ({ className = "" }) => (
+    <div className={`flex items-center gap-4 ${className}`}>
+      <button
+        onClick={prevTestimonial}
+        className="w-14 h-14 flex items-center justify-center border border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-300"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      <button
+        onClick={nextTestimonial}
+        className="w-14 h-14 flex items-center justify-center border border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-300"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+      <span className="ml-4 text-muted-foreground">
+        <span className="text-foreground font-medium">{currentIndex + 1}</span>
+        {' / '}
+        {testimonials.length}
+      </span>
+    </div>
+  );
+
   return (
     <section id="testimonials" className="py-24 lg:py-32 bg-background relative overflow-hidden">
       {/* Background Decoration */}
@@ -48,55 +68,38 @@ export const Testimonials = () => {
       
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
+          
+          {/* Left Content (Titres) */}
           <motion.div
-  ref={ref}
-  initial={{ opacity: 0, x: -60 }}
-  animate={isInView ? { opacity: 1, x: 0 } : {}}
-  transition={{ duration: 0.8 }}
->
-  {/* 1. Sous-titre avec lignes dorées */}
-  <div className="inline-flex items-center gap-3 mb-6">
-    <div className="w-12 h-px bg-primary" />
-    <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
-      Témoignages
-    </span>
-    <div className="w-12 h-px bg-primary" />
-  </div>
-
-  {/* 2. Grand Titre */}
-  <h2 className="font-serif text-2xl lg:text-4xl xl:text-6xl font-medium text-foreground mb-6 leading-tight">
-    Ce que nos patients
-    <br />
-    <span className="text-gradient">disent de nous</span>
-  </h2>
-
-  {/* 3. Description */}
-  <p className="text-muted-foreground text-lg lg:text-xl mb-12 leading-relaxed">
-    Ne vous contentez pas de nous croire sur parole. Écoutez ce que nos patients satisfaits disent de leur expérience au Centre Dentaire Al Boughaz.
-  </p>
-
-
-            {/* Navigation */}
-            <div className="flex items-center gap-4">
-              <button
-                onClick={prevTestimonial}
-                className="w-14 h-14 flex items-center justify-center border border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-300"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={nextTestimonial}
-                className="w-14 h-14 flex items-center justify-center border border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-300"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-              <span className="ml-4 text-muted-foreground">
-                <span className="text-foreground font-medium">{currentIndex + 1}</span>
-                {' / '}
-                {testimonials.length}
+            ref={ref}
+            initial={{ opacity: 0, x: -60 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
+            {/* 1. Sous-titre */}
+            <div className="inline-flex items-center gap-3 mb-6">
+              <div className="w-12 h-px bg-primary" />
+              <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
+                Témoignages
               </span>
+              <div className="w-12 h-px bg-primary" />
             </div>
+
+            {/* 2. Grand Titre */}
+            <h2 className="font-serif text-2xl lg:text-4xl xl:text-6xl font-medium text-foreground mb-6 leading-tight">
+              Ce que nos patients
+              <br />
+              <span className="text-gradient">disent de nous</span>
+            </h2>
+
+            {/* 3. Description */}
+            <p className="text-muted-foreground text-lg lg:text-xl mb-12 leading-relaxed">
+              Ne vous contentez pas de nous croire sur parole. Écoutez ce que nos patients satisfaits disent de leur expérience au Centre Dentaire Al Boughaz.
+            </p>
+
+            {/* --- NAVIGATION DESKTOP (Cachée sur mobile) --- */}
+            <NavigationButtons className="hidden lg:flex" />
+
           </motion.div>
 
           {/* Right Content - Testimonial Card */}
@@ -140,16 +143,20 @@ export const Testimonials = () => {
                   <div className="font-medium text-foreground">
                     {testimonials[currentIndex].name}
                   </div>
-                  {/*<div className="text-sm text-muted-foreground">
-                    {testimonials[currentIndex].role}
-                  </div>*/}
                 </div>
               </div>
             </motion.div>
 
-            {/* Decorative */}
+            {/* Decorative Border */}
             <div className="absolute -bottom-4 -right-4 w-full h-full border border-primary/30 -z-10" />
+
+           
+
           </motion.div>
+           {/* --- NAVIGATION MOBILE (Visible uniquement sur mobile, en dessous de la carte) --- */}
+            <div className="mt-8 flex justify-center lg:hidden">
+              <NavigationButtons />
+            </div>
         </div>
       </div>
     </section>
