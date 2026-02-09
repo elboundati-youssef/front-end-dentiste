@@ -22,14 +22,14 @@ export const Team = () => {
             {/* 1. Sous-titre avec lignes dorées */}
             <div className="inline-flex items-center gap-3 mb-6">
               <div className="w-12 h-px bg-primary" />
-              <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
+              <span className="text-xl lg:text-sm font-bold lg:font-medium tracking-[0.3em] uppercase text-gradient">
                 Notre Expertise
               </span>
               <div className="w-12 h-px bg-primary" />
             </div>
 
             {/* 2. Grand Titre */}
-            <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-6 leading-tight">
+            <h2 className="font-serif text-6xl lg:text-5xl xl:text-7xl font-bold lg:font-medium text-foreground mb-10 lg:mb-6 leading-tight">
               Rencontrez 
               <br />
               <span className="text-gradient">Le Dr. Amine Khanboubi</span>
