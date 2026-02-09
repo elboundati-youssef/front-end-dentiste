@@ -76,27 +76,30 @@ export const Testimonials = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            {/* 1. Sous-titre */}
-            <div className="inline-flex items-center gap-3 mb-6">
-              <div className="w-12 h-px bg-primary" />
-              <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
-                Témoignages
-              </span>
-              <div className="w-12 h-px bg-primary" />
-            </div>
+            {/* 1. Sous-titre : Style Galerie (GÉANT sur mobile) */}
+<div className="inline-flex items-center gap-4 mb-8 lg:gap-3 lg:mb-6">
+  {/* Lignes : w-20 sur mobile | lg:w-12 sur PC */}
+  <div className="w-20 lg:w-12 h-px bg-primary" />
+  
+  {/* Texte : text-xl + Bold sur mobile */}
+  <span className="text-xl lg:text-sm font-bold lg:font-medium tracking-[0.3em] uppercase text-gradient">
+    Témoignages
+  </span>
+  
+  <div className="w-20 lg:w-12 h-px bg-primary" />
+</div>
 
-            {/* 2. Grand Titre */}
-            <h2 className="font-serif text-2xl lg:text-4xl xl:text-6xl font-medium text-foreground mb-6 leading-tight">
-              Ce que nos patients
-              <br />
-              <span className="text-gradient">disent de nous</span>
-            </h2>
+{/* 2. Grand Titre : Style Galerie (text-6xl sur mobile) */}
+<h2 className="font-serif text-6xl lg:text-4xl xl:text-6xl font-bold lg:font-medium text-foreground mb-10 lg:mb-6 leading-tight">
+  Ce que nos patients
+  <br />
+  <span className="text-gradient">disent de nous</span>
+</h2>
 
-            {/* 3. Description */}
-            <p className="text-muted-foreground text-lg lg:text-xl mb-12 leading-relaxed">
-              Ne vous contentez pas de nous croire sur parole. Écoutez ce que nos patients satisfaits disent de leur expérience au Centre Dentaire Al Boughaz.
-            </p>
-
+{/* 3. Description : Ajustée pour suivre la taille (text-2xl sur mobile) */}
+<p className="text-muted-foreground text-2xl lg:text-xl mb-14 lg:mb-12 leading-relaxed font-medium lg:font-normal">
+  Ne vous contentez pas de nous croire sur parole. Écoutez ce que nos patients satisfaits disent de leur expérience au Centre Dentaire Al Boughaz.
+</p>
             {/* --- NAVIGATION DESKTOP (Cachée sur mobile) --- */}
             <NavigationButtons className="hidden lg:flex" />
 

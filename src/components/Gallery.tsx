@@ -80,20 +80,21 @@ export const Gallery = () => {
           className="text-center mb-16 lg:mb-20"
         >
           {/* Sous-titre */}
-          <div className="inline-flex items-center gap-3 mb-6">
-            <div className="w-12 h-px bg-primary" />
-            <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
-              Galerie Photos
-            </span>
-            <div className="w-12 h-px bg-primary" />
-          </div>
+        <div className="inline-flex items-center gap-4 mb-8 lg:gap-3 lg:mb-6">
+    {/* Lignes dorées : w-20 sur mobile | lg:w-12 sur PC */}
+    <div className="w-20 lg:w-12 h-px bg-primary" />
+    <span className="text-xl lg:text-sm font-bold lg:font-medium tracking-[0.3em] uppercase text-gradient">
+      Galerie Photos
+    </span>
+    <div className="w-20 lg:w-12 h-px bg-primary" />
+  </div>
 
-          {/* Titre */}
-          <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-8 leading-tight">
-            Découvrez 
-            <br />
-            <span className="text-gradient">Nos réalisations</span>
-          </h2>
+         {/* 2. Titre : Triple Taille sur mobile (text-6xl) | Original sur PC (lg:text-5xl) */}
+  <h2 className="font-serif text-6xl lg:text-5xl xl:text-7xl font-bold lg:font-medium text-foreground mb-10 lg:mb-8 leading-tight">
+    Découvrez 
+    <br />
+    <span className="text-gradient">Nos réalisations</span>
+  </h2>
 
           {/* Tabs */}
           <div className="flex flex-wrap items-center justify-center gap-4">

@@ -59,21 +59,21 @@ export const Blog = () => {
   {/* 1. Sous-titre avec lignes dorées et marge ajustée */}
   <div className="inline-flex items-center gap-3 mb-6">
     <div className="w-12 h-px bg-primary" />
-    <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
+    <span className="text-xl lg:text-sm font-bold lg:font-medium tracking-[0.3em] uppercase text-gradient">
       Blog Dentaire Tanger
     </span>
     <div className="w-12 h-px bg-primary" />
   </div>
 
   {/* 2. Grand Titre */}
-  <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-6 leading-tight">
+  <h2 className="font-serif text-6xl lg:text-5xl xl:text-7xl font-bold lg:font-medium text-foreground mb-8 lg:mb-6 leading-tight">
     Derniers conseils 
     <br />
     <span className="text-gradient">Et articles</span>
   </h2>
 
   {/* 3. Description agrandie */}
-  <p className="max-w-2xl mx-auto text-muted-foreground text-lg lg:text-xl leading-relaxed">
+  <p className="max-w-2xl mx-auto text-muted-foreground text-2xl lg:text-xl leading-relaxed font-medium lg:font-normal">
     Les conseils du Dr. Amine Khanboubi pour votre santé bucco-dentaire.
   </p>
 </div>

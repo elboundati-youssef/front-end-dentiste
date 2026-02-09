@@ -122,62 +122,55 @@ export const Hero = () => {
         />
       </div>
 
-      {/* Content */}
+{/* Content */}
       <div
         ref={contentRef}
         className="relative z-20 container mx-auto px-6 lg:px-12 text-center"
       >
-        {/* Tagline : Marges réduites sur mobile */}
+        {/* Tagline : text-sm sur mobile (au lieu de xs) */}
         <div ref={taglineRef} className="flex items-center justify-center gap-3 mb-4 lg:mb-8">
-            {/* ETOILE EN GRADIENT (Optionnel : fill-transparent stroke-primary si vous voulez un contour) */}
           <Star className="w-3 h-3 lg:w-4 lg:h-4 text-primary fill-primary" />
           
-          {/* TEXTE GRADIENT */}
-          <span className="text-xs lg:text-sm font-medium tracking-[0.2em] lg:tracking-[0.3em] uppercase text-gradient">
+          <span className="text-sm lg:text-sm font-medium tracking-[0.2em] lg:tracking-[0.3em] uppercase text-gradient">
             Soins Dentaires Premium au Cœur de Tanger
           </span>
           
           <Star className="w-3 h-3 lg:w-4 lg:h-4 text-primary fill-primary" />
         </div>
 
-        {/* Main Heading : Taille ajustée mobile */}
+        {/* Main Heading : text-6xl sur mobile (au lieu de 4xl) -> TRÈS GROS */}
         <h1
           ref={headingRef}
-          className="font-serif text-4xl md:text-7xl lg:text-8xl xl:text-7xl font-medium text-foreground mb-6 lg:mb-8 leading-tight"
+          className="font-serif text-6xl md:text-7xl lg:text-8xl xl:text-7xl font-medium text-foreground mb-6 lg:mb-8 leading-tight"
         >
           Retrouvez la confiance,<br />
-          {/* TEXTE GRADIENT DEJA PRESENT ICI */}
           <span className="text-gradient block mt-2 lg:inline"> d’un sourire éclatant</span>
         </h1>
 
-        {/* Subtitle : Marges réduites */}
+        {/* Subtitle : text-xl sur mobile (au lieu de base) */}
         <p
-  ref={subtitleRef}
-  className="max-w-4xl mx-auto text-base lg:text-xl text-muted-foreground mb-8 lg:mb-12"
->
-  Vous recherchez l'excellence dentaire à Tanger ?<br />
-  À deux pas de la Mosquée Badr, le Dr Amine Khanboubi déploie<br />
-  au sein du Centre Dentaire Al Boughaz les meilleures technologies
-  et une expertise<br /> internationale en implantologie et orthodontie pour transformer votre sourire.
-</p>
+          ref={subtitleRef}
+          className="max-w-4xl mx-auto text-xl lg:text-xl text-muted-foreground mb-8 lg:mb-12"
+        >
+          Vous recherchez l'excellence dentaire à Tanger ?<br />
+          À deux pas de la Mosquée Badr, le Dr Amine Khanboubi déploie<br />
+          au sein du Centre Dentaire Al Boughaz les meilleures technologies
+          et une expertise<br /> internationale en implantologie et orthodontie pour transformer votre sourire.
+        </p>
 
-        {/* CTA Buttons : Stack vertical sur mobile */}
-        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-3 lg:gap-4">
+        {/* CTA Buttons : Padding (px-10 py-5) et Texte (text-xl) augmentés pour mobile */}
+        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-5 lg:gap-4">
           <a
             href="#contact"
-            // ICI : J'applique 'bg-gradient-gold' pour le fond en dégradé
-            // et 'text-primary-foreground' (bleu foncé) pour que le texte soit lisible sur l'or
-            className="w-full sm:w-auto group relative px-6 py-3 lg:px-8 lg:py-4 bg-gradient-gold text-primary-foreground font-medium overflow-hidden transition-all duration-500 hover:shadow-glow rounded lg:rounded-none"
+            className="w-full sm:w-auto group relative px-10 py-5 lg:px-8 lg:py-4 bg-gradient-gold text-primary-foreground font-medium overflow-hidden transition-all duration-500 hover:shadow-glow rounded lg:rounded-none"
           >
-            {/* Le texte est au-dessus du fond dégradé */}
-            <span className="relative z-10 text-sm lg:text-base font-bold">
+            {/* Texte Bouton 1 : text-xl */}
+            <span className="relative z-10 text-xl lg:text-base font-bold">
               Commencer ma Transformation
             </span>
             
-            {/* Effet au survol : un volet sombre qui passe dessus */}
             <div className="absolute inset-0 bg-foreground transform translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
             
-            {/* Texte qui apparaît au survol (en doré dégradé sur fond sombre) */}
             <span className="absolute inset-0 flex items-center justify-center text-background opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-gradient">
               Commencer ma Transformation
             </span>
@@ -185,21 +178,21 @@ export const Hero = () => {
           
           <a
             href="#services"
-            className="w-full sm:w-auto px-6 py-3 lg:px-8 lg:py-4 border border-foreground/20 text-foreground font-medium hover:border-primary hover:text-primary transition-all duration-300 rounded lg:rounded-none text-sm lg:text-base"
+            className="w-full sm:w-auto px-10 py-5 lg:px-8 lg:py-4 border border-foreground/20 text-foreground font-medium hover:border-primary hover:text-primary transition-all duration-300 rounded lg:rounded-none text-xl lg:text-base"
           >
             <span className="group-hover:text-gradient transition-colors">Explorer nos Soins</span>
           </a>
         </div>
       </div>
 
-      {/* Scroll Indicator : Caché sur mobile pour gagner de la place */}
+      {/* Scroll Indicator : Visible sur mobile et agrandi (w-8 h-8) */}
       <div
         ref={scrollIndicatorRef}
-        className="absolute bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 z-20 hidden md:block"
+        className="absolute bottom-8 lg:bottom-10 left-1/2 -translate-x-1/2 z-20 opacity-80"
       >
         <div className="flex flex-col items-center gap-2 text-muted-foreground">
           <span className="text-xs tracking-[0.3em] uppercase">Défiler</span>
-          <ArrowDown className="w-4 h-4" />
+          <ArrowDown className="w-8 h-8 lg:w-4 lg:h-4 animate-bounce" />
         </div>
       </div>
 

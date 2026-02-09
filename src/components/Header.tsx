@@ -43,14 +43,22 @@ export const Header = () => {
           {/* HAUTEUR MOBILE AUGMENTÉE : h-32 (128px) */}
           <div className="flex items-center justify-between h-32 lg:h-24">
 
-            {/* --- LOGO GÉANT & GRAS --- */}
-            <a href="#home" className="relative z-50 flex items-center min-w-[220px]">
+          {/* --- LOGO --- */}
+            <a href="#home" className="relative z-50 flex items-center min-w-[200px]">
               <img
                 src="/logo.png"
-                alt="Centre Dentaire Al Boughaz"
-                // scale-150 : Zoom x1.5
-                // drop-shadow-lg : Ombre pour effet de volume/gras
-                className="h-32 md:h-36 lg:h-44 w-auto object-contain transform scale-150 origin-left drop-shadow-lg"
+                alt="Centre Dentaire Al Boughaz - Dr Amine Khanboubi"
+                
+                // EXPLICATION DU STYLE COMBINÉ :
+                // 1. Base (Mobile) : h-32, scale-150 (GÉANT), drop-shadow-lg (GRAS)
+                // 2. PC (lg:)      : lg:h-44, lg:scale-110 (NORMAL), lg:drop-shadow-none (PAS D'OMBRE)
+                
+                className="
+                  w-auto object-contain transform origin-left transition-all duration-300
+                  h-32 md:h-36 
+                  scale-150 drop-shadow-lg
+                  lg:h-44 lg:scale-110 lg:drop-shadow-none
+                "
               />
             </a>
 
@@ -174,10 +182,19 @@ export const Header = () => {
                       Tanger, Maroc.
                     </p>
                   </div>
+                 <div>
+                    <p className="ttext-base font-semibold text-muted-foreground mb-2">Contact</p>
+                    <p className="text-foreground text-lg">
+                      +212 5 39 35 51 33<br />
+                      contact@alboughaz.dental
+                    </p>
+                  </div>
+
                   <div>
-                    <p className="text-base font-semibold text-muted-foreground mb-2">Contact</p>
-                    <p className="text-foreground text-lg font-bold">
-                      +212 5 39 35 51 33
+                    <p className="text-base font-semibold text-muted-foreground mb-2">Horaires</p>
+                    <p className="text-foreground text-lg">
+                      Lun - Ven : 09h00 - 18h00<br />
+                      Sam : 10h00 - 14h00
                     </p>
                   </div>
                 </div>
