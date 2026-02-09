@@ -88,7 +88,6 @@ export const CTA = () => {
   }, []);
 
   return (
-    // MODIFICATION ICI : Utilisation de 'bg-gradient-gold' pour le fond
     <section ref={sectionRef} className="py-24 lg:py-32 bg-gradient-gold relative overflow-hidden">
       
       {/* Background Pattern */}
@@ -101,29 +100,31 @@ export const CTA = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div ref={contentRef} className="max-w-4xl mx-auto text-center">
           
-          {/* Titre en Bleu Nuit (primary-foreground) sur fond Or */}
-          <h2 className="cta-heading font-serif text-4xl lg:text-5xl xl:text-6xl font-medium text-primary-foreground mb-6 leading-tight">
+          {/* Titre AGRANDI sur mobile */}
+          <h2 className="cta-heading font-serif text-6xl lg:text-5xl xl:text-6xl font-medium text-primary-foreground mb-8 lg:mb-6 leading-tight">
             Prêt à transformer votre sourire?
           </h2>
           
-          <p className="text-primary-foreground/80 text-lg lg:text-xl mb-12 max-w-2xl mx-auto">
+          {/* Description AGRANDIE sur mobile */}
+          <p className="text-primary-foreground/80 text-2xl lg:text-xl mb-14 lg:mb-12 max-w-2xl mx-auto leading-relaxed">
             Planifiez votre&nbsp;consultation dès&nbsp;aujourd'hui et&nbsp;découvrez comment nous&nbsp;pouvons vous&nbsp;aider à&nbsp;obtenir le&nbsp;sourire dont vous&nbsp;avez toujours&nbsp;rêvé.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* Boutons AGRANDIS et VERTICAUX sur mobile */}
+          <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-center gap-6 lg:gap-4">
             <a
               href="#contact"
-              className="cta-button group px-8 py-4 bg-primary-foreground text-primary font-medium inline-flex items-center gap-3 hover:bg-background transition-all duration-300 hover:scale-105"
+              className="cta-button group px-14 py-7 lg:px-8 lg:py-4 bg-primary-foreground text-primary font-medium inline-flex items-center justify-center gap-4 lg:gap-3 hover:bg-background transition-all duration-300 hover:scale-105"
             >
-              Prendre Rendez-vous
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+              <span className="text-2xl lg:text-base font-bold lg:font-medium">Prendre Rendez-vous</span>
+              <ArrowRight className="w-8 h-8 lg:w-4 lg:h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
             <a
-              href="tel:+1234567890"
-              className="cta-button px-8 py-4 border border-primary-foreground/30 text-primary-foreground font-medium inline-flex items-center gap-3 hover:bg-primary-foreground/10 transition-all duration-300 hover:scale-105"
+              href="tel:+212539355133"
+              className="cta-button px-14 py-7 lg:px-8 lg:py-4 border-2 lg:border border-primary-foreground/30 text-primary-foreground font-medium inline-flex items-center justify-center gap-4 lg:gap-3 hover:bg-primary-foreground/10 transition-all duration-300 hover:scale-105"
             >
-              <Phone className="w-4 h-4" />
-              +212 5 39 35 51 33
+              <Phone className="w-8 h-8 lg:w-4 lg:h-4" />
+              <span className="text-2xl lg:text-base font-bold lg:font-medium">+212 5 39 35 51 33</span>
             </a>
           </div>
         </div>

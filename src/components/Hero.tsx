@@ -128,13 +128,13 @@ export const Hero = () => {
       >
         {/* Tagline - DOUBLE TAILLE sur mobile */}
         <div ref={taglineRef} className="flex items-center justify-center gap-6 mb-10 lg:mb-8">
-          <Star className="w-10 h-10 lg:w-4 lg:h-4 text-primary fill-primary" />
+          <Star className="w-5 h-5 lg:w-4 lg:h-4 text-primary fill-primary" />
           
           <span className="text-1xl lg:text-sm font-medium tracking-[0.25em] lg:tracking-[0.3em] uppercase text-gradient">
             Soins Dentaires Premium au Cœur de Tanger
           </span>
           
-          <Star className="w-10 h-10 lg:w-4 lg:h-4 text-primary fill-primary" />
+          <Star className="w-5 h-5 lg:w-4 lg:h-4 text-primary fill-primary" />
         </div>
 
         {/* Main Heading - DOUBLE TAILLE sur mobile */}

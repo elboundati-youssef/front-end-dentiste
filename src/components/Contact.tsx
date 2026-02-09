@@ -232,44 +232,44 @@ export const Contact = () => {
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        {/* Header */}
+        {/* Header - AGRANDI sur mobile */}
         <div ref={headerRef} className="text-center mb-16 lg:mb-20">
-          <div className="inline-flex items-center gap-3 mb-6">
-            <div className="w-12 h-px bg-primary" />
-            <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
+          <div className="inline-flex items-center gap-4 mb-8 lg:mb-6">
+            <div className="w-16 lg:w-12 h-px bg-primary" />
+            <span className="text-lg lg:text-sm font-medium tracking-[0.3em] uppercase text-gradient">
               Prendre Rendez-vous
             </span>
-            <div className="w-12 h-px bg-primary" />
+            <div className="w-16 lg:w-12 h-px bg-primary" />
           </div>
-          <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-6 leading-tight">
+          <h2 className="font-serif text-6xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-8 lg:mb-6 leading-tight">
             Planifiez votre Sourire Parfait
             <br />
             <span className="text-gradient">Consultation Dentaire</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground text-lg lg:text-xl">
+          <p className="max-w-2xl mx-auto text-muted-foreground text-2xl lg:text-xl leading-relaxed">
             Découvrez des soins dentaires d'exception. Réservez votre
             consultation dès aujourd'hui et faites le premier pas vers le
             sourire que vous méritez.
           </p>
         </div>
 
-        {/* Features Grid */}
+        {/* Features Grid - AGRANDIES sur mobile */}
         <div
           ref={featuresRef}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-16 lg:mb-24"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 mb-16 lg:mb-24"
         >
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="feature-card group p-6 lg:p-8 bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-glow"
+              className="feature-card group p-8 lg:p-8 bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-glow"
             >
-              <div className="w-12 h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
-                <feature.icon className="w-5 h-5 lg:w-6 lg:h-6" />
+              <div className="w-16 h-16 lg:w-14 lg:h-14 flex items-center justify-center bg-primary/10 text-primary mb-5 lg:mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
+                <feature.icon className="w-8 h-8 lg:w-6 lg:h-6" />
               </div>
-              <h4 className="font-serif text-lg lg:text-xl font-medium text-foreground mb-2">
+              <h4 className="font-serif text-2xl lg:text-xl font-medium text-foreground mb-3 lg:mb-2">
                 {feature.title}
               </h4>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-lg lg:text-sm text-muted-foreground leading-relaxed">
                 {feature.description}
               </p>
             </div>
@@ -280,27 +280,27 @@ export const Contact = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             
-            {/* Colonne 1 : Informations de Contact */}
-            <div ref={contactInfoRef} className="flex flex-col justify-center gap-6 bg-card p-8 lg:p-12 border border-border rounded-lg shadow-sm h-full">
+            {/* Colonne 1 : Informations de Contact - AGRANDIES sur mobile */}
+            <div ref={contactInfoRef} className="flex flex-col justify-center gap-8 lg:gap-6 bg-card p-10 lg:p-12 border border-border rounded-lg shadow-sm h-full">
               <div className="mb-4">
-                <h3 className="font-serif text-2xl lg:text-3xl font-medium text-foreground mb-4">
+                <h3 className="font-serif text-4xl lg:text-3xl font-medium text-foreground mb-6 lg:mb-4">
                   Contactez-nous
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground text-2xl lg:text-base leading-relaxed">
                   Vous avez des questions ? Nous sommes là pour vous aider dans votre parcours vers une meilleure santé bucco-dentaire.
                 </p>
               </div>
 
               {contactInfo.map((item) => (
-                <div key={item.label} className="contact-info-item group flex items-start gap-4 p-4 bg-background border border-border hover:border-primary/50 transition-all duration-500 rounded-md">
-                  <div className="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 rounded-full">
-                    <item.icon className="w-5 h-5" />
+                <div key={item.label} className="contact-info-item group flex items-start gap-5 lg:gap-4 p-6 lg:p-4 bg-background border border-border hover:border-primary/50 transition-all duration-500 rounded-md">
+                  <div className="w-16 h-16 lg:w-12 lg:h-12 flex items-center justify-center bg-primary/10 text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 rounded-full">
+                    <item.icon className="w-8 h-8 lg:w-5 lg:h-5" />
                   </div>
                   <div>
-                    <div className="text-sm text-primary font-medium tracking-wide uppercase mb-1">
+                    <div className="text-lg lg:text-sm text-primary font-medium tracking-wide uppercase mb-2 lg:mb-1">
                       {item.label}
                     </div>
-                    <div className="text-foreground text-sm lg:text-base leading-relaxed">
+                    <div className="text-foreground text-xl lg:text-base leading-relaxed">
                       {item.value}
                     </div>
                   </div>
@@ -308,8 +308,8 @@ export const Contact = () => {
               ))}
             </div>
 
-            {/* Colonne 2 : Carte Google Maps (Sortie du bloc info pour être à côté) */}
-            <div className="h-[500px] lg:h-auto min-h-[500px] bg-card border border-border rounded-lg overflow-hidden shadow-sm relative">
+            {/* Colonne 2 : Carte Google Maps - HAUTEUR AGRANDIE sur mobile */}
+            <div className="h-[700px] lg:h-auto min-h-[700px] lg:min-h-[500px] bg-card border border-border rounded-lg overflow-hidden shadow-sm relative">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.1786107148555!2d-5.810737024895737!3d35.770988672558495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b817dbc95382b%3A0xd578b423d9ff5568!2sCentre%20Dentaire%20Al%20Boughaz.%20DR%20khanboubi%20amine!5e0!3m2!1sfr!2sma!4v1770374968608!5m2!1sfr!2sma"
                 width="100%"
@@ -322,7 +322,7 @@ export const Contact = () => {
                 className="grayscale hover:grayscale-0 transition-all duration-700 w-full h-full"
               />
               
-              <div className="absolute bottom-4 left-4 bg-background/90 backdrop-blur px-4 py-2 text-xs font-medium border border-border rounded shadow flex items-center gap-2">
+              <div className="absolute bottom-4 left-4 bg-background/90 backdrop-blur px-6 py-3 lg:px-4 lg:py-2 text-lg lg:text-xs font-medium border border-border rounded shadow flex items-center gap-2">
                  📍 Centre Dentaire Al Boughaz – Tanger
               </div>
             </div>
