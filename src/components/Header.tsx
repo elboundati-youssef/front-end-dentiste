@@ -79,13 +79,15 @@ export const Header = () => {
             <div className="flex items-center gap-6">
 
               {/* --- BOUTON TÉLÉPHONE MOBILE DOUBLE TAILLE --- */}
-              <a
-                href="tel:+212539355133"
-                className="flex lg:hidden items-center justify-center w-20 h-20 bg-primary/10 rounded-full hover:bg-primary transition-colors"
-              >
-                {/* strokeWidth={4} = TRÈS GRAS */}
-                <Phone strokeWidth={4} className="w-12 h-12 text-primary hover:text-white" />
-              </a>
+        <a
+  href="tel:+212539355133"
+  className="flex lg:hidden items-center justify-center w-20 h-20 rounded-full bg-primary/10 hover:bg-primary transition-all duration-300 group"
+>
+  <Phone
+    strokeWidth={3}
+    className="w-10 h-10 text-primary group-hover:text-white transition-colors"
+  />
+</a>
 
               {/* Téléphone Desktop (Caché sur mobile) */}
               <a

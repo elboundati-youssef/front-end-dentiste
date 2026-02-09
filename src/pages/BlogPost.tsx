@@ -53,10 +53,10 @@ const BlogPost = () => {
 
         {/* Contenu de l'article */}
         <article className="container mx-auto px-6 lg:px-12 py-12 max-w-4xl">
-            <Link to="/#blog" className="inline-flex items-center text-muted-foreground hover:text-primary mb-8 transition-colors">
+            <a href="../#blog" className="inline-flex items-center text-muted-foreground hover:text-primary mb-8 transition-colors">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Retour aux articles
-            </Link>
+            </a>
 
             {/* Injection du contenu HTML - TAILLE AUGMENTÉE ICI */}
             <div 

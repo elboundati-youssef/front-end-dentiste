@@ -5,6 +5,7 @@ import { ArrowRight, Calendar, ArrowLeft } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
+
 const AllBlogs = () => {
   // Scroll en haut au chargement
   useEffect(() => {
@@ -23,7 +24,7 @@ const AllBlogs = () => {
          <br />
             {/* Titre et retour */}
             <div className="mb-12">
-                <a href="/#blog" className="inline-flex items-center text-muted-foreground hover:text-primary mb-6 transition-colors">
+                <a href="./#blog" className="inline-flex items-center text-muted-foreground hover:text-primary mb-6 transition-colors">
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     Retour à l'accueil
                 </a>

@@ -61,10 +61,10 @@ const ServiceDetails = () => {
         {/* Détails */}
         <section className="py-20 bg-background">
             <div className="container mx-auto px-6 lg:px-12">
-                <Link to="/#services" className="inline-flex items-center text-muted-foreground hover:text-primary mb-8 transition-colors">
+                <a href="../#services" className="inline-flex items-center text-muted-foreground hover:text-primary mb-8 transition-colors">
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     Retour à l'accueil
-                </Link>
+                </a>
 
                 <div className="grid lg:grid-cols-2 gap-12 items-start">
                     <div>
