@@ -1,12 +1,12 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-
+import lucmanImg from "../assets/images/Lucman Bounoider.png";
+import photonull from "../assets/images/photo null.jpg";
 const testimonials = [
    {
     name: 'Lucman Bounoider',
-    //role: 'Marketing Director',
-    image: 'https://lh3.googleusercontent.com/a-/ALV-UjW5XWYZItGZCSv5iJeZg5O1kUPn3IaDa4FH6KnzfqdmLwbWWck=w97-h97-p-rp-mo-br100',
+    image: lucmanImg,
     content: 'Je vous avoue que j’ai généralement peur des Dentiste, mais avec le Dr. Amine c’est juste incroyable j’ai surmonté ma phobie et en plus de ça il est très compréhensif il explique très bien il ne juge pas, petit plus il parle français, les femmes avec qui il travaille sont juste adorables, même pour la barrière de la langue, on arrive quand même à se faire comprendre je vous le recommande fortement !! Encore merci au docteur amine et son équipe 😊.',
     rating: 5,
   },
@@ -14,14 +14,14 @@ const testimonials = [
   {
     name: 'Sam Nigrasco',
     
-    image: 'https://media.istockphoto.com/id/2151669184/vector/vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral.jpg?s=612x612&w=0&k=20&c=UEa7oHoOL30ynvmJzSCIPrwwopJdfqzBs0q69ezQoM8=',
+    image: photonull,
     content: 'Je suis patient du Dr. Amine depuis plus de 10 ans. Même après avoir passé trois ans hors du Maroc, il a été la première personne vers qui je me suis tourné pour une urgence dentaire. Il m\'a reçu sur l\'Avenue Moulay Youssef dans un délai très court et a terminé le traitement en une semaine avec un professionnalisme exemplaire. Dr. Khanboubi est véritablement dévoué à ses patients. Hautement recommandé !',
     rating: 5,
   },
   {
     name: 'Najlae Laaroussi',
     
-    image: 'https://media.istockphoto.com/id/2151669184/vector/vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral.jpg?s=612x612&w=0&k=20&c=UEa7oHoOL30ynvmJzSCIPrwwopJdfqzBs0q69ezQoM8=',
+    image: photonull,
     content: ' Je tiens à vous remercier de rendre chaque visite si confortable, surtout pour quelqu\'un comme moi qui avait un véritable traumatisme des dentistes. J\'ai énormément apprécié votre gentillesse et le temps que vous avez pris pour tout m\'expliquer et simplifier chaque étape. Cela m\'a permis de mieux comprendre ma santé bucco-dentaire et, aujourd\'hui, je n\'ai plus peur. Tout cela grâce à votre soutien et votre accompagnement. ❤️🥰 Merci infiniment pour le magnifique sourire que vous m\'avez donné ! 😁❤️🦷',
     rating: 5,
   },
