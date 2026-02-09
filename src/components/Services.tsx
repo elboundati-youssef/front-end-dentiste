@@ -46,7 +46,7 @@ export const Services = () => {
         {/* Services Grid */}
         {/* Mobile: 1 colonne (grid-cols-1) + Grand écart (gap-12) */}
         {/* Desktop: 3 colonnes (lg:grid-cols-3) + Écart normal (lg:gap-8) */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 w-full">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8 w-full">
           
           {servicesData.map((service, index) => (
             <motion.div

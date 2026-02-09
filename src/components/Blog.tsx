@@ -82,7 +82,7 @@ export const Blog = () => {
  {/* Grille des Articles : Style GÉANT sur Mobile */}
         {/* Mobile: 1 colonne (grid-cols-1) + Grand écart (gap-12) */}
         {/* Desktop: 3 colonnes (lg:grid-cols-3) + Écart normal (lg:gap-8) */}
-        <div ref={postsRef} className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 mb-16 lg:mb-16 w-full"> 
+        <div ref={postsRef} className="grid grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8 mb-16 lg:mb-16 w-full"> 
           {posts.map((post) => (
             <article 
               key={post.id} 

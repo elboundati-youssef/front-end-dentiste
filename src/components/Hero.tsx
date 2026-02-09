@@ -109,8 +109,7 @@ export const Hero = () => {
     <section
       ref={sectionRef}
       id="home"
-      // --- MODIFICATION MOBILE : Hauteur réduite (85vh) + padding ajusté ---
-      className="relative min-h-[85vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient pt-20 pb-10 lg:py-0"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient pt-28 pb-16 lg:py-0"
     >
       {/* Background Image with Parallax */}
       <div ref={imageRef} className="absolute inset-0 z-0">
@@ -122,35 +121,35 @@ export const Hero = () => {
         />
       </div>
 
-{/* Content */}
+      {/* Content */}
       <div
         ref={contentRef}
         className="relative z-20 container mx-auto px-6 lg:px-12 text-center"
       >
-        {/* Tagline : text-sm sur mobile (au lieu de xs) */}
-        <div ref={taglineRef} className="flex items-center justify-center gap-3 mb-4 lg:mb-8">
-          <Star className="w-3 h-3 lg:w-4 lg:h-4 text-primary fill-primary" />
+        {/* Tagline - DOUBLE TAILLE sur mobile */}
+        <div ref={taglineRef} className="flex items-center justify-center gap-6 mb-10 lg:mb-8">
+          <Star className="w-10 h-10 lg:w-4 lg:h-4 text-primary fill-primary" />
           
-          <span className="text-sm lg:text-sm font-medium tracking-[0.2em] lg:tracking-[0.3em] uppercase text-gradient">
+          <span className="text-1xl lg:text-sm font-medium tracking-[0.25em] lg:tracking-[0.3em] uppercase text-gradient">
             Soins Dentaires Premium au Cœur de Tanger
           </span>
           
-          <Star className="w-3 h-3 lg:w-4 lg:h-4 text-primary fill-primary" />
+          <Star className="w-10 h-10 lg:w-4 lg:h-4 text-primary fill-primary" />
         </div>
 
-        {/* Main Heading : text-6xl sur mobile (au lieu de 4xl) -> TRÈS GROS */}
+        {/* Main Heading - DOUBLE TAILLE sur mobile */}
         <h1
           ref={headingRef}
-          className="font-serif text-6xl md:text-7xl lg:text-8xl xl:text-7xl font-medium text-foreground mb-6 lg:mb-8 leading-tight"
+          className="font-serif text-9xl md:text-7xl lg:text-8xl xl:text-7xl font-medium text-foreground mb-12 lg:mb-8 leading-tight"
         >
           Retrouvez la confiance,<br />
-          <span className="text-gradient block mt-2 lg:inline"> d’un sourire éclatant</span>
+          <span className="text-gradient block mt-6 lg:mt-2 lg:inline"> d'un sourire éclatant</span>
         </h1>
 
-        {/* Subtitle : text-xl sur mobile (au lieu de base) */}
+        {/* Subtitle - DOUBLE TAILLE sur mobile */}
         <p
           ref={subtitleRef}
-          className="max-w-4xl mx-auto text-xl lg:text-xl text-muted-foreground mb-8 lg:mb-12"
+          className="max-w-4xl mx-auto text-4xl lg:text-xl text-muted-foreground mb-14 lg:mb-12 leading-relaxed"
         >
           Vous recherchez l'excellence dentaire à Tanger ?<br />
           À deux pas de la Mosquée Badr, le Dr Amine Khanboubi déploie<br />
@@ -158,41 +157,40 @@ export const Hero = () => {
           et une expertise<br /> internationale en implantologie et orthodontie pour transformer votre sourire.
         </p>
 
-        {/* CTA Buttons : Padding (px-10 py-5) et Texte (text-xl) augmentés pour mobile */}
-        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-5 lg:gap-4">
+        {/* CTA Buttons - DOUBLE TAILLE et VERTICAUX sur mobile */}
+        <div ref={ctaRef} className="flex flex-col lg:flex-row items-stretch lg:items-center justify-center gap-6 lg:gap-4">
           <a
             href="#contact"
-            className="w-full sm:w-auto group relative px-10 py-5 lg:px-8 lg:py-4 bg-gradient-gold text-primary-foreground font-medium overflow-hidden transition-all duration-500 hover:shadow-glow rounded lg:rounded-none"
+            className="w-full lg:w-auto group relative px-16 py-8 lg:px-8 lg:py-4 bg-gradient-gold text-primary-foreground font-medium overflow-hidden transition-all duration-500 hover:shadow-glow rounded lg:rounded-none"
           >
-            {/* Texte Bouton 1 : text-xl */}
-            <span className="relative z-10 text-xl lg:text-base font-bold">
+            <span className="relative z-10 text-4xl lg:text-base font-bold">
               Commencer ma Transformation
             </span>
             
             <div className="absolute inset-0 bg-foreground transform translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
             
-            <span className="absolute inset-0 flex items-center justify-center text-background opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-gradient">
+            <span className="absolute inset-0 flex items-center justify-center text-background opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-gradient text-4xl lg:text-base">
               Commencer ma Transformation
             </span>
           </a>
           
           <a
             href="#services"
-            className="w-full sm:w-auto px-10 py-5 lg:px-8 lg:py-4 border border-foreground/20 text-foreground font-medium hover:border-primary hover:text-primary transition-all duration-300 rounded lg:rounded-none text-xl lg:text-base"
+            className="w-full lg:w-auto px-16 py-8 lg:px-8 lg:py-4 border-2 lg:border border-foreground/20 text-foreground font-medium hover:border-primary hover:text-primary transition-all duration-300 rounded lg:rounded-none text-4xl lg:text-base"
           >
-            <span className="group-hover:text-gradient transition-colors">Explorer nos Soins</span>
+            <span className="group-hover:text-gradient transition-colors font-bold lg:font-medium">Explorer nos Soins</span>
           </a>
         </div>
       </div>
 
-      {/* Scroll Indicator : Visible sur mobile et agrandi (w-8 h-8) */}
+      {/* Scroll Indicator - DOUBLE TAILLE sur mobile */}
       <div
         ref={scrollIndicatorRef}
-        className="absolute bottom-8 lg:bottom-10 left-1/2 -translate-x-1/2 z-20 opacity-80"
+        className="absolute bottom-12 lg:bottom-10 left-1/2 -translate-x-1/2 z-20 opacity-80"
       >
-        <div className="flex flex-col items-center gap-2 text-muted-foreground">
-          <span className="text-xs tracking-[0.3em] uppercase">Défiler</span>
-          <ArrowDown className="w-8 h-8 lg:w-4 lg:h-4 animate-bounce" />
+        <div className="flex flex-col items-center gap-5 lg:gap-2 text-muted-foreground">
+          <span className="text-2xl lg:text-xs tracking-[0.3em] uppercase font-medium">Défiler</span>
+          <ArrowDown className="w-16 h-16 lg:w-4 lg:h-4 animate-bounce" />
         </div>
       </div>
 

@@ -35,28 +35,28 @@ export const Header = () => {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-background/95 backdrop-blur-md border-b-2 border-primary/20' // Bordure plus visible
+            ? 'bg-background/95 backdrop-blur-md border-b-2 border-primary/20'
             : 'bg-transparent'
         }`}
       >
         <div className="container mx-auto px-6 lg:px-12">
-          {/* HAUTEUR MOBILE AUGMENTÉE : h-32 (128px) */}
-          <div className="flex items-center justify-between h-32 lg:h-24">
+          {/* HAUTEUR MOBILE : h-36 */}
+          <div className="flex items-center justify-between h-36 lg:h-24">
 
-          {/* --- LOGO --- */}
+            {/* --- LOGO MOBILE TAILLE RÉDUITE --- */}
             <a href="#home" className="relative z-50 flex items-center min-w-[200px]">
               <img
                 src="/logo.png"
                 alt="Centre Dentaire Al Boughaz - Dr Amine Khanboubi"
                 
                 // EXPLICATION DU STYLE COMBINÉ :
-                // 1. Base (Mobile) : h-32, scale-150 (GÉANT), drop-shadow-lg (GRAS)
-                // 2. PC (lg:)      : lg:h-44, lg:scale-110 (NORMAL), lg:drop-shadow-none (PAS D'OMBRE)
+                // 1. Base (Mobile) : h-36, scale-[1.8] (MODÉRÉ), drop-shadow-xl
+                // 2. PC (lg:)      : lg:h-44, lg:scale-110 (NORMAL), lg:drop-shadow-none
                 
                 className="
                   w-auto object-contain transform origin-left transition-all duration-300
-                  h-32 md:h-36 
-                  scale-150 drop-shadow-lg
+                  h-36 md:h-40 
+                  scale-[1.8] drop-shadow-xl
                   lg:h-44 lg:scale-110 lg:drop-shadow-none
                 "
               />
@@ -78,14 +78,13 @@ export const Header = () => {
             {/* CTA + Menu Button */}
             <div className="flex items-center gap-6">
 
-              {/* --- BOUTON TÉLÉPHONE MOBILE (VISIBLE & GRAS) --- */}
-              {/* lg:hidden signifie visible uniquement sur mobile/tablette */}
+              {/* --- BOUTON TÉLÉPHONE MOBILE DOUBLE TAILLE --- */}
               <a
                 href="tel:+212539355133"
-                className="flex lg:hidden items-center justify-center w-14 h-14 bg-primary/10 rounded-full hover:bg-primary transition-colors"
+                className="flex lg:hidden items-center justify-center w-20 h-20 bg-primary/10 rounded-full hover:bg-primary transition-colors"
               >
-                {/* strokeWidth={3} = TRAIT GRAS */}
-                <Phone strokeWidth={3} className="w-8 h-8 text-primary hover:text-white" />
+                {/* strokeWidth={4} = TRÈS GRAS */}
+                <Phone strokeWidth={4} className="w-12 h-12 text-primary hover:text-white" />
               </a>
 
               {/* Téléphone Desktop (Caché sur mobile) */}
@@ -99,14 +98,14 @@ export const Header = () => {
                 </span>
               </a>
 
-              {/* --- BOUTON MENU GÉANT & GRAS --- */}
+              {/* --- BOUTON MENU DOUBLE TAILLE --- */}
               <button
                 onClick={() => setIsMenuOpen(true)}
-                className="relative z-50 w-16 h-16 flex items-center justify-center text-foreground hover:text-primary transition-colors duration-300"
+                className="relative z-50 w-20 h-20 flex items-center justify-center text-foreground hover:text-primary transition-colors duration-300"
                 aria-label="Open menu"
               >
-                {/* w-10 h-10 (40px) + strokeWidth={3} = GÉANT ET GRAS */}
-                <Menu strokeWidth={3} className="w-10 h-10 lg:w-6 lg:h-6" />
+                {/* w-14 h-14 (56px) + strokeWidth={4} = ÉNORME ET TRÈS GRAS */}
+                <Menu strokeWidth={4} className="w-14 h-14 lg:w-6 lg:h-6" />
               </button>
             </div>
 
@@ -125,13 +124,13 @@ export const Header = () => {
             className="fixed inset-0 z-[100] bg-background"
           >
 
-            {/* --- BOUTON FERMER (X) GÉANT --- */}
+            {/* --- BOUTON FERMER (X) DOUBLE TAILLE --- */}
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-8 right-8 w-16 h-16 flex items-center justify-center text-foreground hover:text-primary transition-colors duration-300"
+              className="absolute top-8 right-8 w-20 h-20 flex items-center justify-center text-foreground hover:text-primary transition-colors duration-300"
             >
-              {/* X très gras et grand */}
-              <X strokeWidth={3} className="w-12 h-12 lg:w-8 lg:h-8" />
+              {/* X très gras et double taille */}
+              <X strokeWidth={4} className="w-16 h-16 lg:w-8 lg:h-8" />
             </button>
 
             {/* Menu Content */}
@@ -152,12 +151,13 @@ export const Header = () => {
                         onClick={() => setIsMenuOpen(false)}
                         className="group flex items-center gap-6"
                       >
-                        <span className="text-xl font-bold text-primary">
+                        {/* --- NUMÉRO TAILLE RÉDUITE --- */}
+                        <span className="text-2xl lg:text-xl font-bold text-primary">
                           0{index + 1}
                         </span>
 
-                        {/* --- TEXTE DU MENU GÉANT (text-6xl) ET GRAS (font-bold) --- */}
-                        <span className="font-serif text-6xl sm:text-7xl lg:text-7xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                        {/* --- TEXTE DU MENU TAILLE RÉDUITE (text-5xl) ET GRAS --- */}
+                        <span className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                           {link.name}
                         </span>
 
@@ -167,32 +167,32 @@ export const Header = () => {
                 </nav>
               </div>
 
-              {/* Contact Info */}
+              {/* Contact Info - TEXTE DOUBLE TAILLE */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="lg:w-[400px] bg-card p-8 lg:p-12 flex flex-col justify-end"
               >
-                <div className="space-y-8">
+                <div className="space-y-10 lg:space-y-8">
                   <div>
-                    <p className="text-base font-semibold text-muted-foreground mb-2">Adresse</p>
-                    <p className="text-foreground text-lg">
+                    <p className="text-2xl lg:text-base font-semibold text-muted-foreground mb-3 lg:mb-2">Adresse</p>
+                    <p className="text-foreground text-3xl lg:text-lg leading-relaxed">
                       Avenue Moulay Youssef, n°69.<br />
                       Tanger, Maroc.
                     </p>
                   </div>
-                 <div>
-                    <p className="ttext-base font-semibold text-muted-foreground mb-2">Contact</p>
-                    <p className="text-foreground text-lg">
+                  <div>
+                    <p className="text-2xl lg:text-base font-semibold text-muted-foreground mb-3 lg:mb-2">Contact</p>
+                    <p className="text-foreground text-3xl lg:text-lg leading-relaxed">
                       +212 5 39 35 51 33<br />
                       contact@alboughaz.dental
                     </p>
                   </div>
 
                   <div>
-                    <p className="text-base font-semibold text-muted-foreground mb-2">Horaires</p>
-                    <p className="text-foreground text-lg">
+                    <p className="text-2xl lg:text-base font-semibold text-muted-foreground mb-3 lg:mb-2">Horaires</p>
+                    <p className="text-foreground text-3xl lg:text-lg leading-relaxed">
                       Lun - Ven : 09h00 - 18h00<br />
                       Sam : 10h00 - 14h00
                     </p>
