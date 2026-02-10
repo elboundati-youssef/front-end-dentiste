@@ -34,6 +34,8 @@ export const About = () => {
                 src={img2}
                 alt="Intervention de blanchiment dentaire au Centre Al Boughaz Tanger"
                 className="w-full aspect-[4/5] object-cover rounded shadow-lg"
+                width={1280}
+                height={720}
               />
             </div>
             {/* Ajustement de la position pour mobile (-bottom-4 au lieu de -8) */}
@@ -42,6 +44,8 @@ export const About = () => {
                 src={img1}
                 alt="Équipe médicale du Dr Amine Khanboubi à Tanger"
                 className="w-full aspect-square object-cover rounded border-4 border-background"
+                width={1280}
+                height={720}
               />
             </div>
             <div className="absolute top-8 -left-8 w-24 h-24 border border-primary/30 hidden lg:block" />

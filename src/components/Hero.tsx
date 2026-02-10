@@ -119,6 +119,8 @@ export const Hero = () => {
           src={image2}
           alt="Centre Dentaire Al Boughaz Tanger - Cabinet moderne sur l'Avenue Moulay Youssef près de la Mosquée Badr"
           className="w-full h-full object-cover"
+          width={1280}
+          height={720}
         />
       </div>
 

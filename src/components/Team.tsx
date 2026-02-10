@@ -59,6 +59,8 @@ export const Team = () => {
                 alt="Dr. Amine Khanboubi"
                 // HAUTEUR MOBILE AGRANDIE : h-[700px] au lieu de h-[500px]
                 className="w-full h-[700px] lg:h-[700px] object-cover transition-all duration-700 ease-in-out group-hover:scale-105"
+               width={1280}
+              height={720}
               />
               
               {/* Social icons - AGRANDIS sur mobile */}
@@ -155,7 +157,9 @@ export const Team = () => {
                 src={cabinet}
                 alt="cabinet-dentaire-mosquee-badr-tanger equipement moderne"
                 className="w-full h-full object-cover transition-all duration-700 ease-in-out"
-              />
+              width={1280}
+              height={720}
+             />
             </div>
 
           </motion.div>
