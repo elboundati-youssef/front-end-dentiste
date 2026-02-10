@@ -95,7 +95,7 @@ const ServiceDetails = () => {
                   Prenez rendez-vous dès aujourd'hui au Centre Dentaire Al Boughaz.
                 </p>
                 <a
-                  href="..#contact"
+                  href="../#contact"
                   className="w-full flex items-center justify-center gap-4 lg:gap-2 bg-primary text-primary-foreground py-7 lg:py-4 rounded font-medium hover:bg-foreground transition-all text-3xl lg:text-base"
                 >
                   <Calendar className="w-10 h-10 lg:w-5 lg:h-5" />
