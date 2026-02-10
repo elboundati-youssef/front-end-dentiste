@@ -146,15 +146,22 @@ export const Hero = () => {
           <span className="text-gradient block mt-4 lg:mt-2 lg:inline"> d'un sourire éclatant</span>
         </h1>
 
-        {/* Subtitle - ÉNORME sur mobile */}
+         {/* Subtitle - ÉNORME sur mobile, texte naturel sans br forcés */}
         <p
           ref={subtitleRef}
-          className="max-w-4xl mx-auto text-[2.8rem] leading-tight lg:text-xl text-muted-foreground mb-12 lg:mb-12 lg:leading-relaxed font-medium lg:font-normal"
+          className="max-w-4xl mx-auto text-[2.8rem] leading-snug lg:text-xl text-muted-foreground mb-12 lg:mb-12 lg:leading-relaxed font-medium lg:font-normal"
         >
-          Vous recherchez l'excellence dentaire à Tanger ?<br />
-          À deux pas de la Mosquée Badr, le Dr Amine Khanboubi déploie<br />
-          au sein du Centre Dentaire Al Boughaz les meilleures technologies
-          et une expertise<br /> internationale en implantologie et orthodontie pour transformer votre sourire.
+          {/* Desktop : avec sauts de ligne */}
+          <span className="hidden lg:inline">
+            Vous recherchez l'excellence dentaire à Tanger ?<br />
+            À deux pas de la Mosquée Badr, le Dr Amine Khanboubi déploie<br />
+            au sein du Centre Dentaire Al Boughaz les meilleures technologies
+            et une expertise<br /> internationale en implantologie et orthodontie pour transformer votre sourire.
+          </span>
+          {/* Mobile : texte fluide sans br */}
+          <span className="lg:hidden">
+            Vous recherchez <br />l'excellence dentaire à Tanger ?<br /> À deux pas de la Mosquée Badr,<br /> le Dr Amine Khanboubi déploie au sein <br /> du Centre Dentaire Al Boughaz <br />les meilleures technologies et une expertise internationale en implantologie et orthodontie pour transformer<br /> votre sourire.
+          </span>
         </p>
 
         {/* CTA Buttons - DOUBLE TAILLE et VERTICAUX sur mobile */}

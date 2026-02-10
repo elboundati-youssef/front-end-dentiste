@@ -72,7 +72,7 @@ export const Team = () => {
               </div>
 
               {/* Badge expérience - AGRANDI sur mobile */}
-              <div className="absolute bottom-0 left-0 bg-primary text-primary-foreground p-10 lg:p-8">
+              <div className="absolute bottom-0 left-0 bg-gradient-gold text-primary-foreground p-10 lg:p-8">
                 <p className="font-serif text-7xl lg:text-5xl font-bold mb-3 lg:mb-2">10+</p>
                 <p className="text-lg lg:text-sm tracking-widest uppercase">
                   Années d'expérience

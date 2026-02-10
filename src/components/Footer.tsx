@@ -108,7 +108,7 @@ export const Footer = () => {
               />
               <button
                 type="submit"
-                className="px-6 py-5 lg:px-4 lg:py-3 bg-primary text-primary-foreground font-medium hover:bg-foreground hover:text-background transition-colors duration-300 text-xl lg:text-base"
+                className="px-6 py-5 lg:px-4 lg:py-3 bg-gradient-gold text-primary-foreground font-medium hover:bg-foreground hover:text-background transition-colors duration-300 text-xl lg:text-base"
               >
                 S'abonner
               </button>
@@ -160,7 +160,7 @@ export const Footer = () => {
         <motion.button
           onClick={scrollToTop}
           // MOBILE : w-20 h-20 (80px) -> TRÈS GROS
-          className="w-20 h-20 lg:w-12 lg:h-12 bg-primary text-primary-foreground flex items-center justify-center shadow-xl transition-colors duration-300 rounded hover:bg-foreground hover:text-background"
+          className="w-20 h-20 lg:w-12 lg:h-12 bg-gradient-gold text-primary-foreground flex items-center justify-center shadow-xl transition-colors duration-300 rounded hover:bg-foreground hover:text-background"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           whileHover={{ scale: 1.1 }}

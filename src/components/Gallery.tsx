@@ -96,16 +96,17 @@ export const Gallery = () => {
     <span className="text-gradient">Nos réalisations</span>
   </h2>
 
-          {/* Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-4">
+        
+          {/* Tabs - AGRANDIS sur mobile */}
+          <div className="flex flex-wrap items-center justify-center gap-4 lg:gap-4">
             {tabs.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-6 py-3 text-sm font-medium transition-all duration-300 ${
+                className={`px-8 py-5 lg:px-6 lg:py-3 text-2xl lg:text-sm font-bold lg:font-medium transition-all duration-300 ${
                   activeTab === tab
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-transparent text-muted-foreground hover:text-foreground border border-border hover:border-primary'
+                    ? 'bg-gradient-gold text-primary-foreground'
+                    : 'bg-transparent text-muted-foreground hover:text-foreground border-2 lg:border border-border hover:border-primary'
                 }`}
               >
                 {tab}
@@ -158,12 +159,12 @@ export const Gallery = () => {
             onClick={() => setSelectedImage(null)}
             className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-md p-4 lg:p-10"
           >
-            {/* Bouton Fermer */}
+           {/* Bouton Fermer - AGRANDI sur mobile */}
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-6 right-6 lg:top-10 lg:right-10 w-12 h-12 flex items-center justify-center bg-background border border-border text-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-300 rounded-full z-50"
+              className="absolute top-6 right-6 lg:top-10 lg:right-10 w-20 h-20 lg:w-12 lg:h-12 flex items-center justify-center bg-background border-2 lg:border border-border text-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-300 rounded-full z-50"
             >
-              <X className="w-6 h-6" />
+              <X className="w-10 h-10 lg:w-6 lg:h-6" />
             </button>
 
             {/* Image en Grand */}
@@ -179,14 +180,14 @@ export const Gallery = () => {
               onClick={(e) => e.stopPropagation()}
             />
             
-            {/* Légende en bas (optionnel) */}
+           {/* Légende - AGRANDIE sur mobile */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="absolute bottom-6 lg:bottom-10 left-0 right-0 text-center px-4"
+              className="absolute bottom-8 lg:bottom-10 left-0 right-0 text-center px-6 lg:px-4"
             >
-              <p className="text-white/80 text-lg font-medium">{selectedImage.alt}</p>
+              <p className="text-white/80 text-2xl lg:text-lg font-medium">{selectedImage.alt}</p>
             </motion.div>
           </motion.div>
         )}
