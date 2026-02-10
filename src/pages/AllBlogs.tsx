@@ -17,18 +17,18 @@ const AllBlogs = () => {
       <Header />
       <main className="pt-24 pb-16 bg-secondary/5 min-h-screen">
         <div className="container mx-auto px-6 lg:px-12">
-         <br />
-         <br />
+
+        <br />
          <br />
          <br />
          <br />
             {/* Titre et retour */}
             <div className="mb-12">
-                <a href="./#blog" className="inline-flex items-center text-muted-foreground hover:text-primary mb-6 transition-colors">
-                    <ArrowLeft className="w-4 h-4 mr-2" />
+                <a href="/#blog" className="inline-flex items-center text-muted-foreground hover:text-primary mb-10 lg:mb-8 transition-colors text-2xl lg:text-base gap-3 lg:gap-2">
+                    <ArrowLeft className="w-8 h-8 lg:w-4 lg:h-4" />
                     Retour à l'accueil
                 </a>
-                <br />
+              
                 <br />
                 <br />
                 <h1 className="font-serif text-4xl md:text-5xl font-medium text-foreground">

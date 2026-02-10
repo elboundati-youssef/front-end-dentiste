@@ -49,51 +49,64 @@ const ServiceDetails = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <div className="inline-flex items-center justify-center p-3 bg-primary/20 backdrop-blur-sm rounded-full mb-6">
-                        {/* Utilisation de la variable Icon avec majuscule */}
-                        <Icon className="w-8 h-8 text-primary" />
-                    </div>
-                    <h1 className="font-serif text-4xl md:text-6xl mb-4">{service.title}</h1>
+                    <div className="inline-flex items-center justify-center p-5 lg:p-3 bg-primary/20 backdrop-blur-sm rounded-full mb-8 lg:mb-6">
+                <Icon className="w-16 h-16 lg:w-8 lg:h-8 text-primary" />
+              </div>
+                  {/* Titre - AGRANDI sur mobile */}
+              <h1 className="font-serif text-6xl md:text-6xl lg:text-6xl mb-6 lg:mb-4">{service.title}</h1>
                 </motion.div>
             </div>
         </section>
 
-        {/* Détails */}
+         {/* Détails - AGRANDIS sur mobile */}
         <section className="py-20 bg-background">
-            <div className="container mx-auto px-6 lg:px-12">
-                <a href="../#services" className="inline-flex items-center text-muted-foreground hover:text-primary mb-8 transition-colors">
-                    <ArrowLeft className="w-4 h-4 mr-2" />
-                    Retour à l'accueil
-                </a>
+          <div className="container mx-auto px-6 lg:px-12">
 
-                <div className="grid lg:grid-cols-2 gap-12 items-start">
-                    <div>
-                        <h2 className="font-serif text-3xl text-foreground mb-6">À propos de ce soin</h2>
-                        <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                            {service.description}
-                        </p>
-                        <div className="prose prose-lg text-muted-foreground">
-                            <p>{service.details}</p>
-                        </div>
-                    </div>
+            {/* Bouton retour - AGRANDI sur mobile */}
+            <a
+              href="../#services"
+              className="inline-flex items-center text-muted-foreground hover:text-primary mb-10 lg:mb-8 transition-colors text-2xl lg:text-base gap-3 lg:gap-2"
+            >
+              <ArrowLeft className="w-8 h-8 lg:w-4 lg:h-4" />
+              Retour à l'accueil
+            </a>
 
-                    {/* Carte de Prise de RDV rapide */}
-                    <div className="bg-card p-8 rounded-lg border border-border sticky top-32">
-                        <h3 className="font-serif text-2xl mb-4">Intéressé par ce soin ?</h3>
-                        <p className="text-muted-foreground mb-6">
-                            Prenez rendez-vous dès aujourd'hui au Centre Dentaire Al Boughaz.
-                        </p>
-                        <a 
-                            href="..#contact" // Redirige vers la section contact de la page d'accueil
-                            className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground py-4 rounded font-medium hover:bg-foreground transition-all"
-                        >
-                            <Calendar className="w-5 h-5" />
-                            Prendre Rendez-vous
-                        </a>
-                    </div>
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+
+              {/* Texte - AGRANDI sur mobile */}
+              <div>
+                <h2 className="font-serif text-5xl lg:text-3xl text-foreground mb-8 lg:mb-6">
+                  À propos de ce soin
+                </h2>
+                <p className="text-3xl lg:text-lg text-muted-foreground leading-relaxed mb-8 lg:mb-6">
+                  {service.description}
+                </p>
+                <div className="prose prose-lg text-muted-foreground">
+                  <p className="text-2xl lg:text-base leading-relaxed">{service.details}</p>
                 </div>
+              </div>
+
+              {/* Carte RDV - AGRANDIE sur mobile */}
+              <div className="bg-card p-10 lg:p-8 rounded-lg border border-border lg:sticky lg:top-32">
+                <h3 className="font-serif text-4xl lg:text-2xl mb-6 lg:mb-4">
+                  Intéressé par ce soin ?
+                </h3>
+                <p className="text-muted-foreground mb-8 lg:mb-6 text-2xl lg:text-base leading-relaxed">
+                  Prenez rendez-vous dès aujourd'hui au Centre Dentaire Al Boughaz.
+                </p>
+                <a
+                  href="..#contact"
+                  className="w-full flex items-center justify-center gap-4 lg:gap-2 bg-primary text-primary-foreground py-7 lg:py-4 rounded font-medium hover:bg-foreground transition-all text-3xl lg:text-base"
+                >
+                  <Calendar className="w-10 h-10 lg:w-5 lg:h-5" />
+                  Prendre Rendez-vous
+                </a>
+              </div>
+
             </div>
+          </div>
         </section>
+
       </main>
       <Footer />
     </>

@@ -35,7 +35,7 @@ const BlogPost = () => {
                 <span className="bg-primary px-3 py-1 text-sm font-medium uppercase tracking-wider mb-4 rounded">
                     {post.category}
                 </span>
-                <h1 className="font-serif text-3xl md:text-5xl max-w-4xl leading-tight">
+                <h1 className="font-serif text-6xl md:text-6xl lg:text-6xl mb-6 lg:mb-4">
                     {post.title}
                 </h1>
                 <div className="flex items-center gap-4 mt-6 text-sm text-white/80">
@@ -53,24 +53,25 @@ const BlogPost = () => {
 
         {/* Contenu de l'article */}
         <article className="container mx-auto px-6 lg:px-12 py-12 max-w-4xl">
-            <a href="../#blog" className="inline-flex items-center text-muted-foreground hover:text-primary mb-8 transition-colors">
-                <ArrowLeft className="w-4 h-4 mr-2" />
+            <a href="../#blog" className="inline-flex items-center text-muted-foreground hover:text-primary mb-10 lg:mb-8 transition-colors text-2xl lg:text-base gap-3 lg:gap-2"
+           >
+                <ArrowLeft className="w-8 h-8 lg:w-4 lg:h-4" />
                 Retour aux articles
             </a>
 
             {/* Injection du contenu HTML - TAILLE AUGMENTÉE ICI */}
             <div 
-                className="prose prose-xl md:prose-2xl prose-headings:font-serif prose-headings:text-foreground prose-p:text-muted-foreground prose-p:text-lg md:prose-p:text-xl prose-li:text-muted-foreground prose-li:text-lg max-w-none"
+                className="text-3xl lg:text-lg text-muted-foreground leading-relaxed mb-8 lg:mb-6"
                 dangerouslySetInnerHTML={{ __html: post.content }} 
             />
             
             {/* Signature / CTA */}
-            <div className="mt-16 p-8 bg-secondary/10 rounded-lg border border-border">
-                <h3 className="font-serif text-2xl mb-4">Besoin d'un avis personnalisé ?</h3>
-                <p className="text-muted-foreground mb-6 text-lg">
+    <div className="bg-card p-10 lg:p-8 rounded-lg border border-border lg:sticky lg:top-32">
+                <h3 className="font-serif text-4xl lg:text-2xl mb-6 lg:mb-4">Besoin d'un avis personnalisé ?</h3>
+                <p className="text-muted-foreground mb-8 lg:mb-6 text-2xl lg:text-base leading-relaxed">
                     Prenez rendez-vous au cabinet pour discuter de votre situation spécifique.
                 </p>
-                <a href="..#contact" className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded hover:bg-foreground transition-colors">
+                <a href="..#contact" className="w-full flex items-center justify-center gap-4 lg:gap-2 bg-primary text-primary-foreground py-7 lg:py-4 rounded font-medium hover:bg-foreground transition-all text-3xl lg:text-base">
                     Prendre Rendez-vous
                 </a>
             </div>

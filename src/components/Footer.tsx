@@ -3,18 +3,18 @@ import { Facebook, Instagram, Twitter, Linkedin, ArrowUp } from 'lucide-react';
 
 const footerLinks = {
   services: [
-    { name: 'Esthétique Dentaire', href: '#services' },
-    { name: 'Soins Préventifs', href: '#services' },
-    { name: 'Orthodontie', href: '#services' },
-    { name: 'Implants Dentaires', href: '#services' },
-    { name: 'Dentisterie Pédiatrique', href: '#services' },
+    { name: 'Esthétique Dentaire', href: '/#services' },
+    { name: 'Soins Préventifs', href: '/#services' },
+    { name: 'Orthodontie', href: '/#services' },
+    { name: 'Implants Dentaires', href: '/#services' },
+    { name: 'Dentisterie Pédiatrique', href: '/#services' },
   ],
   company: [
-    { name: 'À Propos', href: '#about' },
-    { name: 'Galerie', href: '#gallery' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Témoignages', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'À Propos', href: '/#about' },
+    { name: 'Galerie', href: '/#gallery' },
+    { name: 'Blog', href: '/#blog' },
+    { name: 'Témoignages', href: '/#testimonials' },
+    { name: 'Contact', href: '/#contact' },
   ],
   legal: [
     { name: 'Politique de Confidentialité', href: '#' },
