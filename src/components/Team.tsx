@@ -1,8 +1,8 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Award, GraduationCap, Stethoscope, Linkedin, Mail } from 'lucide-react';
-import Khanboubi from "@/assets/images/DSC08959.jpg";
-import cabinet  from "@/assets/images/DSC09092.jpg";
+import Khanboubi from "@/assets/images/DSC08959-C.jpg";
+import cabinet  from "@/assets/images/DSC09092-C.jpg";
 export const Team = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -53,12 +53,12 @@ export const Team = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:w-1/2 group"
           >
-            <div className="relative overflow-hidden shadow-2xl">
+              <div className="relative overflow-hidden shadow-2xl">
               <img
                 src={Khanboubi}
                 alt="Dr. Amine Khanboubi"
                 // HAUTEUR MOBILE AGRANDIE : h-[700px] au lieu de h-[500px]
-                className="w-full h-[700px] lg:h-[700px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out group-hover:scale-105"
+                className="w-full h-[700px] lg:h-[700px] object-cover transition-all duration-700 ease-in-out group-hover:scale-105"
               />
               
               {/* Social icons - AGRANDIS sur mobile */}
@@ -149,12 +149,12 @@ export const Team = () => {
               </div>
             </div>
 
-            {/* Image cabinet - HAUTEUR AGRANDIE sur mobile */}
+             {/* Image cabinet - HAUTEUR AGRANDIE sur mobile */}
             <div className="relative h-72 lg:h-64 overflow-hidden image-zoom shadow-lg group">
               <img
                 src={cabinet}
                 alt="cabinet-dentaire-mosquee-badr-tanger equipement moderne"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
+                className="w-full h-full object-cover transition-all duration-700 ease-in-out"
               />
             </div>
 

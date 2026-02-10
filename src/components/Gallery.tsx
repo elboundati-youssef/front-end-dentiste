@@ -1,10 +1,10 @@
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { Expand, X } from 'lucide-react';
-import clinique1 from "@/assets/images/DSC09118.jpg";
-import clinique2 from "@/assets/images/DSC09127.jpg";
-import clinique3 from "@/assets/images/DSC09123.jpg";
-import clinique4 from "@/assets/images/DSC09094.jpg";
+import clinique1 from "@/assets/images/DSC09118-C.jpg";
+
+import clinique3 from "@/assets/images/DSC09123-C.jpg";
+import clinique4 from "@/assets/images/DSC09094-C.jpg";
 
 // Traduction des onglets
 const tabs = ['Tous', 'Avant & Après', 'Clinique', 'Équipe'];

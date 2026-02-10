@@ -3,7 +3,7 @@ import { ArrowDown, Star } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import image2 from "@/assets/images/DSC09092.jpg";
+import image2 from "@/assets/images/DSC09092-C.jpg";
 gsap.registerPlugin(ScrollTrigger);
 
 export const Hero = () => {
