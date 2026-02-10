@@ -1,10 +1,10 @@
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { Expand, X } from 'lucide-react';
-import clinique1 from "@/assets/images/compressed/DSC09118-C.webp";
+import clinique1 from "@/assets/images/compressed/DSC09118-CT.jpg";
 
-import clinique3 from "@/assets/images/compressed/DSC09123-C.webp";
-import clinique4 from "@/assets/images/compressed/DSC09094-C.webp";
+import clinique3 from "@/assets/images/compressed/DSC09123-CT.jpg";
+import clinique4 from "@/assets/images/compressed/DSC09094-CT.jpg";
 
 // Traduction des onglets
 const tabs = ['Tous', 'Avant & Après', 'Clinique', 'Équipe'];
@@ -155,6 +155,9 @@ export const Gallery = () => {
               className={`group relative overflow-hidden cursor-pointer ${item.span}`}
             >
               <img
+
+                width={720}
+                height={720}
                 src={item.src}
                 alt={item.alt ? `${item.alt} - Centre Al Boughaz Tanger` : `Galerie dentaire ${index + 1}`}
                 className="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110"

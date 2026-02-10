@@ -1,8 +1,8 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Award, GraduationCap, Stethoscope, Linkedin, Mail } from 'lucide-react';
-import Khanboubi from "@/assets/images/compressed/DSC08959-C.webp";
-import cabinet  from "@/assets/images/compressed/DSC09092-C.webp";
+import Khanboubi from "@/assets/images/compressed/DSC08959-CT.jpg";
+import cabinet  from "@/assets/images/compressed/DSC09092-CT.jpg";
 export const Team = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
