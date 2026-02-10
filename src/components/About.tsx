@@ -1,8 +1,8 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Award, Users, Clock, Shield } from 'lucide-react';
-import img1 from "@/assets/images/DSC01770-C.jpg";
-import img2 from "@/assets/images/DSC09122-C.jpg";
+import img1 from "@/assets/images/compressed/DSC01770-C.webp";
+import img2 from "@/assets/images/compressed/DSC09122-C.webp";
 
 const stats = [
   { icon: Award, value: '10+', label: "Ans d'Expérience \n en Chirurgie Dentaire" },
