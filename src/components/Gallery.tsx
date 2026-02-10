@@ -1,6 +1,10 @@
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { Expand, X } from 'lucide-react';
+import clinique1 from "@/assets/images/DSC09118.jpg";
+import clinique2 from "@/assets/images/DSC09127.jpg";
+import clinique3 from "@/assets/images/DSC09123.jpg";
+import clinique4 from "@/assets/images/DSC09094.jpg";
 
 // Traduction des onglets
 const tabs = ['Tous', 'Avant & Après', 'Clinique', 'Équipe'];
@@ -8,39 +12,57 @@ const tabs = ['Tous', 'Avant & Après', 'Clinique', 'Équipe'];
 // Données de la galerie
 const galleryItems = [
   { 
-    src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80', 
+    src: clinique1, 
     category: 'Clinique', 
     span: 'col-span-2 row-span-2',
     alt: 'Cabinet dentaire moderne et salle d\'attente'
   },
-  { 
-    src: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80', 
-    category: 'Avant & Après', 
+// { 
+//    src: clinique2, 
+//    category: 'Clinique', 
+//    span: '',
+//    alt: 'Cabinet dentaire moderne et salle d\'attente'
+//  },
+   { 
+    src: clinique3, 
+    category: 'Clinique', 
     span: '',
-    alt: 'Résultat blanchiment dentaire professionnel'
+    alt: 'Cabinet dentaire moderne et salle d\'attente'
   },
+   { 
+    src: clinique4, 
+    category: 'Clinique', 
+    span: '',
+    alt: 'Cabinet dentaire moderne et salle d\'attente'
+  },
+ // { 
+ //   src: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80', 
+ //   category: 'Avant & Après', 
+ //   span: '',
+ //   alt: 'Résultat blanchiment dentaire professionnel'
+ // },
   { 
     src: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80', 
     category: 'Équipe', 
     span: '',
     alt: 'Assistantes dentaires et hygiénistes'
   },
-  { 
-    src: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=600&q=80', 
-    category: 'Avant & Après', 
-    span: '',
-    alt: 'Pose de facettes dentaires céramique'
-  },
-  { 
-    src: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80', 
-    category: 'Clinique', 
-    span: '',
-    alt: 'Technologie dentaire de pointe'
-  },
+ // { 
+ //   src: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=600&q=80', 
+ //   category: 'Avant & Après', 
+ //   span: '',
+ //   alt: 'Pose de facettes dentaires céramique'
+ // },
+ // { 
+ //   src: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80', 
+ //   category: 'Clinique', 
+ //   span: 'col-span-2',
+ //   alt: 'Technologie dentaire de pointe'
+ // },
   { 
     src: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80', 
     category: 'Avant & Après', 
-    span: 'col-span-2',
+    span: '',
     alt: 'Restaurations dentaires complexes et implants'
   },
 ];

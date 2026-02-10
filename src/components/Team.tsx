@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Award, GraduationCap, Stethoscope, Linkedin, Mail } from 'lucide-react';
 import Khanboubi from "@/assets/images/DSC08959.jpg";
+import cabinet  from "@/assets/images/DSC09092.jpg";
 export const Team = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -151,7 +152,7 @@ export const Team = () => {
             {/* Image cabinet - HAUTEUR AGRANDIE sur mobile */}
             <div className="relative h-72 lg:h-64 overflow-hidden image-zoom shadow-lg group">
               <img
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80"
+                src={cabinet}
                 alt="cabinet-dentaire-mosquee-badr-tanger equipement moderne"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
               />

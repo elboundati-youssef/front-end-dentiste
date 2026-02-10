@@ -1,7 +1,7 @@
-import { useEffect } from "react"; // 1. Import nécessaire pour le scroll
+import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { servicesData } from "@/data/servicesData";
-import { ArrowLeft, Calendar } from "lucide-react";
+import { ArrowLeft, Calendar, CheckCircle, UserCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -10,7 +10,6 @@ const ServiceDetails = () => {
   const { id } = useParams();
   const service = servicesData.find((s) => s.id === id);
 
-  // 2. CORRECTION UX : Remonter en haut de page au chargement
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
@@ -26,19 +25,19 @@ const ServiceDetails = () => {
     );
   }
 
-  // 3. CORRECTION REACT : Assigner l'icône à une variable avec Majuscule
   const Icon = service.icon;
 
   return (
     <>
       <Header />
       <main className="pt-20">
-        {/* Section Hero du Service */}
+        
+        {/* HERO SECTION */}
         <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0">
                 <img 
                     src={service.image} 
-                    alt={`Traitement ${service.title} - Centre Dentaire Tanger`} // SEO Amélioré
+                    alt={`Traitement ${service.title} - Centre Dentaire Tanger`}
                     className="w-full h-full object-cover" 
                 />
                 <div className="absolute inset-0 bg-black/60" />
@@ -50,19 +49,18 @@ const ServiceDetails = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <div className="inline-flex items-center justify-center p-5 lg:p-3 bg-primary/20 backdrop-blur-sm rounded-full mb-8 lg:mb-6">
-                <Icon className="w-16 h-16 lg:w-8 lg:h-8 text-primary" />
-              </div>
-                  {/* Titre - AGRANDI sur mobile */}
-              <h1 className="font-serif text-6xl md:text-6xl lg:text-6xl mb-6 lg:mb-4">{service.title}</h1>
+                        <Icon className="w-16 h-16 lg:w-8 lg:h-8 text-primary" />
+                    </div>
+                    <h1 className="font-serif text-5xl md:text-6xl lg:text-6xl mb-6 lg:mb-4">{service.title}</h1>
                 </motion.div>
             </div>
         </section>
 
-         {/* Détails - AGRANDIS sur mobile */}
+        {/* CONTENU */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-6 lg:px-12">
 
-            {/* Bouton retour - AGRANDI sur mobile */}
+            {/* Bouton retour */}
             <a
               href="/#services"
               className="inline-flex items-center text-muted-foreground hover:text-primary mb-10 lg:mb-8 transition-colors text-2xl lg:text-base gap-3 lg:gap-2"
@@ -71,36 +69,76 @@ const ServiceDetails = () => {
               Retour à l'accueil
             </a>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
 
-              {/* Texte - AGRANDI sur mobile */}
+              {/* COLONNE GAUCHE : Description structurée */}
               <div>
-                <h2 className="font-serif text-5xl lg:text-3xl text-foreground mb-8 lg:mb-6">
+                <h2 className="font-serif text-4xl lg:text-3xl text-foreground mb-6">
                   À propos de ce soin
                 </h2>
-                <p className="text-3xl lg:text-lg text-muted-foreground leading-relaxed mb-8 lg:mb-6">
-                  {service.description}
+                
+                {/* 1. INTRODUCTION */}
+                <p className="text-2xl lg:text-lg text-muted-foreground leading-relaxed mb-8">
+                  {service.intro}
                 </p>
-                <div className="prose prose-lg text-muted-foreground">
-                  <p className="text-2xl lg:text-base leading-relaxed">{service.details}</p>
-                </div>
+
+                {/* 2. LISTE DES AVANTAGES (BÉNÉFICES) */}
+                {service.benefits && (
+                    <div className="bg-secondary/5 p-8 rounded-2xl border border-border mb-10">
+                        <h3 className="font-serif text-2xl lg:text-xl mb-6 flex items-center gap-3">
+                            <CheckCircle className="w-6 h-6 text-primary" />
+                            Pourquoi choisir ce traitement ?
+                        </h3>
+                        <ul className="space-y-4">
+                            {service.benefits.map((benefit, index) => (
+                                <li key={index} className="flex items-start gap-4 text-xl lg:text-base text-muted-foreground">
+                                    <span className="w-2 h-2 mt-2.5 rounded-full bg-primary shrink-0" />
+                                    {benefit}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
+                {/* 3. L'AVIS DE L'EXPERT */}
+                {service.expert_advice && (
+                    <div className="border-l-4 border-primary pl-6 py-2">
+                        <h3 className="font-serif text-2xl lg:text-lg font-bold mb-3 flex items-center gap-2 text-foreground">
+                            <UserCheck className="w-6 h-6 lg:w-5 lg:h-5 text-primary" />
+                            L'expertise du Dr Khanboubi
+                        </h3>
+                        <p className="text-xl lg:text-lg text-muted-foreground italic">
+                            "{service.expert_advice}"
+                        </p>
+                    </div>
+                )}
               </div>
 
-              {/* Carte RDV - AGRANDIE sur mobile */}
-              <div className="bg-card p-10 lg:p-8 rounded-lg border border-border lg:sticky lg:top-32">
-                <h3 className="font-serif text-4xl lg:text-2xl mb-6 lg:mb-4">
-                  Intéressé par ce soin ?
-                </h3>
-                <p className="text-muted-foreground mb-8 lg:mb-6 text-2xl lg:text-base leading-relaxed">
-                  Prenez rendez-vous dès aujourd'hui au Centre Dentaire Al Boughaz.
-                </p>
-                <a
-                  href="/#contact"
-                  className="w-full flex items-center justify-center gap-4 lg:gap-2 bg-primary text-primary-foreground py-7 lg:py-4 rounded font-medium hover:bg-foreground transition-all text-3xl lg:text-base"
-                >
-                  <Calendar className="w-10 h-10 lg:w-5 lg:h-5" />
-                  Prendre Rendez-vous
-                </a>
+              {/* COLONNE DROITE (Sticky CTA) */}
+              <div className="relative">
+                  <div className="bg-card p-8 rounded-2xl border border-border shadow-lg lg:sticky lg:top-32">
+                    <h3 className="font-serif text-2xl mb-4 text-center">
+                      Prenez le premier pas
+                    </h3>
+                    <p className="text-muted-foreground text-center mb-8">
+                      Vous souhaitez en savoir plus sur le traitement <strong>{service.title}</strong> ?
+                    </p>
+                    
+                    <div className="space-y-4">
+                        <a
+                          href="/#contact"
+                          className="w-full flex items-center justify-center gap-3 bg-primary text-primary-foreground py-4 rounded-xl font-bold hover:bg-primary/90 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                        >
+                          <Calendar className="w-5 h-5" />
+                          Prendre Rendez-vous
+                        </a>
+                        
+                        <div className="text-center text-sm text-muted-foreground mt-4">
+                            ou appelez-nous au <br/>
+                            <a href="tel:+212539355133" className="text-foreground font-bold hover:text-primary text-lg">+212 5 39 35 51 33</a>
+                        </div>
+                    </div>
+                  </div>
               </div>
 
             </div>
