@@ -53,7 +53,7 @@ const BlogPost = () => {
 
         {/* Contenu de l'article */}
         <article className="container mx-auto px-6 lg:px-12 py-12 max-w-4xl">
-            <a href="../#blog" className="inline-flex items-center text-muted-foreground hover:text-primary mb-10 lg:mb-8 transition-colors text-2xl lg:text-base gap-3 lg:gap-2"
+            <a href="/#blog" className="inline-flex items-center text-muted-foreground hover:text-primary mb-10 lg:mb-8 transition-colors text-2xl lg:text-base gap-3 lg:gap-2"
            >
                 <ArrowLeft className="w-8 h-8 lg:w-4 lg:h-4" />
                 Retour aux articles
