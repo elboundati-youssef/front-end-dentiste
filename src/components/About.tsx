@@ -1,6 +1,8 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Award, Users, Clock, Shield } from 'lucide-react';
+import img1 from "@/assets/images/DSC01770.jpg";
+import img2 from "@/assets/images/DSC09122.jpg";
 
 const stats = [
   { icon: Award, value: '10+', label: "Ans d'Expérience \n en Chirurgie Dentaire" },
@@ -29,7 +31,7 @@ export const About = () => {
           >
             <div className="relative z-10 image-zoom">
               <img
-                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80"
+                src={img2}
                 alt="Intervention de blanchiment dentaire au Centre Al Boughaz Tanger"
                 className="w-full aspect-[4/5] object-cover rounded shadow-lg"
               />
@@ -37,7 +39,7 @@ export const About = () => {
             {/* Ajustement de la position pour mobile (-bottom-4 au lieu de -8) */}
             <div className="absolute -bottom-4 -right-4 lg:-bottom-8 lg:-right-8 w-2/3 z-20 shadow-card image-zoom">
               <img
-                src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80"
+                src={img1}
                 alt="Équipe médicale du Dr Amine Khanboubi à Tanger"
                 className="w-full aspect-square object-cover rounded border-4 border-background"
               />

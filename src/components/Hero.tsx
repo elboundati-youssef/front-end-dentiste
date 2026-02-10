@@ -3,6 +3,7 @@ import { ArrowDown, Star } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import image2 from "@/assets/images/DSC09092.jpg";
 gsap.registerPlugin(ScrollTrigger);
 
 export const Hero = () => {
@@ -115,7 +116,7 @@ export const Hero = () => {
       <div ref={imageRef} className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-10" />
         <img
-          src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80"
+          src={image2}
           alt="Centre Dentaire Al Boughaz Tanger - Cabinet moderne sur l'Avenue Moulay Youssef près de la Mosquée Badr"
           className="w-full h-full object-cover"
         />

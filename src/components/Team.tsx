@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Award, GraduationCap, Stethoscope, Linkedin, Mail } from 'lucide-react';
-
+import Khanboubi from "@/assets/images/DSC08959.jpg";
 export const Team = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -54,7 +54,7 @@ export const Team = () => {
           >
             <div className="relative overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&q=80"
+                src={Khanboubi}
                 alt="Dr. Amine Khanboubi"
                 // HAUTEUR MOBILE AGRANDIE : h-[700px] au lieu de h-[500px]
                 className="w-full h-[700px] lg:h-[700px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out group-hover:scale-105"
