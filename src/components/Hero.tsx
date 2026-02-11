@@ -152,7 +152,7 @@ export const Hero = () => {
          {/* Subtitle - ÉNORME sur mobile, texte naturel sans br forcés */}
         <p
           ref={subtitleRef}
-          className="max-w-4xl mx-auto text-[2.3rem] leading-snug lg:text-xl text-muted-foreground mb-12 lg:mb-12 lg:leading-relaxed font-medium lg:font-normal"
+          className="max-w-4xl mx-auto text-[2.1rem] leading-snug lg:text-xl text-muted-foreground mb-12 lg:mb-12 lg:leading-relaxed font-medium lg:font-normal"
         >
           {/* Desktop : avec sauts de ligne */}
           <span className="hidden lg:inline">
@@ -161,11 +161,9 @@ export const Hero = () => {
             au sein du Centre Dentaire Al Boughaz les meilleures technologies
             et une expertise<br /> internationale en implantologie et orthodontie pour transformer votre sourire.
           </span>
-          
-         
           {/* Mobile : texte fluide sans br */}
           <span className="lg:hidden">
-            Vous recherchez l'excellence dentaire à Tanger ?<br /> À deux pas de la Mosquée Badr,<br /> le Dr Amine KHANBOUBiI, déploie au sein <br /> du Centre Dentaire Al Boughaz, <br />les meilleures technologies, et une expertise internationale en implantologie, et orthodontie <br />pour transformer votre sourire!
+            Vous recherchez l'excellence dentaire à Tanger ?<br /> À deux pas de la Mosquée Badr,<br /> le Dr Amine Khanboubi déploie au sein <br /> du Centre Dentaire Al Boughaz <br />les meilleures technologies et une expertise internationale en implantologie et orthodontie pour transformer<br /> votre sourire.
           </span>
         </p>
 
@@ -180,13 +178,13 @@ export const Hero = () => {
     className="block w-5/6 mx-auto lg:inline-flex lg:mx-0 lg:w-auto group relative px-16 py-8 lg:px-8 lg:py-4 bg-gradient-gold text-primary-foreground font-medium overflow-hidden transition-all duration-500 hover:shadow-glow rounded lg:rounded-none"
   >
     <span className="relative z-10 text-4xl lg:text-base font-bold">
-      Commencer ma transformation
+      Commencer ma Transformation
     </span>
 
     <div className="absolute inset-0 bg-foreground transform translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
 
     <span className="absolute inset-0 flex items-center justify-center text-background opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-gradient text-4xl lg:text-base">
-      Commencer ma transformation
+      Commencer ma Transformation
     </span>
   </a>
 
@@ -195,7 +193,7 @@ export const Hero = () => {
     className="block w-4/6 mx-auto lg:inline-flex lg:mx-0 lg:w-auto px-16 py-8 lg:px-8 lg:py-4 border-2 lg:border border-foreground/20 text-foreground font-medium hover:border-primary hover:text-primary transition-all duration-300 rounded lg:rounded-none text-4xl lg:text-base"
   >
     <span className="font-bold lg:font-medium">
-      Explorer nos soins
+      Explorer nos Soins
     </span>
   </a>
 </div>
