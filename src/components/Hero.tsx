@@ -152,7 +152,7 @@ export const Hero = () => {
          {/* Subtitle - ÉNORME sur mobile, texte naturel sans br forcés */}
         <p
           ref={subtitleRef}
-          className="max-w-4xl mx-auto text-[2.5rem] leading-snug lg:text-xl text-muted-foreground mb-12 lg:mb-12 lg:leading-relaxed font-medium lg:font-normal"
+          className="max-w-4xl mx-auto text-[2.4rem] leading-snug lg:text-xl text-muted-foreground mb-12 lg:mb-12 lg:leading-relaxed font-medium lg:font-normal"
         >
           {/* Desktop : avec sauts de ligne */}
           <span className="hidden lg:inline">
