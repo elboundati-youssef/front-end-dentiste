@@ -118,7 +118,7 @@ export const Hero = () => {
     <section
       ref={sectionRef}
       id="home"
-      className="relative h-screen lg:min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient pt-32 pb-20 lg:py-0"
+      className="relative h-svh lg:min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient pt-32 pb-20 lg:py-0"
     >
       {/* Background Image with Parallax */}
       <div ref={imageRef} className="absolute inset-0 z-0 opacity-0"> {/* Opacité 0 par défaut pour éviter le flash */}
@@ -152,7 +152,7 @@ export const Hero = () => {
           Retrouvez la confiance,<br />
           <span className="text-gradient block md:text-8xl mt-4 lg:mt-2 lg:inline"> d'un sourire éclatant</span>
         </h1>
-
+<br />
         {/* Subtitle */}
         <p
           ref={subtitleRef}
@@ -169,7 +169,7 @@ export const Hero = () => {
             Vous recherchez l'excellence dentaire à Tanger ?<br /> À deux pas de la Mosquée Badr,<br /> le Dr Amine KHANBOUBiI, déploie au sein <br /> du Centre Dentaire Al Boughaz, <br />les meilleures technologies, et une expertise internationale en implantologie, et orthodontie <br />pour transformer votre sourire!
           </span>
         </p>
-
+<br />
         {/* CTA Buttons */}
         <div
           ref={ctaRef}
@@ -200,7 +200,7 @@ export const Hero = () => {
       {/* Scroll Indicator */}
       <div
         ref={scrollIndicatorRef}
-        className="absolute bottom-12 lg:bottom-10 left-1/2 -translate-x-1/2 z-20 opacity-0"
+        className="absolute bottom-20 lg:bottom-8 left-1/2 -translate-x-1/2 z-20 opacity-0"
       >
         <div className="flex flex-col items-center gap-5 lg:gap-2 text-muted-foreground">
           <span className="text-2xl lg:text-xs tracking-[0.3em] uppercase font-medium">Défiler</span>

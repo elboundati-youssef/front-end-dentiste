@@ -111,7 +111,7 @@ export const CTA = () => {
           </p>
 
           {/* Boutons AGRANDIS et VERTICAUX sur mobile */}
-          <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-center gap-6 lg:gap-4">
+          <div className="flex flex-row items-stretch lg:items-center justify-center gap-6 lg:gap-4">
             <a
               href="#contact"
               className="cta-button group px-14 py-7 lg:px-8 lg:py-4 bg-primary-foreground text-primary font-medium inline-flex items-center justify-center gap-4 lg:gap-3 hover:bg-background transition-all duration-300 hover:scale-105"

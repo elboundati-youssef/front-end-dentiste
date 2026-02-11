@@ -39,7 +39,8 @@ export const Header = () => {
             : 'bg-transparent'
         }`}
       >
-        <div className="container mx-auto px-6 lg:px-12">
+        <div className='absolute h-full bg-gradient-to-b w-full from-black/50 to-transparent z-0 top-0 left-0'></div>
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
           {/* HAUTEUR MOBILE : h-36 */}
           <div className="flex items-center justify-between h-36 lg:h-24">
 

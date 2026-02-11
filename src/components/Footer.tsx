@@ -39,20 +39,20 @@ export const Footer = () => {
     <footer className="bg-background border-t border-border relative">
       {/* Main Footer Content - AGRANDI sur mobile */}
       <div className="container mx-auto px-6 lg:px-12 py-16 lg:py-24">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="grid md:grid-cols-1 lg:grid-cols-5 gap-12">
           
           {/* Brand & Socials - AGRANDI sur mobile */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 text-center lg:text-left">
             <a href="#home" className="inline-block mb-8 lg:mb-6">
               <span className="font-serif text-5xl lg:text-3xl font-semibold text-foreground">
                 Centre Dentaire Al Boughaz
               </span>
             </a>
-            <p className="text-muted-foreground mb-10 lg:mb-8 max-w-sm leading-relaxed text-2xl lg:text-base">
+            <p className="text-muted-foreground mb-10 lg:mb-8  leading-relaxed text-2xl lg:text-base ">
               Découvrez des soins dentaires de classe mondiale dans un environnement moderne et confortable à Tanger. 
               Votre sourire est notre passion.
             </p>
-            <div className="flex items-center gap-6 lg:gap-4">
+            <div className="flex items-center justify-center lg:justify-start gap-6 lg:gap-4">
               {socials.map((social) => (
                 <a
                   key={social.label}
@@ -67,7 +67,7 @@ export const Footer = () => {
           </div>
 
           {/* Services Links - AGRANDI sur mobile */}
-          <div>
+          <div className='hidden lg:block'>
             <h4 className="font-medium text-foreground mb-8 lg:mb-6 text-3xl lg:text-base">Nos Services</h4>
             <ul className="space-y-6 lg:space-y-4">
               {footerLinks.services.map((link) => (
@@ -81,8 +81,8 @@ export const Footer = () => {
           </div>
 
           {/* Company Links - AGRANDI sur mobile */}
-          <div>
-            <h4 className="font-medium text-foreground mb-8 lg:mb-6 text-3xl lg:text-base">Le Centre</h4>
+          <div className='hidden lg:block'>
+            <h4 className="font-medium  text-foreground mb-8 lg:mb-6 text-3xl lg:text-base">Le Centre</h4>
             <ul className="space-y-6 lg:space-y-4">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -95,7 +95,7 @@ export const Footer = () => {
           </div>
 
           {/* Newsletter Section - AGRANDI sur mobile */}
-          <div>
+          <div className='w-2/3 lg:w-full mx-auto text-center lg:text-left'>
             <h4 className="font-medium text-foreground mb-8 lg:mb-6 text-3xl lg:text-base">Newsletter</h4>
             <p className="text-muted-foreground mb-6 lg:mb-4 text-xl lg:text-sm leading-relaxed">
               Inscrivez-vous pour recevoir nos conseils dentaires.
@@ -120,7 +120,7 @@ export const Footer = () => {
       {/* Bottom Bar - AGRANDI sur mobile */}
       <div className="border-t border-border">
         <div className="container mx-auto px-6 lg:px-12 py-8 lg:py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 lg:gap-4">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-4">
             <p className="text-xl lg:text-sm text-muted-foreground">
               © {new Date().getFullYear()} Centre Dentaire Al Boughaz. Tous droits réservés.
             </p>
