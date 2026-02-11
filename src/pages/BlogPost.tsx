@@ -22,9 +22,9 @@ const BlogPost = () => {
   return (
     <>
       <Header />
-      <main className="pt-24 pb-16">
+      <main className="pb-16">
         {/* Hero de l'article */}
-        <div className="relative h-[400px] w-full overflow-hidden">
+        <div className="relative h-[500px] lg:h-[400px] w-full overflow-hidden">
              <img 
                 src={post.image} 
                 alt={post.title} 
@@ -38,13 +38,15 @@ const BlogPost = () => {
                 <h1 className="font-serif text-6xl md:text-6xl lg:text-6xl mb-6 lg:mb-4">
                     {post.title}
                 </h1>
-                <div className="flex items-center gap-4 mt-6 text-sm text-white/80">
-                    <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
+           {/* Métadonnées (Date/Auteur) : GÉANT sur mobile (text-xl + colonne) */}
+                <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-4 mt-2 text-xl lg:text-sm text-white/90 font-medium">
+                    <div className="flex items-center gap-3 lg:gap-2">
+                        <Calendar className="w-6 h-6 lg:w-4 lg:h-4" />
                         {post.date}
                     </div>
-                    <div className="flex items-center gap-2">
-                        <User className="w-4 h-4" />
+                    <div className="hidden lg:block w-1 h-1 bg-white/50 rounded-full" /> {/* Séparateur desktop */}
+                    <div className="flex items-center gap-3 lg:gap-2">
+                        <User className="w-6 h-6 lg:w-4 lg:h-4" />
                         Par Dr. Amine Khanboubi
                     </div>
                 </div>
@@ -71,7 +73,7 @@ const BlogPost = () => {
                 <p className="text-muted-foreground mb-8 lg:mb-6 text-2xl lg:text-base leading-relaxed">
                     Prenez rendez-vous au cabinet pour discuter de votre situation spécifique.
                 </p>
-                <a href="/#contact" className="w-full flex items-center justify-center gap-4 lg:gap-2 bg-primary text-primary-foreground py-7 lg:py-4 rounded font-medium hover:bg-foreground transition-all text-3xl lg:text-base">
+                <a href="/#contact" className="w-full flex items-center justify-center gap-4 lg:gap-2 bg-gradient-gold text-primary-foreground py-7 lg:py-4 rounded font-medium hover:bg-foreground transition-all text-3xl lg:text-base">
                     Prendre Rendez-vous
                 </a>
             </div>

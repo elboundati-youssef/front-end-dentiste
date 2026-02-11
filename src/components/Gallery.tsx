@@ -174,7 +174,7 @@ export const Gallery = () => {
       </div>
 
       {/* --- LIGHTBOX (MODAL PLEIN ÉCRAN) --- */}
-      <AnimatePresence>
+    <AnimatePresence>
         {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -182,7 +182,8 @@ export const Gallery = () => {
             exit={{ opacity: 0 }}
             // Ferme la modal si on clique sur le fond noir
             onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-md p-4 lg:p-10"
+            // MODIFICATION ICI : Ajout de padding plus grand sur desktop (lg:p-20) pour réduire la zone de l'image
+            className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-md p-4 lg:p-20"
           >
            {/* Bouton Fermer - AGRANDI sur mobile */}
             <button

@@ -30,11 +30,13 @@ const ServiceDetails = () => {
   return (
     <>
       <Header />
-      <main className="pt-20">
+      {/* CORRECTION ICI : J'ai retiré "pt-20" pour enlever l'espace (le mini background) au début */}
+      <main>
         
         {/* HERO SECTION */}
         <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0">
+                {/* L'image est conservée ici */}
                 <img 
                     src={service.image} 
                     alt={`Traitement ${service.title} - Centre Dentaire Tanger`}
@@ -127,7 +129,7 @@ const ServiceDetails = () => {
                     <div className="space-y-4">
                         <a
                           href="/#contact"
-                          className="w-full flex items-center justify-center gap-3 bg-primary text-primary-foreground py-4 rounded-xl font-bold hover:bg-primary/90 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                          className="w-full flex items-center justify-center gap-3 bg-gradient-gold text-primary-foreground py-4 rounded-xl font-bold hover:bg-primary/90 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
                         >
                           <Calendar className="w-5 h-5" />
                           Prendre Rendez-vous

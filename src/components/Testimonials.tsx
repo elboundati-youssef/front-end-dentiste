@@ -1,34 +1,60 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import lucmanImg from "../assets/images/Lucman Bounoider.png";
 import photonull from "../assets/images/photo null.jpg";
 
 const testimonials = [
   {
+    id: 1,
     name: 'Lucman Bounoider',
     image: lucmanImg,
-    content: 'Je vous avoue que j’ai généralement peur des Dentiste, mais avec le Dr. Amine c’est juste incroyable j’ai surmonté ma phobie et en plus de ça il est très compréhensif il explique très bien il ne juge pas, petit plus il parle français, les femmes avec qui il travaille sont juste adorables, même pour la barrière de la langue, on arrive quand même à se faire comprendre je vous le recommande fortement !! Encore merci au docteur amine et son équipe 😊.',
+    content: 'Je vous avoue que j’ai généralement peur des Dentiste, mais avec le Dr. Amine c’est juste incroyable j’ai surmonté ma phobie et en plus de ça il est très compréhensif il explique très bien il ne juge pas, petit plus il parle français. Je vous le recommande fortement !!',
     rating: 5,
   },
   {
+    id: 2,
     name: 'Sam Nigrasco',
     image: photonull,
-    content: 'Je suis patient du Dr. Amine depuis plus de 10 ans. Même après avoir passé trois ans hors du Maroc, il a été la première personne vers qui je me suis tourné pour une urgence dentaire. Il m\'a reçu sur l\'Avenue Moulay Youssef dans un délai très court et a terminé le traitement en une semaine avec un professionnalisme exemplaire. Dr. Khanboubi est véritablement dévoué à ses patients. Hautement recommandé !',
+    content: 'Je suis patient du Dr. Amine depuis plus de 10 ans. Même après avoir passé trois ans hors du Maroc, il a été la première personne vers qui je me suis tourné pour une urgence dentaire. Professionnalisme exemplaire. Dr. Khanboubi est véritablement dévoué à ses patients.',
     rating: 5,
   },
   {
+    id: 3,
     name: 'Najlae Laaroussi',
     image: photonull,
-    content: ' Je tiens à vous remercier de rendre chaque visite si confortable, surtout pour quelqu\'un comme moi qui avait un véritable traumatisme des dentistes. J\'ai énormément apprécié votre gentillesse et le temps que vous avez pris pour tout m\'expliquer et simplifier chaque étape. Cela m\'a permis de mieux comprendre ma santé bucco-dentaire et, aujourd\'hui, je n\'ai plus peur. Tout cela grâce à votre soutien et votre accompagnement. ❤️🥰 Merci infiniment pour le magnifique sourire que vous m\'avez donné ! 😁❤️🦷',
+    content: 'Je tiens à vous remercier de rendre chaque visite si confortable. J\'ai énormément apprécié votre gentillesse et le temps que vous avez pris pour tout m\'expliquer. Cela m\'a permis de mieux comprendre ma santé bucco-dentaire et, aujourd\'hui, je n\'ai plus peur.',
     rating: 5,
   },
 ];
 
+const AUTOPLAY_DELAY = 6000; // 6 secondes par slide
+
 export const Testimonials = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  // 1. Ref pour l'animation d'entrée du texte (reste identique)
+  const textRef = useRef(null);
+  const isTextInView = useInView(textRef, { once: true, margin: "-100px" });
+
+  // 2. NOUVEAU : Ref pour surveiller si la section est visible à l'écran (pour l'autoplay)
+  const sectionRef = useRef(null);
+  const isSectionVisible = useInView(sectionRef, { amount: 0.3 }); // Active quand 30% est visible
+
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // --- LOGIQUE AUTO-PLAY INTELLIGENTE ---
+  useEffect(() => {
+    // STOP SI :
+    // 1. L'utilisateur a mis en pause (souris dessus)
+    // 2. OU SI la section n'est pas visible (!isSectionVisible)
+    if (isPaused || !isSectionVisible) return;
+
+    const timer = setInterval(() => {
+      nextTestimonial();
+    }, AUTOPLAY_DELAY);
+
+    return () => clearInterval(timer);
+  }, [currentIndex, isPaused, isSectionVisible]); // On ajoute isSectionVisible aux dépendances
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -38,7 +64,7 @@ export const Testimonials = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
-  // Composant Boutons de Navigation (pour éviter la duplication de code)
+  // Boutons de navigation
   const NavigationButtons = ({ className = "" }) => (
     <div className={`flex items-center gap-4 ${className}`}>
       <button
@@ -53,109 +79,126 @@ export const Testimonials = () => {
       >
         <ChevronRight className="w-6 h-6" />
       </button>
-      <span className="ml-4 text-muted-foreground">
-        <span className="text-foreground font-medium">{currentIndex + 1}</span>
-        {' / '}
-        {testimonials.length}
-      </span>
     </div>
   );
 
   return (
-    <section id="testimonials" className="py-24 lg:py-32 bg-background relative overflow-hidden">
-      {/* Background Decoration */}
+    <section 
+      id="testimonials" 
+      ref={sectionRef} // 3. On attache la ref ici pour surveiller la section
+      className="py-24 lg:py-32 bg-background relative overflow-hidden"
+    >
       <div className="absolute top-0 right-0 w-1/3 h-full bg-card hidden lg:block" />
       
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
-          {/* Left Content (Titres) */}
+          {/* GAUCHE : Textes */}
           <motion.div
-            ref={ref}
+            ref={textRef}
             initial={{ opacity: 0, x: -60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            animate={isTextInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            {/* 1. Sous-titre : Style Galerie (GÉANT sur mobile) */}
-<div className="inline-flex items-center gap-4 mb-8 lg:gap-3 lg:mb-6">
-  {/* Lignes : w-20 sur mobile | lg:w-12 sur PC */}
-  <div className="w-20 lg:w-12 h-px bg-primary" />
-  
-  {/* Texte : text-xl + Bold sur mobile */}
-  <span className="text-xl lg:text-sm font-bold lg:font-medium tracking-[0.3em] uppercase text-gradient">
-    Témoignages
-  </span>
-  
-  <div className="w-20 lg:w-12 h-px bg-primary" />
-</div>
+            <div className="inline-flex items-center gap-4 mb-8 lg:gap-3 lg:mb-6">
+              <div className="w-20 lg:w-12 h-px bg-primary" />
+              <span className="text-xl lg:text-sm font-bold lg:font-medium tracking-[0.3em] uppercase text-gradient">
+                Témoignages
+              </span>
+              <div className="w-20 lg:w-12 h-px bg-primary" />
+            </div>
 
-{/* 2. Grand Titre : Style Galerie (text-6xl sur mobile) */}
-<h2 className="font-serif text-6xl lg:text-4xl xl:text-6xl font-bold lg:font-medium text-foreground mb-10 lg:mb-6 leading-tight">
-  Ce que nos patients
-  <br />
-  <span className="text-gradient">disent de nous</span>
-</h2>
+            <h2 className="font-serif text-6xl lg:text-4xl xl:text-6xl font-bold lg:font-medium text-foreground mb-10 lg:mb-6 leading-tight">
+              Ce que nos patients
+              <br />
+              <span className="text-gradient">disent de nous</span>
+            </h2>
 
-{/* 3. Description : Ajustée pour suivre la taille (text-2xl sur mobile) */}
-<p className="text-muted-foreground text-2xl lg:text-xl mb-14 lg:mb-12 leading-relaxed font-medium lg:font-normal">
-  Ne vous contentez pas de nous croire sur parole. Écoutez ce que nos patients satisfaits disent de leur expérience au Centre Dentaire Al Boughaz.
-</p>
-              {/* --- NAVIGATION DESKTOP (Cachée sur mobile) --- */}
+            <p className="text-muted-foreground text-2xl lg:text-xl mb-14 lg:mb-12 leading-relaxed font-medium lg:font-normal">
+              Ne vous contentez pas de nous croire sur parole. Écoutez ce que nos patients satisfaits disent de leur expérience au Centre Dentaire Al Boughaz.
+            </p>
+            
             <NavigationButtons className="hidden lg:flex" />
-
           </motion.div>
 
-          {/* Right Content - Testimonial Card - AGRANDIE sur mobile */}
+          {/* DROITE : Carte interactive avec Animation */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            animate={isTextInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
+            // --- INTERACTION : STOP & GO ---
+            onMouseEnter={() => setIsPaused(true)}  // Souris entre (PC)
+            onMouseLeave={() => setIsPaused(false)} // Souris sort (PC)
+            onTouchStart={() => setIsPaused(true)}  // Doigt touche (Mobile)
+            onTouchEnd={() => setIsPaused(false)}   // Doigt lève (Mobile)
           >
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="bg-card p-12 lg:p-12 relative"
-            >
-              {/* Quote Icon - AGRANDI sur mobile */}
-              <Quote className="w-20 h-20 lg:w-12 lg:h-12 text-primary/20 mb-8 lg:mb-6" />
-              
-              {/* Stars - AGRANDIES sur mobile */}
-              <div className="flex items-center gap-2 lg:gap-1 mb-8 lg:mb-6">
-                {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <Star key={i} className="w-8 h-8 lg:w-5 lg:h-5 text-primary fill-primary" />
-                ))}
-              </div>
+            {/* AnimatePresence permet d'animer la sortie de l'ancien slide */}
+            <div className="bg-card relative shadow-2xl rounded-sm overflow-hidden min-h-[500px] lg:min-h-[400px] flex flex-col justify-center">
+                
+                <AnimatePresence mode='wait'>
+                    <motion.div
+                        key={currentIndex}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -50 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        className="p-12 lg:p-12"
+                    >
+                        <Quote className="w-20 h-20 lg:w-12 lg:h-12 text-primary/20 mb-8 lg:mb-6" />
+                        
+                        <div className="flex items-center gap-2 lg:gap-1 mb-8 lg:mb-6">
+                            {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                            <Star key={i} className="w-8 h-8 lg:w-5 lg:h-5 text-primary fill-primary" />
+                            ))}
+                        </div>
 
-              {/* Content - AGRANDI sur mobile */}
-              <p className="text-foreground text-2xl lg:text-xl leading-relaxed mb-10 lg:mb-8">
-                "{testimonials[currentIndex].content}"
-              </p>
+                        <p className="text-foreground text-2xl lg:text-xl leading-relaxed mb-10 lg:mb-8 font-serif">
+                            "{testimonials[currentIndex].content}"
+                        </p>
 
-              {/* Author - AGRANDI sur mobile */}
-              <div className="flex items-center gap-6 lg:gap-4">
-                <img
-                  src={testimonials[currentIndex].image}
-                  alt={testimonials[currentIndex].name}
-                  className="w-20 h-20 lg:w-14 lg:h-14 object-cover"
-                />
-                <div>
-                  <div className="font-medium text-foreground text-2xl lg:text-base">
-                    {testimonials[currentIndex].name}
-                  </div>
+                        <div className="flex items-center gap-6 lg:gap-4">
+                            <img
+                            src={testimonials[currentIndex].image}
+                            alt={testimonials[currentIndex].name}
+                            className="w-20 h-20 lg:w-14 lg:h-14 object-cover"
+                            />
+                            <div>
+                            <div className="font-bold text-foreground text-2xl lg:text-lg">
+                                {testimonials[currentIndex].name}
+                            </div>
+                            <div className="text-muted-foreground text-xl lg:text-sm">Patient vérifié</div>
+                            </div>
+                        </div>
+                    </motion.div>
+                </AnimatePresence>
+
+                {/* --- BARRE DE PROGRESSION --- */}
+                <div className="absolute bottom-0 left-0 w-full h-2 bg-muted">
+                    {/* La barre s'anime SEULEMENT si ce n'est pas en pause ET si la section est visible */}
+                    {!isPaused && isSectionVisible && (
+                        <motion.div
+                            key={currentIndex}
+                            initial={{ width: "0%" }}
+                            animate={{ width: "100%" }}
+                            transition={{ duration: AUTOPLAY_DELAY / 1000, ease: "linear" }}
+                            className="h-full bg-gradient-gold"
+                        />
+                    )}
+                    {/* Feedback visuel de pause */}
+                    {isPaused && (
+                        <div className="h-full bg-primary/50 w-full animate-pulse" />
+                    )}
                 </div>
-              </div>
-            </motion.div>
 
-            {/* Decorative Border */}
+            </div>
+
+            {/* Bordure décorative décalée */}
             <div className="absolute -bottom-4 -right-4 w-full h-full border border-primary/30 -z-10" />
 
           </motion.div>
 
-          {/* --- NAVIGATION MOBILE (Visible uniquement sur mobile, en dessous de la carte) --- */}
+          {/* Navigation Mobile */}
           <div className="mt-10 lg:mt-8 flex justify-center lg:hidden">
             <NavigationButtons />
           </div>
