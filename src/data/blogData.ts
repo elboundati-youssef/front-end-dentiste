@@ -1,138 +1,128 @@
 export const blogData = [
   {
-    id: "implants-dentaires-guide",
-    title: "Tout savoir sur les implants dentaires",
-    category: "Implantologie",
-    date: "15 Oct 2023",
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80",
-    excerpt: "Les implants sont la solution la plus durable pour remplacer des dents manquantes. Découvrez le déroulement de l'intervention.",
-    content: `
-      <p>Les implants dentaires représentent aujourd'hui la solution de référence pour le remplacement des dents manquantes. Contrairement aux prothèses amovibles, ils offrent un confort et une esthétique comparables aux dents naturelles.</p>
-      <h3>Qu'est-ce qu'un implant dentaire ?</h3>
-      <p>C'est une racine artificielle en titane insérée dans l'os de la mâchoire. Une fois cicatrisée, elle sert de support à une couronne en céramique.</p>
-      <h3>Les avantages</h3>
-      <ul>
-        <li>Durabilité exceptionnelle (souvent à vie)</li>
-        <li>Préservation de l'os de la mâchoire</li>
-        <li>Aucun impact sur les dents voisines</li>
-      </ul>
-      <p>Au Centre Dentaire Al Boughaz, nous utilisons des technologies 3D pour planifier la pose d'implants avec une précision millimétrique.</p>
-    `
-  },
-  {
-    id: "blanchiment-dentaire-verites",
-    title: "Blanchiment dentaire : Les mythes et réalités",
-    category: "Esthétique",
-    date: "22 Nov 2023",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80",
-    excerpt: "Peut-on blanchir ses dents sans danger ? Nous démêlons le vrai du faux sur les techniques d'éclaircissement.",
-    content: `
-      <p>Avoir un sourire éclatant est le rêve de beaucoup, mais attention aux recettes de grand-mère qui peuvent abîmer votre émail (citron, bicarbonate agressif...).</p>
-      <h3>Le blanchiment professionnel</h3>
-      <p>Seul un dentiste peut utiliser des produits de blanchiment suffisamment concentrés pour être efficaces, tout en protégeant vos gencives.</p>
-      <p>Notre technique au fauteuil permet de gagner plusieurs teintes en une seule séance d'une heure, en toute sécurité.</p>
-    `
-  },
-  {
-    id: "peur-du-dentiste",
-    title: "Comment vaincre la peur du dentiste ?",
-    category: "Conseils",
-    date: "05 Jan 2024",
+    id: "caries-frequentes-maroc",
+    title: "Pourquoi les caries sont-elles si fréquentes au Maroc ?",
+    category: "Prévention",
+    date: "12 Oct 2025",
+    readTime: "3 min",
+    author: "Dr. Amine Khanboubi",
     image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80",
-    excerpt: "La stomatophobie concerne de nombreux patients. Voici nos conseils pour vivre vos soins sereinement.",
+    tags: ["Caries", "Sucre", "Enfants"],
+    excerpt: "Découvrez pourquoi 90% des enfants et de nombreux adultes souffrent de caries au Maroc et comment le Dr. Khanboubi à Tanger aide à stopper ce fléau.",
     content: `
-      <p>La peur du dentiste est courante, mais elle ne doit pas vous empêcher de vous soigner. Les technologies modernes permettent aujourd'hui des soins quasi indolores.</p>
-      <h3>Nos astuces pour rester zen</h3>
-      <p>N'hésitez pas à nous faire part de votre anxiété dès la prise de rendez-vous. Le Dr. Khanboubi prendra le temps de tout vous expliquer avant de commencer.</p>
-      <p>La clé est la confiance et la communication.</p>
-    `
-  },
-  // --- NOUVEAUX ARTICLES AJOUTÉS ---
-  {
-    id: "orthodontie-invisible-aligneurs",
-    title: "L'orthodontie invisible : Alignez vos dents en toute discrétion",
-    category: "Orthodontie",
-    date: "10 Fév 2024",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80",
-    excerpt: "Fini les bagues métalliques ! Découvrez comment les aligneurs transparents peuvent redresser votre sourire sans que personne ne le remarque.",
-    content: `
-      <p>Vous souhaitez aligner vos dents mais l'idée de porter un appareil métallique vous rebute ? L'orthodontie invisible est faite pour vous.</p>
-      <h3>Comment ça marche ?</h3>
-      <p>Nous utilisons une série de gouttières transparentes (aligneurs) fabriquées sur mesure. Elles déplacent vos dents progressivement jusqu'à la position souhaitée.</p>
-      <h3>Pourquoi choisir les aligneurs ?</h3>
+      <p>Au Maroc, les statistiques sont alarmantes : entre 60% et 90% des écoliers sont touchés par les caries. Mais pourquoi ce chiffre est-il si élevé ? Au Centre Al Boughaz, nous identifions trois facteurs majeurs :</p>
       <ul>
-        <li><strong>Esthétique :</strong> Presque invisibles à l'œil nu.</li>
-        <li><strong>Pratique :</strong> Vous les retirez pour manger et vous brosser les dents.</li>
-        <li><strong>Confortable :</strong> Pas de fils métalliques qui blessent les joues.</li>
+        <li><strong>La consommation de sucre :</strong> Le thé très sucré et les pâtisseries font partie de notre culture, mais ils sont les premiers ennemis de l'émail.</li>
+        <li><strong>Le manque de sensibilisation :</strong> Beaucoup de patients attendent d'avoir mal pour consulter, alors que la carie est souvent indolore au début.</li>
+        <li><strong>L'hygiène irrégulière :</strong> Le brossage n'est pas toujours perçu comme un rituel médical indispensable.</li>
       </ul>
-      <p>Prenez rendez-vous au cabinet à Tanger pour voir si vous êtes éligible à ce traitement.</p>
+      <h3>L'approche du Dr. Khanboubi</h3>
+      <p>Grâce à des diagnostics de précision sur l'Avenue Moulay Youssef, nous traitons les caries avant qu'elles ne détruisent la dent, sauvant ainsi votre sourire naturel.</p>
+      <p><strong>Ne faites pas partie des statistiques. Réservez votre bilan carie dès aujourd'hui.</strong></p>
     `
   },
   {
-    id: "facettes-dentaires-hollywood-smile",
-    title: "Hollywood Smile : Transformez votre sourire avec les facettes",
-    category: "Esthétique",
-    date: "28 Fév 2024",
+    id: "frequence-consultation-dentiste",
+    title: "À quelle fréquence faut-il réellement consulter son dentiste ?",
+    category: "Conseils",
+    date: "25 Nov 2025",
+    readTime: "2 min",
+    author: "Dr. Amine Khanboubi",
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80",
+    tags: ["Rendez-vous", "Check-up", "Santé"],
+    excerpt: "Faut-il voir son dentiste tous les 6 mois ou une fois par an ? Les recommandations du Dr. Amine Khanboubi pour les habitants de Tanger.",
+    content: `
+      <p>La question revient souvent au cabinet : "Docteur, je n'ai pas mal, pourquoi venir ?" La réponse est simple : la prévention coûte moins cher et fait moins mal que l'urgence.</p>
+      <h3>Le rythme idéal</h3>
+      <p>Pour un adulte en bonne santé, une visite <strong>tous les 6 mois</strong> est recommandée. Cela permet d'effectuer un détartrage et de vérifier l'absence de caries débutantes.</p>
+      <h3>Pour les profils à risque</h3>
+      <p>Fumeurs, diabétiques ou patients sous traitement orthodontique (Invisalign) peuvent nécessiter un suivi tous les 3 ou 4 mois.</p>
+      <p><em>Le saviez-vous ? Une carie détectée tôt se soigne en 20 minutes sans douleur. Une carie ignorée peut mener à une dévitalisation ou une extraction.</em></p>
+    `
+  },
+  {
+    id: "detartrage-necessaire-ou-luxe",
+    title: "Le détartrage : est-ce vraiment nécessaire ou est-ce un luxe ?",
+    category: "Hygiène",
+    date: "10 Déc 2025",
+    readTime: "4 min",
+    author: "Dr. Amine Khanboubi",
     image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80",
-    excerpt: "Dents cassées, tachées ou mal alignées ? Les facettes céramiques sont la solution rapide pour un sourire de star.",
+    tags: ["Détartrage", "Gencives", "Haleine"],
+    excerpt: "Le détartrage abîme-t-il l'émail ? Découvrez pourquoi ce soin est le pilier de votre santé dentaire au Centre Al Boughaz de Tanger.",
     content: `
-      <p>Le fameux "Hollywood Smile" n'est plus réservé aux stars. Grâce aux facettes dentaires, vous pouvez corriger la forme, la teinte et l'alignement de vos dents en seulement deux séances.</p>
-      <h3>Que sont les facettes ?</h3>
-      <p>Ce sont de fines pellicules en céramique très résistante que l'on colle sur la face visible des dents. Le résultat est bluffant de naturel.</p>
-      <h3>Dans quels cas les utiliser ?</h3>
+      <p>Beaucoup de Marocains pensent que le détartrage fragilise les dents. C'est un mythe ! Le tartre est une accumulation de bactéries durcies que la brosse à dents ne peut pas retirer.</p>
+      <h3>Pourquoi est-ce vital ?</h3>
       <ul>
-        <li>Pour masquer des dents jaunies par le tabac ou le café.</li>
-        <li>Pour réparer des dents ébréchées.</li>
-        <li>Pour combler un espace entre deux dents (diastème).</li>
+        <li><strong>Éviter le déchaussement :</strong> Le tartre s'infiltre sous la gencive et détruit l'os qui tient vos dents.</li>
+        <li><strong>Éliminer la mauvaise haleine :</strong> Les bactéries du tartre sont la cause n°1 de l'halitose.</li>
+        <li><strong>Éclat du sourire :</strong> Le détartrage élimine les taches de thé et de café.</li>
       </ul>
+      <p>Au Centre Al Boughaz, nous utilisons une technologie ultrasonique ultra-douce pour un nettoyage en profondeur sans aucune agression pour votre émail.</p>
     `
   },
   {
-    id: "premiere-visite-enfant",
-    title: "La première visite de votre enfant chez le dentiste",
-    category: "Pédodontie",
-    date: "15 Mars 2024",
-    image: "https://images.unsplash.com/photo-1616391182219-e080b4d1043a?w=800&q=80",
-    excerpt: "À quel âge emmener son enfant ? Comment préparer ce rendez-vous ? Nos conseils pour une expérience positive.",
-    content: `
-      <p>La santé bucco-dentaire commence dès le plus jeune âge. Il est recommandé d'emmener votre enfant voir un dentiste dès l'apparition de la première dent ou vers l'âge d'un an.</p>
-      <h3>L'importance de la prévention</h3>
-      <p>Cette première visite permet de vérifier qu'il n'y a pas de caries du biberon et de vous donner des conseils sur le brossage et l'alimentation.</p>
-      <h3>Notre approche douceur</h3>
-      <p>Au Centre Dentaire Al Boughaz, nous prenons le temps de rassurer les enfants pour que le dentiste devienne un ami, et non une source de peur.</p>
-    `
-  },
-  {
-    id: "urgence-dentaire-tanger",
-    title: "Urgence dentaire : Que faire en cas de douleur intense ?",
-    category: "Urgences",
-    date: "02 Avril 2024",
+    id: "signes-maladies-gencives",
+    title: "Les signes précoces des maladies des gencives à ne pas ignorer",
+    category: "Parodontologie",
+    date: "15 Jan 2026",
+    readTime: "3 min",
+    author: "Dr. Amine Khanboubi",
     image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80",
-    excerpt: "Une rage de dents peut survenir à tout moment. Voici les gestes de premiers secours avant d'arriver au cabinet.",
+    tags: ["Gingivite", "Saignement", "Parodontite"],
+    excerpt: "Gencives qui saignent ou rouges ? Attention à la gingivite. Le Dr. Khanboubi explique les symptômes de la maladie parodontale à Tanger.",
     content: `
-      <p>Une douleur dentaire aiguë est souvent le signe d'une infection ou d'une atteinte du nerf. Il ne faut jamais l'ignorer.</p>
-      <h3>Les bons réflexes</h3>
+      <p>Si vos gencives saignent lors du brossage, ce n'est jamais normal. C'est le cri d'alarme d'une infection : la gingivite.</p>
+      <h3>Les signes qui doivent vous alerter :</h3>
       <ul>
-        <li>Ne mettez jamais d'aspirine directement sur la dent ou la gencive (risque de brûlure).</li>
-        <li>Appliquez une poche de glace sur la joue pour réduire l'inflammation.</li>
-        <li>Utilisez du fil dentaire pour vérifier si un aliment n'est pas coincé.</li>
+        <li><strong>Saignements :</strong> Même légers, ils indiquent une inflammation.</li>
+        <li><strong>Rougeur et gonflement :</strong> Une gencive saine est rose et ferme, pas rouge et gonflée.</li>
+        <li><strong>Rétraction :</strong> Si vos dents paraissent "plus longues", votre gencive se retire.</li>
+        <li><strong>Sensibilité :</strong> Une douleur au froid ou au chaud au niveau du collet de la dent.</li>
       </ul>
-      <p>Contactez notre service d'urgence à Tanger immédiatement au +212 5 39 35 51 33.</p>
+      <p>Ignorer ces signes peut mener à la parodontite (perte de l'os). Heureusement, ces maladies sont traitables si elles sont prises en charge à temps par un spécialiste.</p>
     `
   },
   {
-    id: "dents-sensibles-solutions",
-    title: "Dents sensibles au chaud et au froid : Les solutions",
-    category: "Santé",
-    date: "18 Avril 2024",
-    image: "https://images.unsplash.com/photo-1616391182219-e080b4d1043a?w=800&q=80",
-    excerpt: "Manger une glace est un calvaire ? Vous souffrez probablement d'hypersensibilité dentinaire. Découvrez comment la traiter.",
+    id: "sante-dentaire-et-diabete",
+    title: "Santé bucco-dentaire et Diabète : Quel est le lien ?",
+    category: "Santé Générale",
+    date: "02 Fév 2026",
+    readTime: "5 min",
+    author: "Dr. Amine Khanboubi",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    tags: ["Diabète", "Risques", "Soins"],
+    excerpt: "Saviez-vous que le diabète et les maladies des gencives s'influencent mutuellement ? Guide santé pour les patients diabétiques à Tanger.",
     content: `
-      <p>L'hypersensibilité dentinaire se manifeste par une douleur vive et brève au contact du froid, du chaud, du sucre ou de l'acidité.</p>
-      <h3>Les causes fréquentes</h3>
-      <p>Elle est souvent due à une usure de l'émail (brossage trop agressif) ou à une rétraction des gencives qui expose la racine de la dent.</p>
-      <h3>Comment soulager la douleur ?</h3>
-      <p>Utilisez un dentifrice spécial "dents sensibles" et une brosse à dents à poils souples. Si la douleur persiste, le Dr. Khanboubi peut appliquer un vernis désensibilisant au cabinet.</p>
+      <p>Le Maroc compte une large population de patients diabétiques, et peu savent que leur bouche est une zone de haute surveillance.</p>
+      <h3>Une relation à double sens</h3>
+      <ul>
+        <li><strong>Le diabète favorise les infections :</strong> Un taux de sucre élevé dans le sang favorise la prolifération des bactéries dans la salive.</li>
+        <li><strong>L'infection aggrave le diabète :</strong> Une maladie des gencives non traitée rend l'équilibre glycémique plus difficile à atteindre.</li>
+      </ul>
+      <h3>Notre conseil</h3>
+      <p>Si vous êtes diabétique, informez-en systématiquement le Dr. Khanboubi. Un suivi rigoureux permet d'éviter les complications infectieuses et de préserver vos dents sur le long terme.</p>
+    `
+  },
+  {
+    id: "proteger-dents-enfants",
+    title: "Comment protéger les dents des enfants dès le plus jeune âge ?",
+    category: "Pédodontie",
+    date: "20 Fév 2026",
+    readTime: "4 min",
+    author: "Dr. Amine Khanboubi",
+    image: "https://images.unsplash.com/photo-1616391182219-e080b4d1043a?w=800&q=80",
+    tags: ["Enfants", "Première visite", "Éducation"],
+    excerpt: "Prévenir les caries infantiles à Tanger. Les conseils du Dr. Khanboubi pour instaurer de bonnes habitudes dès la première dent.",
+    content: `
+      <p>La santé dentaire d'un adulte se joue dès l'enfance. Au Centre Al Boughaz, nous prônons une dentisterie pédiatrique douce et éducative.</p>
+      <h3>Les 3 piliers de la protection infantile :</h3>
+      <ol>
+        <li><strong>La première visite :</strong> Idéalement dès l'âge de 1 an ou à l'apparition de la première dent pour habituer l'enfant au cabinet.</li>
+        <li><strong>Le scellement de sillons :</strong> Une technique indolore qui consiste à "vernir" les zones creuses des molaires pour empêcher les caries de se former.</li>
+        <li><strong>Le contrôle du sucre :</strong> Limiter les jus et les biscuits, surtout le soir après le brossage.</li>
+      </ol>
+      <p>Nous mettons tout en œuvre sur l'Avenue Moulay Youssef pour que vos enfants voient le dentiste comme un allié, et non comme une peur.</p>
     `
   }
 ];

@@ -24,10 +24,10 @@ const footerLinks = {
 };
 
 const socials = [
-  { icon: Facebook, href: '#', label: 'Facebook' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
+  { icon: Facebook, href: 'https://www.facebook.com/cdentairealboughaz/?locale=fr_FR', label: 'Facebook' },
+  { icon: Instagram, href: 'https://www.instagram.com/cdentaire_alboughaz/?hl=ar', label: 'Instagram' },
   { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/centre-dentaire-al-boughaz-dr-khanboubi-amine/posts/?feedView=all', label: 'LinkedIn' },
 ];
 
 export const Footer = () => {

@@ -3,8 +3,8 @@ import { useRef, useState, useEffect } from 'react';
 import { Expand, X } from 'lucide-react';
 import clinique1 from "@/assets/images/compressed/DSC09118-CT.jpg";
 
-import clinique3 from "@/assets/images/compressed/DSC09123-CT.jpg";
-import clinique4 from "@/assets/images/compressed/DSC09094-CT.jpg";
+import clinique3 from "@/assets/images/compressed/DSC09542-CT.jpg";
+import clinique4 from "@/assets/images/compressed/DSC09478-CT.jpg";
 
 // Traduction des onglets
 const tabs = ['Tous', 'Avant & Après', 'Clinique', 'Équipe'];
