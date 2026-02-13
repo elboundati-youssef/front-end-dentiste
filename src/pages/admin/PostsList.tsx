@@ -10,6 +10,8 @@ import {
   Calendar,
   AlertCircle,
   Loader2,
+  ChevronLeft, // Nouveau
+  ChevronRight // Nouveau
 } from "lucide-react";
 
 interface BlogPost {
@@ -25,6 +27,10 @@ const PostsList: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [error, setError] = useState<string>("");
+
+  // --- PAGINATION STATES ---
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 6; // Nombre d'articles par page
 
   const fetchPosts = async () => {
     try {
@@ -43,6 +49,11 @@ const PostsList: React.FC = () => {
     fetchPosts();
   }, []);
 
+  // Reset la page à 1 si on utilise la recherche
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
+
   const handleDelete = async (id: number) => {
     if (!window.confirm("Supprimer cet article ?")) return;
     try {
@@ -53,20 +64,27 @@ const PostsList: React.FC = () => {
     }
   };
 
+  // 1. Filtrage global
   const filteredPosts = posts.filter(
     (post) =>
       post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       post.category.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
+  // 2. Logique de Pagination
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
   return (
     <div className="animate-in fade-in duration-700 space-y-12 lg:space-y-8 pb-20">
       
       {/* --- HEADER --- */}
-      {/* J'ai réduit l'écart (gap) et ajusté les tailles pour que ça tienne mieux */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 lg:gap-4">
         <div>
-          {/* Titre ajusté : text-5xl (au lieu de 7xl) pour tenir sur une ligne */}
           <h1 className="text-5xl lg:text-4xl font-serif font-bold text-white mb-2">
             Gestion des Articles
           </h1>
@@ -75,7 +93,6 @@ const PostsList: React.FC = () => {
           </p>
         </div>
 
-        {/* Bouton Créer ajusté : Plus compact mais toujours cliquable */}
         <Link
           to="/admin/blogs/create"
           className="bg-gradient-gold text-slate-900 px-8 py-5 lg:px-6 lg:py-3 rounded-2xl lg:rounded-xl font-bold text-2xl lg:text-base hover:shadow-glow transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3 lg:gap-2"
@@ -116,9 +133,9 @@ const PostsList: React.FC = () => {
           </div>
         ) : (
           <>
-            {/* --- VERSION MOBILE (CARTE GÉANTE) --- */}
+            {/* --- VERSION MOBILE (Utilise currentPosts) --- */}
             <div className="lg:hidden space-y-8 p-4">
-              {filteredPosts.map((post) => (
+              {currentPosts.map((post) => (
                 <div key={post.id} className="bg-slate-900/50 p-8 rounded-[2rem] border border-slate-700/50 flex flex-col gap-6">
                   {/* Image */}
                   <div className="w-full h-56 rounded-3xl overflow-hidden bg-slate-800 border border-slate-700">
@@ -137,7 +154,7 @@ const PostsList: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Actions (Boutons géants) */}
+                  {/* Actions */}
                   <div className="flex gap-4 border-t border-slate-700 pt-6">
                     <Link to={`/blog/${post.id}`} target="_blank" className="flex-1 bg-blue-500/10 text-blue-400 py-5 rounded-2xl flex justify-center items-center">
                       <Eye className="w-8 h-8" />
@@ -153,7 +170,7 @@ const PostsList: React.FC = () => {
               ))}
             </div>
 
-            {/* --- VERSION DESKTOP (TABLEAU CLASSIQUE) --- */}
+            {/* --- VERSION DESKTOP (Utilise currentPosts) --- */}
             <div className="hidden lg:block overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
@@ -165,7 +182,7 @@ const PostsList: React.FC = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800/50">
-                  {filteredPosts.map((post) => (
+                  {currentPosts.map((post) => (
                     <tr key={post.id} className="group hover:bg-slate-800/30 transition-colors">
                       <td className="p-6">
                         <div className="flex items-center gap-4">
@@ -207,6 +224,43 @@ const PostsList: React.FC = () => {
                 </tbody>
               </table>
             </div>
+
+            {/* --- CONTROLES DE PAGINATION --- */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-4 py-8 lg:py-6 border-t border-slate-800/50">
+                <button
+                  onClick={() => paginate(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="p-4 lg:p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  <ChevronLeft className="w-6 h-6 lg:w-5 lg:h-5" />
+                </button>
+
+                <div className="flex items-center gap-2">
+                  {Array.from({ length: totalPages }, (_, i) => (
+                    <button
+                      key={i + 1}
+                      onClick={() => paginate(i + 1)}
+                      className={`w-10 h-10 lg:w-8 lg:h-8 rounded-lg font-bold text-lg lg:text-sm transition-all ${
+                        currentPage === i + 1
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-slate-800 text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      {i + 1}
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => paginate(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="p-4 lg:p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  <ChevronRight className="w-6 h-6 lg:w-5 lg:h-5" />
+                </button>
+              </div>
+            )}
           </>
         )}
       </div>

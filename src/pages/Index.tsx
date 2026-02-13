@@ -1,5 +1,5 @@
-import { useEffect } from "react"; 
-import { useLocation } from "react-router-dom"; 
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
@@ -48,9 +48,15 @@ const Index = () => {
         <title>Dentiste Tanger | Centre Dentaire Al Boughaz | Av. Moulay Youssef</title>
         <meta name="description" content="Cabinet dentaire du Dr. Amine Khanboubi à Tanger. Expert en implants, facettes et blanchiment dentaire." />
         <meta name="keywords" content="dentiste tanger, cabinet dentaire tanger, blanchiment dentaire tanger, implants dentaires tanger" />
+
+        {/* AJOUT CONSEILLÉ : Lien Canonique */}
+        <link rel="canonical" href="https://ton-site.com/" />
+
         <meta property="og:title" content="Dentiste Tanger | Centre Dentaire Al Boughaz" />
         <meta property="og:description" content="Expert en implants, facettes et blanchiment dentaire à Tanger. Dr. Amine Khanboubi." />
         <meta property="og:type" content="website" />
+        {/* AJOUT CONSEILLÉ : Image pour le partage */}
+        <meta property="og:image" content="https://ton-site.com/og-image.jpg" />
       </Helmet>
 
       <Header />
@@ -64,10 +70,10 @@ const Index = () => {
         <section id="testimonials"><Testimonials /></section>
         <section id="blog"><Blog /></section>
         <CTA />
-        
+
         {/* L'ID contact est CRUCIAL ici */}
         <section id="contact">
-            <Contact />
+          <Contact />
         </section>
       </main>
       <Footer />

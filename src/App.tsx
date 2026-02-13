@@ -3,25 +3,26 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider } from "react-helmet-async";
 
 // --- PAGES PUBLIQUES (Site Vitrine) ---
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import BlogPost from "./pages/BlogPost";
-import ServiceDetails from "./pages/ServiceDetails"; 
+import ServiceDetails from "./pages/ServiceDetails";
 import AllBlogs from "./pages/AllBlogs";
 
 // --- PAGES ADMINISTRATION (Back-Office) ---
 import Login from "./pages/admin/Login";
 import Dashboard from "./pages/admin/Dashboard";
-import PostsList from "./pages/admin/PostsList";   // Liste des articles
+import PostsList from "./pages/admin/PostsList"; // Liste des articles
 import CreatePost from "./pages/admin/CreatePost"; // Formulaire de création
 
 // --- LAYOUTS ---
-import AdminLayout from "./layouts/AdminLayout";   // Sidebar & Sécurité
+import AdminLayout from "./layouts/AdminLayout"; // Sidebar & Sécurité
 import EditPost from "./pages/admin/EditPost";
 import AppointmentsList from "./pages/admin/AppointmentsList";
+import AppointmentDetails from "./pages/admin/AppointmentDetails";
 
 const queryClient = new QueryClient();
 
@@ -32,7 +33,7 @@ const App = () => (
         {/* Gestionnaires de notifications */}
         <Toaster />
         <Sonner />
-        
+
         <BrowserRouter>
           <Routes>
             {/* =========================================
@@ -46,34 +47,30 @@ const App = () => (
             {/* =========================================
                 2. ZONE ADMINISTRATION (Sécurisée)
                ========================================= */}
-            
+
             {/* Login : Page isolée (pas de sidebar, pas de layout) */}
             <Route path="/admin/login" element={<Login />} />
 
             {/* Espace Admin : Protégé par AdminLayout (Sidebar + Vérification Token) */}
             <Route path="/admin" element={<AdminLayout />}>
-              
               {/* Dashboard (Vue par défaut quand on va sur /admin) */}
               <Route index element={<Dashboard />} />
               <Route path="dashboard" element={<Dashboard />} />
-
               <Route path="rendez-vous" element={<AppointmentsList />} />
-              
+              <Route path="rendez-vous/:id" element={<AppointmentDetails />} />
               {/* Gestion des Blogs */}
-              <Route path="blogs" element={<PostsList />} />          {/* Liste */}
-              <Route path="blogs/create" element={<CreatePost />} />  {/* Création */}
+              <Route path="blogs" element={<PostsList />} /> {/* Liste */}
+              <Route path="blogs/create" element={<CreatePost />} />{" "}
+              {/* Création */}
               <Route path="blogs/edit/:id" element={<EditPost />} />
-              
               {/* Note: Pour l'édition, tu créeras plus tard : */}
               {/* <Route path="blogs/edit/:id" element={<EditPost />} /> */}
-
             </Route>
 
             {/* =========================================
                 3. GESTION DES ERREURS
                ========================================= */}
             <Route path="*" element={<NotFound />} />
-            
           </Routes>
         </BrowserRouter>
       </TooltipProvider>

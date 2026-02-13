@@ -121,7 +121,10 @@
   .bg-hero-gradient {
     background: var(--gradient-hero);
   }
-
+  .date-icon-white::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+  }
   .bg-overlay-gradient {
     background: var(--gradient-overlay);
   }

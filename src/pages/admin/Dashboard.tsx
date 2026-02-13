@@ -3,15 +3,19 @@ import { Link } from "react-router-dom";
 import api from "../../api/axios";
 import {
   FileText,
-  CalendarCheck, // Changement ici : Eye -> CalendarCheck
-  Layers,
+  CalendarCheck,
+  AlertCircle, // Icône pour "En attente"
   Plus,
   ArrowRight,
   TrendingUp,
   Sparkles,
   Loader2,
+  Calendar,
+  User,
+  Clock
 } from "lucide-react";
 
+// Interfaces
 interface BlogPost {
   id: number;
   title: string;
@@ -19,18 +23,34 @@ interface BlogPost {
   created_at: string;
 }
 
+interface Appointment {
+  id: number;
+  full_name: string;
+  service: string;
+  preferred_date: string;
+  status: 'pending' | 'confirmed' | 'cancelled' | 'completed';
+}
+
 const Dashboard: React.FC = () => {
   const userData = localStorage.getItem("user");
   const user = userData ? JSON.parse(userData) : { name: "Admin" };
 
   const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const response = await api.get("/blogs");
-        setPosts(response.data);
+        // Récupération parallèle pour optimiser le temps de chargement
+        const [blogsRes, appointmentsRes] = await Promise.all([
+            api.get("/blogs"),
+            api.get("/appointments")
+        ]);
+
+        setPosts(blogsRes.data);
+        setAppointments(appointmentsRes.data);
+
       } catch (error) {
         console.error("Erreur stats dashboard:", error);
       } finally {
@@ -40,7 +60,24 @@ const Dashboard: React.FC = () => {
     fetchDashboardData();
   }, []);
 
-  // Calcul des statistiques
+  // --- LOGIQUE MÉTIER ---
+
+  // 1. Calcul des RDV en attente (Status = pending)
+  const pendingAppointmentsCount = appointments.filter(a => a.status === 'pending').length;
+
+  // 2. Calcul des Prochains RDV (Futurs uniquement, triés par date)
+  const upcomingAppointments = appointments
+    .filter(app => {
+        // On ne garde que les dates >= aujourd'hui (00:00:00)
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        return new Date(app.preferred_date) >= today;
+    }) 
+    .sort((a, b) => new Date(a.preferred_date).getTime() - new Date(b.preferred_date).getTime()) // Tri du plus proche au plus lointain
+    .slice(0, 3); // On garde les 3 premiers
+// 2. Calcul des RDV Confirmés (NOUVEAU)
+  const confirmedAppointmentsCount = appointments.filter(a => a.status === 'confirmed').length;
+  // Statistiques
   const stats = [
     {
       title: "Articles Publiés",
@@ -51,28 +88,27 @@ const Dashboard: React.FC = () => {
       border: "border-amber-400/20",
       trend: "Total",
     },
-    {
-      // --- MODIFICATION ICI : Remplacement de Vues Totales par Rendez-vous ---
-      title: "Rendez-vous",
-      value: "08", // Valeur statique pour l'instant (à connecter à ton API plus tard)
+   {
+      // --- MODIFICATION ICI : RDV Confirmés au lieu de Total ---
+      title: "RDV Confirmés",
+      value: confirmedAppointmentsCount.toString().padStart(2, "0"),
       icon: CalendarCheck,
       color: "text-blue-400",
       bgIcon: "bg-blue-400/10",
       border: "border-blue-400/20",
-      trend: "Aujourd'hui", // "Total" ou "Aujourd'hui"
+      trend: "Validés", // Changé de "Reçus" à "Validés"
     },
     {
-      title: "Catégories",
-      value: new Set(posts.map((p) => p.category)).size.toString().padStart(2, "0"),
-      icon: Layers,
-      color: "text-emerald-400",
-      bgIcon: "bg-emerald-400/10",
-      border: "border-emerald-400/20",
-      trend: "Actives",
+      // --- MODIFICATION : "En Attente" au lieu de Catégories ---
+      title: "En Attente",
+      value: pendingAppointmentsCount.toString().padStart(2, "0"),
+      icon: AlertCircle, 
+      color: "text-red-400",
+      bgIcon: "bg-red-400/10",
+      border: "border-red-400/20",
+      trend: "À traiter",
     },
   ];
-
-  const recentPosts = posts.slice(0, 3);
 
   if (loading) {
     return (
@@ -88,7 +124,6 @@ const Dashboard: React.FC = () => {
       {/* --- HEADER --- */}
       <header className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-4">
         <div>
-          {/* Titre Massive Mobile */}
           <h1 className="text-5xl lg:text-5xl font-serif font-bold text-white mb-2">
             Bonjour, <span className="bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-200 bg-clip-text text-transparent">{user.name}</span>
           </h1>
@@ -113,7 +148,6 @@ const Dashboard: React.FC = () => {
             key={index}
             className="bg-[#04192a] p-10 lg:p-6 rounded-[2.5rem] lg:rounded-2xl border-2 lg:border border-slate-800/60 relative overflow-hidden"
           >
-            {/* Icône et Badge alignés sur une ligne */}
             <div className="flex justify-between items-center mb-8 lg:mb-4 relative z-10">
               <div className={`p-4 lg:p-3 rounded-xl ${stat.bgIcon} ${stat.border} border-2 lg:border`}>
                 <stat.icon className={`w-8 h-8 lg:w-6 lg:h-6 ${stat.color}`} />
@@ -138,7 +172,7 @@ const Dashboard: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
         
-        {/* COLONNE GAUCHE */}
+        {/* COLONNE GAUCHE : CTA RÉDACTION */}
         <div className="lg:col-span-2 bg-[#04192a] p-12 lg:p-10 rounded-[2.5rem] lg:rounded-3xl border-2 lg:border border-slate-800/60 relative overflow-hidden group">
           <div className="relative z-10">
             <div className="inline-flex items-center gap-4 lg:gap-2 px-6 py-2 rounded-full bg-amber-500/10 border-2 lg:border border-amber-500/20 text-amber-400 text-2xl lg:text-xs font-bold uppercase mb-8 lg:mb-6">
@@ -161,31 +195,57 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* COLONNE DROITE */}
+        {/* COLONNE DROITE : PROCHAINS RENDEZ-VOUS */}
         <div className="bg-[#04192a] rounded-[2.5rem] lg:rounded-3xl border-2 lg:border border-slate-800/60 p-10 lg:p-6 flex flex-col shadow-xl">
-          <h3 className="text-white font-serif font-bold text-4xl lg:text-xl mb-10 lg:mb-6">
-            Articles Récents
+          <h3 className="text-white font-serif font-bold text-4xl lg:text-xl mb-10 lg:mb-6 flex items-center gap-3">
+            <Calendar className="w-8 h-8 lg:w-5 lg:h-5 text-primary" />
+            Prochains RDV
           </h3>
+          
           <div className="flex-1 space-y-6 lg:space-y-4">
-            {recentPosts.map((post) => (
-              <Link
-                to="/admin/blogs"
-                key={post.id}
-                className="flex items-center justify-between p-6 lg:p-4 rounded-2xl lg:rounded-xl bg-slate-900/50 border-2 lg:border border-slate-800 hover:border-primary/50 transition-all"
-              >
-                <div className="pr-4">
-                  <h4 className="text-white text-3xl lg:text-base font-bold line-clamp-1 mb-2">
-                    {post.title}
-                  </h4>
-                  <span className="text-emerald-400 text-xl lg:text-xs font-bold px-3 py-1 rounded bg-emerald-500/10 uppercase">
-                    {post.category}
-                  </span>
-                </div>
-                <ArrowRight className="w-10 h-10 lg:w-4 lg:h-4 text-slate-600" />
-              </Link>
-            ))}
+            {upcomingAppointments.length > 0 ? (
+              upcomingAppointments.map((app) => (
+                <Link
+                  to={`/admin/rendez-vous/${app.id}`}
+                  key={app.id}
+                  className="flex items-center justify-between p-6 lg:p-4 rounded-2xl lg:rounded-xl bg-slate-900/50 border-2 lg:border border-slate-800 hover:border-primary/50 transition-all group"
+                >
+                  <div className="pr-4">
+                    {/* Nom du Patient */}
+                    <h4 className="text-white text-3xl lg:text-base font-bold line-clamp-1 mb-2 flex items-center gap-2">
+                      <User className="w-6 h-6 lg:w-4 lg:h-4 text-slate-500" />
+                      {app.full_name}
+                    </h4>
+                    
+                    {/* Service & Date */}
+                    <div className="flex flex-col gap-1">
+                        <span className="text-primary text-xl lg:text-xs font-bold uppercase tracking-wider">
+                            {app.service}
+                        </span>
+                        <span className="text-slate-400 text-lg lg:text-xs flex items-center gap-2">
+                            <Clock className="w-4 h-4" />
+                            {new Date(app.preferred_date).toLocaleDateString("fr-FR", { day: 'numeric', month: 'short' })}
+                        </span>
+                    </div>
+                  </div>
+                  <ArrowRight className="w-10 h-10 lg:w-4 lg:h-4 text-slate-600 group-hover:text-white transition-colors" />
+                </Link>
+              ))
+            ) : (
+              <p className="text-slate-500 text-3xl lg:text-base text-center py-10">
+                Aucun rendez-vous à venir.
+              </p>
+            )}
           </div>
+
+          <Link
+            to="/admin/rendez-vous"
+            className="mt-12 lg:mt-6 text-center text-4xl lg:text-sm text-slate-400 hover:text-white transition-colors py-8 lg:py-2 border-t-2 lg:border-t border-slate-800 font-bold lg:font-normal"
+          >
+            Voir le calendrier complet
+          </Link>
         </div>
+
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async"; // <--- Import SEO
 import { servicesData } from "@/data/servicesData";
 import { ArrowLeft, Calendar, CheckCircle, UserCheck } from "lucide-react";
 import { motion } from "framer-motion";
@@ -26,17 +27,62 @@ const ServiceDetails = () => {
   }
 
   const Icon = service.icon;
+  const currentUrl = window.location.href; // Pour le lien canonique
 
   return (
     <>
+      {/* --- SEO DYNAMIQUE --- */}
+      <Helmet>
+        {/* Titre optimisé : Nom du service + Ville + Dr */}
+        <title>{service.title} à Tanger | Dr. Khanboubi</title>
+        
+        {/* Meta Description : On utilise l'intro du service (tronquée si besoin) */}
+        <meta 
+          name="description" 
+          content={service.intro.substring(0, 160) + (service.intro.length > 160 ? "..." : "")} 
+        />
+        <link rel="canonical" href={currentUrl} />
+
+        {/* Open Graph (Facebook/WhatsApp) */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={`${service.title} - Cabinet Dentaire Tanger`} />
+        <meta property="og:description" content={service.intro.substring(0, 200)} />
+        <meta property="og:image" content={service.image} />
+        <meta property="og:url" content={currentUrl} />
+
+        {/* Données Structurées (Schema.org pour Service Médical) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure", // Type spécifique pour les soins
+            "name": service.title,
+            "description": service.intro,
+            "image": service.image,
+            "provider": {
+              "@type": "Dentist",
+              "name": "Dr. Amine Khanboubi",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Tanger",
+                "addressCountry": "MA"
+              }
+            },
+            "offers": {
+              "@type": "Offer",
+              "url": currentUrl,
+              "availability": "https://schema.org/InStock"
+            }
+          })}
+        </script>
+      </Helmet>
+
       <Header />
-      {/* CORRECTION ICI : J'ai retiré "pt-20" pour enlever l'espace (le mini background) au début */}
+      
       <main>
         
         {/* HERO SECTION */}
         <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0">
-                {/* L'image est conservée ici */}
                 <img 
                     src={service.image} 
                     alt={`Traitement ${service.title} - Centre Dentaire Tanger`}

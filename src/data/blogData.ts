@@ -1,3 +1,9 @@
+import img1 from "@/assets/images/img-blog/blog-1-c.jpg";
+import img2 from "@/assets/images/img-blog/blog-2-c.jpg";
+import img3 from "@/assets/images/img-blog/blog-3-c.jpg";
+import img4 from "@/assets/images/img-blog/blog-4-c.jpg";
+import img5 from "@/assets/images/img-blog/blog-5-c.jpg";
+import img6 from "@/assets/images/img-blog/blog-6-c.jpg";
 export const blogData = [
   {
     id: "caries-frequentes-maroc",
@@ -6,7 +12,7 @@ export const blogData = [
     date: "12 Oct 2025",
     readTime: "3 min",
     author: "Dr. Amine Khanboubi",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80",
+    image: img1,
     tags: ["Caries", "Sucre", "Enfants"],
     excerpt: "Découvrez pourquoi 90% des enfants et de nombreux adultes souffrent de caries au Maroc et comment le Dr. Khanboubi à Tanger aide à stopper ce fléau.",
     content: `
@@ -28,7 +34,7 @@ export const blogData = [
     date: "25 Nov 2025",
     readTime: "2 min",
     author: "Dr. Amine Khanboubi",
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80",
+    image: img2,
     tags: ["Rendez-vous", "Check-up", "Santé"],
     excerpt: "Faut-il voir son dentiste tous les 6 mois ou une fois par an ? Les recommandations du Dr. Amine Khanboubi pour les habitants de Tanger.",
     content: `
@@ -47,7 +53,7 @@ export const blogData = [
     date: "10 Déc 2025",
     readTime: "4 min",
     author: "Dr. Amine Khanboubi",
-    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80",
+    image: img3,
     tags: ["Détartrage", "Gencives", "Haleine"],
     excerpt: "Le détartrage abîme-t-il l'émail ? Découvrez pourquoi ce soin est le pilier de votre santé dentaire au Centre Al Boughaz de Tanger.",
     content: `
@@ -68,7 +74,7 @@ export const blogData = [
     date: "15 Jan 2026",
     readTime: "3 min",
     author: "Dr. Amine Khanboubi",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80",
+    image: img4,
     tags: ["Gingivite", "Saignement", "Parodontite"],
     excerpt: "Gencives qui saignent ou rouges ? Attention à la gingivite. Le Dr. Khanboubi explique les symptômes de la maladie parodontale à Tanger.",
     content: `
@@ -90,7 +96,7 @@ export const blogData = [
     date: "02 Fév 2026",
     readTime: "5 min",
     author: "Dr. Amine Khanboubi",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    image: img5,
     tags: ["Diabète", "Risques", "Soins"],
     excerpt: "Saviez-vous que le diabète et les maladies des gencives s'influencent mutuellement ? Guide santé pour les patients diabétiques à Tanger.",
     content: `
@@ -111,7 +117,7 @@ export const blogData = [
     date: "20 Fév 2026",
     readTime: "4 min",
     author: "Dr. Amine Khanboubi",
-    image: "https://images.unsplash.com/photo-1616391182219-e080b4d1043a?w=800&q=80",
+    image: img6,
     tags: ["Enfants", "Première visite", "Éducation"],
     excerpt: "Prévenir les caries infantiles à Tanger. Les conseils du Dr. Khanboubi pour instaurer de bonnes habitudes dès la première dent.",
     content: `

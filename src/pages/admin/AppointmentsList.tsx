@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import api from "../../api/axios";
 import {
   Calendar,
-  CheckCircle,
-  XCircle,
-  Trash2,
   Phone,
   Mail,
   User,
-  Clock,
-  MessageSquare,
   Loader2,
-  AlertCircle
+  AlertCircle,
+  ArrowRight,
+  Search,       // Nouveau
+  ChevronLeft,  // Nouveau
+  ChevronRight, // Nouveau
+  X             // Nouveau (pour effacer la date)
 } from "lucide-react";
 
-// 1. Définition du type Appointment (correspond au backend Laravel)
 interface Appointment {
   id: number;
   full_name: string;
@@ -31,15 +31,20 @@ const AppointmentsList: React.FC = () => {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const navigate = useNavigate(); 
 
-  // 2. Chargement des rendez-vous
+  // --- NOUVEAUX ÉTATS POUR RECHERCHE ET PAGINATION ---
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchDate, setSearchDate] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+
   const fetchAppointments = async () => {
     try {
       setLoading(true);
       const response = await api.get("/appointments");
       setAppointments(response.data);
     } catch (err) {
-      console.error(err);
       setError("Impossible de charger les rendez-vous.");
     } finally {
       setLoading(false);
@@ -50,41 +55,41 @@ const AppointmentsList: React.FC = () => {
     fetchAppointments();
   }, []);
 
-  // 3. Action : Changer le statut (Confirmer / Annuler)
-  const handleStatusChange = async (id: number, newStatus: string) => {
-    try {
-      // Optimistic UI update (mise à jour immédiate avant réponse serveur)
-      setAppointments(prev => prev.map(app => 
-        app.id === id ? { ...app, status: newStatus as any } : app
-      ));
+  // Reset la page à 1 si on change la recherche
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, searchDate]);
 
-      await api.put(`/appointments/${id}/status`, { status: newStatus });
-    } catch (err) {
-      console.error("Erreur mise à jour statut", err);
-      alert("Erreur lors de la mise à jour.");
-      fetchAppointments(); // Recharger en cas d'erreur
-    }
+  const goToDetails = (id: number) => {
+    navigate(`/admin/rendez-vous/${id}`);
   };
 
-  // 4. Action : Supprimer
-  const handleDelete = async (id: number) => {
-    if (!window.confirm("Voulez-vous vraiment supprimer ce rendez-vous ?")) return;
+  // --- LOGIQUE DE FILTRAGE ---
+  const filteredAppointments = appointments.filter((app) => {
+    const matchesName = app.full_name.toLowerCase().includes(searchTerm.toLowerCase());
+    // Comparaison de date (seulement si une date est sélectionnée)
+    const matchesDate = searchDate 
+        ? app.preferred_date.startsWith(searchDate) 
+        : true;
+    
+    return matchesName && matchesDate;
+  });
 
-    try {
-      await api.delete(`/appointments/${id}`);
-      setAppointments(prev => prev.filter(app => app.id !== id));
-    } catch (err) {
-      alert("Erreur lors de la suppression.");
-    }
-  };
+  // --- LOGIQUE DE PAGINATION ---
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentAppointments = filteredAppointments.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredAppointments.length / itemsPerPage);
 
-  // Fonction utilitaire pour la couleur des badges
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  // --- HELPERS VISUELS ---
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'confirmed': return 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20';
       case 'cancelled': return 'bg-red-500/10 text-red-400 border-red-500/20';
       case 'completed': return 'bg-blue-500/10 text-blue-400 border-blue-500/20';
-      default: return 'bg-amber-500/10 text-amber-400 border-amber-500/20'; // pending
+      default: return 'bg-amber-500/10 text-amber-400 border-amber-500/20';
     }
   };
 
@@ -100,17 +105,50 @@ const AppointmentsList: React.FC = () => {
   return (
     <div className="animate-in fade-in duration-700 space-y-12 lg:space-y-8 pb-20">
       
-      {/* --- HEADER --- */}
+      {/* HEADER */}
       <div className="flex flex-col gap-4">
         <h1 className="text-5xl lg:text-4xl font-serif font-bold text-white">
           Rendez-vous
         </h1>
         <p className="text-slate-400 text-2xl lg:text-base font-light">
-          Gérez les demandes de consultation.
+          Cliquez sur un rendez-vous pour voir la fiche complète.
         </p>
       </div>
 
-      {/* --- CONTENU --- */}
+      {/* --- BARRE DE RECHERCHE (NOM + DATE) --- */}
+      <div className="bg-[#04192a] p-6 lg:p-4 rounded-[2rem] lg:rounded-2xl border border-slate-800/60 flex flex-col lg:flex-row gap-4 lg:gap-3 shadow-lg">
+        {/* Recherche par Nom */}
+        <div className="flex items-center gap-4 lg:gap-3 flex-1 bg-slate-900/50 p-4 lg:p-2 rounded-xl border border-slate-800">
+            <Search className="text-slate-500 w-8 h-8 lg:w-5 lg:h-5" />
+            <input
+            type="text"
+            placeholder="Rechercher par nom..."
+            className="bg-transparent border-none outline-none text-white w-full placeholder:text-slate-600 text-2xl lg:text-base"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            />
+        </div>
+
+        {/* Recherche par Date */}
+        <div className="flex items-center gap-4 lg:gap-3 bg-slate-900/50 p-4 lg:p-2 rounded-xl border border-slate-800 relative">
+            <Calendar className="text-slate-500 w-8 h-8 lg:w-5 lg:h-5" />
+            <input
+                type="date"
+                className="bg-transparent border-none outline-none text-white text-2xl lg:text-base date-icon-white"
+                value={searchDate}
+                onChange={(e) => setSearchDate(e.target.value)}
+            />
+            {searchDate && (
+                <button 
+                    onClick={() => setSearchDate("")}
+                    className="p-1 hover:bg-slate-700 rounded-full text-slate-400 transition-colors"
+                >
+                    <X className="w-6 h-6 lg:w-4 lg:h-4" />
+                </button>
+            )}
+        </div>
+      </div>
+
       <div className="bg-[#04192a] rounded-[3rem] lg:rounded-3xl border border-slate-800/60 overflow-hidden shadow-2xl p-4 lg:p-0">
         
         {loading ? (
@@ -123,172 +161,139 @@ const AppointmentsList: React.FC = () => {
             <AlertCircle className="w-16 h-16 lg:w-8 lg:h-8" />
             <p className="text-2xl lg:text-base">{error}</p>
           </div>
-        ) : appointments.length === 0 ? (
+        ) : filteredAppointments.length === 0 ? (
           <div className="p-40 lg:p-20 text-center text-slate-500">
             <Calendar className="w-24 h-24 lg:w-12 lg:h-12 mx-auto mb-6 text-slate-700" />
-            <p className="text-3xl lg:text-lg">Aucun rendez-vous pour le moment.</p>
+            <p className="text-3xl lg:text-lg">Aucun rendez-vous trouvé.</p>
           </div>
         ) : (
           <>
-            {/* === VERSION MOBILE (CARTES GÉANTES) === */}
+            {/* MOBILE VIEW */}
             <div className="lg:hidden space-y-8 p-4">
-              {appointments.map((app) => (
-                <div key={app.id} className="bg-slate-900/50 p-8 rounded-[2rem] border border-slate-700/50 flex flex-col gap-6">
-                  
-                  {/* En-tête Carte */}
-                  <div className="flex justify-between items-start">
+              {currentAppointments.map((app) => (
+                <div 
+                  key={app.id} 
+                  onClick={() => goToDetails(app.id)}
+                  className="bg-slate-900/50 p-8 rounded-[2rem] border border-slate-700/50 flex flex-col gap-6 active:scale-95 transition-transform cursor-pointer relative group"
+                >
+                  <div className="absolute top-8 right-8 text-slate-600 group-hover:text-primary transition-colors">
+                    <ArrowRight className="w-8 h-8" />
+                  </div>
+
+                  <div className="flex items-start">
                     <span className={`px-5 py-2 rounded-full text-lg font-bold border ${getStatusColor(app.status)}`}>
                       {getStatusLabel(app.status)}
                     </span>
-                    <span className="text-slate-500 text-lg">#{app.id}</span>
                   </div>
 
-                  {/* Info Client */}
                   <div>
                     <h3 className="text-white font-bold text-3xl mb-2 flex items-center gap-3">
                         <User className="w-6 h-6 text-primary" />
                         {app.full_name}
                     </h3>
-                    <div className="space-y-2 text-slate-400 text-xl">
-                        <p className="flex items-center gap-3"><Phone className="w-5 h-5" /> {app.phone}</p>
-                        <p className="flex items-center gap-3"><Mail className="w-5 h-5" /> {app.email}</p>
-                    </div>
-                  </div>
-
-                  {/* Info RDV */}
-                  <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
-                    <p className="text-primary text-xl font-bold uppercase tracking-wider mb-2">{app.service}</p>
-                    <p className="text-white text-2xl flex items-center gap-3">
-                        <Calendar className="w-6 h-6" />
-                        {new Date(app.preferred_date).toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                    <p className="text-slate-400 text-xl flex items-center gap-3">
+                      <Calendar className="w-5 h-5" /> 
+                      {new Date(app.preferred_date).toLocaleDateString('fr-FR')}
                     </p>
-                    {app.message && (
-                        <div className="mt-4 pt-4 border-t border-slate-700">
-                            <p className="text-slate-400 italic text-lg flex gap-2">
-                                <MessageSquare className="w-5 h-5 flex-shrink-0 mt-1" />
-                                "{app.message}"
-                            </p>
-                        </div>
-                    )}
                   </div>
-
-                  {/* Actions (Boutons géants) */}
-                  <div className="grid grid-cols-3 gap-4 pt-4">
-                    {/* Confirmer */}
-                    <button 
-                        onClick={() => handleStatusChange(app.id, 'confirmed')}
-                        disabled={app.status === 'confirmed'}
-                        className={`flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border-2 transition-all ${app.status === 'confirmed' ? 'border-emerald-500/50 bg-emerald-500/10 text-emerald-500' : 'border-slate-700 bg-slate-800 text-slate-400 hover:border-emerald-500 hover:text-emerald-500'}`}
-                    >
-                        <CheckCircle className="w-8 h-8" />
-                        <span className="text-xs font-bold uppercase">Valider</span>
-                    </button>
-
-                    {/* Annuler */}
-                    <button 
-                        onClick={() => handleStatusChange(app.id, 'cancelled')}
-                        disabled={app.status === 'cancelled'}
-                        className={`flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border-2 transition-all ${app.status === 'cancelled' ? 'border-red-500/50 bg-red-500/10 text-red-500' : 'border-slate-700 bg-slate-800 text-slate-400 hover:border-red-500 hover:text-red-500'}`}
-                    >
-                        <XCircle className="w-8 h-8" />
-                        <span className="text-xs font-bold uppercase">Annuler</span>
-                    </button>
-
-                    {/* Supprimer */}
-                    <button 
-                        onClick={() => handleDelete(app.id)}
-                        className="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border-2 border-slate-700 bg-slate-800 text-slate-400 hover:border-red-500 hover:bg-red-500 hover:text-white transition-all"
-                    >
-                        <Trash2 className="w-8 h-8" />
-                        <span className="text-xs font-bold uppercase">Supprimer</span>
-                    </button>
-                  </div>
-
                 </div>
               ))}
             </div>
 
-            {/* === VERSION DESKTOP (TABLEAU) === */}
+            {/* DESKTOP VIEW */}
             <div className="hidden lg:block overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="border-b border-slate-800 bg-slate-900/50 text-xs font-bold uppercase text-slate-500 tracking-wider">
                     <th className="p-6">Patient</th>
+                    <th className="p-6">Email</th>
+                    <th className="p-6">Téléphone</th>
                     <th className="p-6">Service & Date</th>
-                    <th className="p-6">Message</th>
                     <th className="p-6">Statut</th>
-                    <th className="p-6 text-right">Actions</th>
+                    <th className="p-6 text-right">Détails</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800/50">
-                  {appointments.map((app) => (
-                    <tr key={app.id} className="group hover:bg-slate-800/30 transition-colors">
+                  {currentAppointments.map((app) => (
+                    <tr 
+                        key={app.id} 
+                        onClick={() => goToDetails(app.id)}
+                        className="group hover:bg-slate-800/30 transition-colors cursor-pointer"
+                    >
+                      <td className="p-6 font-bold text-white">
+                        {app.full_name}
+                      </td>
                       
-                      {/* Patient */}
-                      <td className="p-6">
-                        <div className="flex flex-col">
-                            <span className="text-white font-bold text-base">{app.full_name}</span>
-                            <span className="text-slate-500 text-sm flex items-center gap-1"><Mail className="w-3 h-3"/> {app.email}</span>
-                            <span className="text-slate-500 text-sm flex items-center gap-1"><Phone className="w-3 h-3"/> {app.phone}</span>
-                        </div>
+                      <td className="p-6 text-slate-400 text-sm">
+                         <span className="flex items-center gap-2">
+                            <Mail className="w-3 h-3"/> {app.email}
+                         </span>
                       </td>
 
-                      {/* Service & Date */}
+                      <td className="p-6 text-slate-400 text-sm font-mono">
+                         <span className="flex items-center gap-2">
+                            <Phone className="w-3 h-3"/> {app.phone}
+                         </span>
+                      </td>
+
                       <td className="p-6">
                         <div className="flex flex-col">
                             <span className="text-primary font-bold">{app.service}</span>
-                            <span className="text-slate-400 text-sm flex items-center gap-1">
-                                <Calendar className="w-3 h-3"/> 
+                            <span className="text-slate-500 text-xs mt-1">
                                 {new Date(app.preferred_date).toLocaleDateString('fr-FR')}
                             </span>
                         </div>
                       </td>
-
-                      {/* Message */}
-                      <td className="p-6 max-w-xs">
-                        <p className="text-slate-400 text-sm italic truncate" title={app.message}>
-                            {app.message || "-"}
-                        </p>
-                      </td>
-
-                      {/* Statut */}
                       <td className="p-6">
                         <span className={`px-3 py-1 rounded-full text-xs font-bold border ${getStatusColor(app.status)}`}>
                           {getStatusLabel(app.status)}
                         </span>
                       </td>
-
-                      {/* Actions */}
-                      <td className="p-6 text-right">
-                        <div className="flex items-center justify-end gap-2">
-                          <button 
-                            onClick={() => handleStatusChange(app.id, 'confirmed')}
-                            title="Confirmer"
-                            className="p-2 rounded-lg text-emerald-500 hover:bg-emerald-500/10 transition-colors"
-                          >
-                            <CheckCircle className="w-5 h-5" />
-                          </button>
-                          <button 
-                            onClick={() => handleStatusChange(app.id, 'cancelled')}
-                            title="Annuler"
-                            className="p-2 rounded-lg text-amber-500 hover:bg-amber-500/10 transition-colors"
-                          >
-                            <XCircle className="w-5 h-5" />
-                          </button>
-                          <button 
-                            onClick={() => handleDelete(app.id)}
-                            title="Supprimer"
-                            className="p-2 rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-400/10 transition-colors"
-                          >
-                            <Trash2 className="w-5 h-5" />
-                          </button>
-                        </div>
+                      <td className="p-6 text-right text-slate-600 group-hover:text-primary transition-colors">
+                        <ArrowRight className="w-5 h-5 ml-auto" />
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
+
+            {/* --- CONTROLES DE PAGINATION --- */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-4 py-8 lg:py-6 border-t border-slate-800/50">
+                <button
+                  onClick={() => paginate(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="p-4 lg:p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  <ChevronLeft className="w-6 h-6 lg:w-5 lg:h-5" />
+                </button>
+
+                <div className="flex items-center gap-2">
+                  {Array.from({ length: totalPages }, (_, i) => (
+                    <button
+                      key={i + 1}
+                      onClick={() => paginate(i + 1)}
+                      className={`w-10 h-10 lg:w-8 lg:h-8 rounded-lg font-bold text-lg lg:text-sm transition-all ${
+                        currentPage === i + 1
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-slate-800 text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      {i + 1}
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => paginate(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="p-4 lg:p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  <ChevronRight className="w-6 h-6 lg:w-5 lg:h-5" />
+                </button>
+              </div>
+            )}
           </>
         )}
       </div>
