@@ -23,6 +23,7 @@ import AdminLayout from "./layouts/AdminLayout"; // Sidebar & Sécurité
 import EditPost from "./pages/admin/EditPost";
 import AppointmentsList from "./pages/admin/AppointmentsList";
 import AppointmentDetails from "./pages/admin/AppointmentDetails";
+import SubscribersList from "./pages/admin/SubscribersList";
 
 const queryClient = new QueryClient();
 
@@ -63,8 +64,7 @@ const App = () => (
               <Route path="blogs/create" element={<CreatePost />} />{" "}
               {/* Création */}
               <Route path="blogs/edit/:id" element={<EditPost />} />
-              {/* Note: Pour l'édition, tu créeras plus tard : */}
-              {/* <Route path="blogs/edit/:id" element={<EditPost />} /> */}
+              <Route path="newsletter" element={<SubscribersList />} />
             </Route>
 
             {/* =========================================

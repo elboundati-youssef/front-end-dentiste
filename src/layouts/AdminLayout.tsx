@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, useLocation, useNavigate, Link } from 'react-router-dom';
 import api from "../api/axios"; 
-import { LayoutDashboard, FileText, LogOut, User as UserIcon, Loader2, Menu, X, CalendarDays } from 'lucide-react';
+import { LayoutDashboard, FileText, LogOut, User as UserIcon, Loader2, Menu, X, CalendarDays, Mail } from 'lucide-react';
 import NotFound from "../pages/NotFound"; 
 
 interface UserData {
@@ -71,8 +71,9 @@ const AdminLayout: React.FC = () => {
 
     const menuItems = [
         { path: '/admin/dashboard', icon: LayoutDashboard, label: 'Tableau de bord' },
-        { path: '/admin/rendez-vous', icon: CalendarDays, label: 'Rendez-vous' }, // Ajouté ici
+        { path: '/admin/rendez-vous', icon: CalendarDays, label: 'Rendez-vous' }, 
         { path: '/admin/blogs', icon: FileText, label: 'Articles Blog' },
+        { path: '/admin/newsletter', icon: Mail, label: 'Newsletter' }, 
     ];
 
     return (
