@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async"; // Import essentiel pour le SEO
-import { blogData } from "@/data/blogData"; // Assure-toi que ce chemin est correct
+import { Helmet } from "react-helmet-async";
+import { blogData } from "@/data/blogData";
 import api from "@/api/axios"; 
 import { ArrowLeft, Calendar, User, Loader2 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import defaultBlogImage from "@/assets/images/compressed/DSC09094-CT.jpg";
 
-// Définition d'une interface pour le type Post (facultatif mais recommandé)
 interface PostType {
   id: number | string;
   title: string;
@@ -28,6 +27,23 @@ const BlogPost = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
+  // --- FONCTION UTILITAIRE POUR FORMATER LE CONTENU ---
+  const formatContent = (content: string) => {
+    if (!content) return "";
+
+    // 1. Si le contenu contient déjà des balises HTML (ex: <p>, <div>, <br>), on le laisse tel quel (cas des données statiques)
+    if (/<[a-z][\s\S]*>/i.test(content)) {
+        return content;
+    }
+
+    // 2. Sinon (cas API Dashboard texte brut), on remplace les sauts de ligne \n par des <br />
+    // et on entoure les paragraphes.
+    return content.split('\n').map(paragraph => {
+        if (paragraph.trim() === "") return "<br/>"; // Ligne vide
+        return `<p>${paragraph}</p>`;
+    }).join('');
+  };
+
   useEffect(() => {
     const loadPost = async () => {
       setLoading(true);
@@ -35,11 +51,10 @@ const BlogPost = () => {
 
       if (!id) return;
 
-      // 1. Chercher dans les données STATIQUES (fichier local)
+      // 1. Chercher dans les données STATIQUES
       const staticPost = blogData.find((p) => String(p.id) === String(id));
 
       if (staticPost) {
-        // On adapte le post statique au format attendu
         setPost({
             ...staticPost,
             date: staticPost.date || new Date().toLocaleDateString('fr-FR'),
@@ -49,7 +64,7 @@ const BlogPost = () => {
         return;
       }
 
-      // 2. Chercher dans l'API (Base de données)
+      // 2. Chercher dans l'API
       try {
         const response = await api.get(`/blogs/${id}`);
         const apiData = response.data;
@@ -59,13 +74,11 @@ const BlogPost = () => {
           title: apiData.title,
           category: apiData.category,
           date: new Date(apiData.created_at).toLocaleDateString('fr-FR'),
-          // Image par défaut si aucune image n'est fournie par l'API
           image: apiData.image || defaultBlogImage,
           content: apiData.content,
           author: "Dr. Amine Khanboubi",
-          // Génération automatique de la meta description (SEO)
-          excerpt: apiData.content.replace(/<[^>]+>/g, '').substring(0, 160) + "...",
-          tags: apiData.tags || [] // Si tu as des tags dans ton API
+          excerpt: apiData.content.substring(0, 160) + "...",
+          tags: apiData.tags || []
         });
       } catch (err) {
         console.error("Erreur chargement article:", err);
@@ -76,7 +89,7 @@ const BlogPost = () => {
     };
 
     loadPost();
-    window.scrollTo(0, 0); // Remonter en haut de page au chargement
+    window.scrollTo(0, 0);
   }, [id]);
 
   if (loading) {
@@ -100,64 +113,23 @@ const BlogPost = () => {
     );
   }
 
-  // URL actuelle pour le lien canonique
   const currentUrl = window.location.href;
 
   return (
     <>
-      {/* --- CONFIGURATION SEO (META TAGS) --- */}
       <Helmet>
-        {/* Titre de l'onglet */}
         <title>{post.title} | Dr. Khanboubi - Dentiste Tanger</title>
-        
-        {/* Description pour Google */}
-        <meta name="description" content={post.excerpt || `Lisez notre article sur ${post.title}.`} />
+        <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={currentUrl} />
-
-        {/* Facebook / Open Graph */}
-        <meta property="og:type" content="article" />
         <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={post.image} />
-        <meta property="og:url" content={currentUrl} />
-        <meta property="og:site_name" content="Cabinet Dentaire Al Boughaz" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:image" content={post.image} />
-
-        {/* Données Structurées (JSON-LD) pour Google Rich Snippets */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "headline": post.title,
-            "image": [post.image],
-            "datePublished": new Date().toISOString(), // Idéalement, utilise la vraie date ISO
-            "author": {
-              "@type": "Person",
-              "name": post.author
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Cabinet Dentaire Al Boughaz",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://ton-site.com/logo.png" // Remplace par ton vrai logo
-              }
-            },
-            "description": post.excerpt
-          })}
-        </script>
       </Helmet>
 
       <Header />
       
       <main className="pb-20 lg:pb-16 bg-background">
         
-        {/* --- HERO SECTION (Image & Titre) --- */}
+        {/* HERO SECTION */}
         <div className="relative h-[600px] lg:h-[500px] w-full overflow-hidden">
           <img 
             src={post.image} 
@@ -189,7 +161,7 @@ const BlogPost = () => {
           </div>
         </div>
 
-        {/* --- CORPS DE L'ARTICLE --- */}
+        {/* CORPS DE L'ARTICLE */}
         <article className="container mx-auto px-6 lg:px-12 py-16 lg:py-12 max-w-4xl">
           
           <Link to="/#blog" className="inline-flex items-center text-muted-foreground hover:text-primary mb-12 lg:mb-8 transition-colors text-2xl lg:text-base gap-3 lg:gap-2 font-medium group">
@@ -197,19 +169,21 @@ const BlogPost = () => {
             Retour aux articles
           </Link>
 
-          {/* Injection du contenu HTML riche */}
+          {/* Injection du contenu HTML riche AVEC FORMATAGE */}
           <div 
             className="
               text-muted-foreground
-              /* Styles pour le contenu généré */
+              /* Styles pour les titres */
               [&>h3]:text-4xl lg:[&>h3]:text-2xl 
               [&>h3]:font-serif [&>h3]:font-bold [&>h3]:text-foreground
               [&>h3]:mt-12 [&>h3]:mb-6
               
+              /* Styles pour les paragraphes (générés par formatContent) */
               [&>p]:text-3xl lg:[&>p]:text-lg 
               [&>p]:leading-relaxed 
               [&>p]:mb-8
               
+              /* Styles pour les listes */
               [&>ul]:list-disc [&>ul]:pl-6 lg:[&>ul]:pl-5
               [&>ul]:mb-8 [&>ul]:space-y-4
               
@@ -219,10 +193,11 @@ const BlogPost = () => {
               
               [&>p>strong]:text-foreground [&>p>strong]:font-semibold
             "
-            dangerouslySetInnerHTML={{ __html: post.content }} 
+            // ICI : On applique la fonction formatContent()
+            dangerouslySetInnerHTML={{ __html: formatContent(post.content) }} 
           />
           
-          {/* --- TAGS (Si disponibles) --- */}
+          {/* TAGS */}
           {post.tags && post.tags.length > 0 && (
             <div className="mt-16 lg:mt-10 pt-10 border-t border-border flex flex-wrap gap-3">
               {post.tags.map((tag: string) => (
@@ -233,7 +208,7 @@ const BlogPost = () => {
             </div>
           )}
 
-          {/* --- ENCART CONTACT --- */}
+          {/* ENCART CONTACT */}
           <div className="mt-16 lg:mt-12 bg-card p-10 lg:p-10 rounded-2xl border border-primary/20 shadow-lg">
             <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-8 text-center lg:text-left">
               <div className="w-24 h-24 lg:w-20 lg:h-20 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary/30 flex-shrink-0">

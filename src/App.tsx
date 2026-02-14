@@ -24,6 +24,9 @@ import EditPost from "./pages/admin/EditPost";
 import AppointmentsList from "./pages/admin/AppointmentsList";
 import AppointmentDetails from "./pages/admin/AppointmentDetails";
 import SubscribersList from "./pages/admin/SubscribersList";
+import CookiePolicy from "./pages/legal/CookiePolicy";
+import Terms from "./pages/legal/Terms";
+import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +47,9 @@ const App = () => (
             <Route path="/service/:id" element={<ServiceDetails />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/blog" element={<AllBlogs />} />
+            <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
+<Route path="/conditions-generales" element={<Terms />} />
+<Route path="/cookies" element={<CookiePolicy />} />
 
             {/* =========================================
                 2. ZONE ADMINISTRATION (Sécurisée)

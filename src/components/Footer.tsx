@@ -19,9 +19,9 @@ const footerLinks = {
     { name: 'Contact', href: '/#contact' },
   ],
   legal: [
-    { name: 'Politique de Confidentialité', href: '#' },
-    { name: 'Conditions Générales', href: '#' },
-    { name: 'Politique des Cookies', href: '#' },
+  { name: 'Politique de Confidentialité', href: '/politique-de-confidentialite' },
+  { name: 'Conditions Générales', href: '/conditions-generales' },
+  { name: 'Politique des Cookies', href: '/cookies' },
   ],
 };
 
