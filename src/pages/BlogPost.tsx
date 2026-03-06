@@ -164,9 +164,9 @@ const BlogPost = () => {
         {/* CORPS DE L'ARTICLE */}
         <article className="container mx-auto px-6 lg:px-12 py-16 lg:py-12 max-w-4xl">
           
-          <Link to="/#blog" className="inline-flex items-center text-muted-foreground hover:text-primary mb-12 lg:mb-8 transition-colors text-2xl lg:text-base gap-3 lg:gap-2 font-medium group">
+          <Link to="/" className="inline-flex items-center text-muted-foreground hover:text-primary mb-12 lg:mb-8 transition-colors text-2xl lg:text-base gap-3 lg:gap-2 font-medium group">
             <ArrowLeft className="w-8 h-8 lg:w-4 lg:h-4 group-hover:-translate-x-1 transition-transform" />
-            Retour aux articles
+            Retour à l'accueil
           </Link>
 
           {/* Injection du contenu HTML riche AVEC FORMATAGE */}
