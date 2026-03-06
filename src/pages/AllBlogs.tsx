@@ -101,11 +101,15 @@ const AllBlogs = () => {
       </Helmet>
 
       <Header />
-      <main className="pt-24 pb-16 bg-secondary/5 min-h-screen">
+     <main className="pt-40 lg:pt-24 pb-16 bg-secondary/5 min-h-screen">
         <div className="container mx-auto px-6 lg:px-12">
 
-          <div className="pt-12 mb-12">
-            <Link to="/#blog" className="inline-flex items-center text-muted-foreground hover:text-primary mb-10 lg:mb-8 transition-colors text-2xl lg:text-base gap-3 lg:gap-2 font-medium group">
+          
+         {/* AJOUT D'ESPACE ICI : pt-20 sur mobile, lg:pt-12 sur PC */}
+          <div className="pt-20 lg:pt-12 mb-12">
+            
+            {/* SOLUTION : On utilise <Link to="/"> pour un retour fluide sans casser GSAP */}
+            <Link to="/" className="inline-flex items-center text-muted-foreground hover:text-primary mb-10 lg:mb-8 transition-colors text-2xl lg:text-base gap-3 lg:gap-2 font-medium group">
               <ArrowLeft className="w-8 h-8 lg:w-4 lg:h-4 group-hover:-translate-x-1 transition-transform" />
               Retour à l'accueil
             </Link>
