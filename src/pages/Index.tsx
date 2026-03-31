@@ -45,30 +45,61 @@ const Index = () => {
   return (
     <div className="smooth-scroll">
       <Helmet>
-        <title>Dentiste Tanger | Centre Dentaire Al Boughaz | Av. Moulay Youssef</title>
-        <meta name="description" content="Cabinet dentaire du Dr. Amine Khanboubi à Tanger. Expert en implants, facettes et blanchiment dentaire." />
-        <meta name="keywords" content="dentiste tanger, cabinet dentaire tanger, blanchiment dentaire tanger, implants dentaires tanger" />
+        <title>
+          Dentiste Tanger | Centre Dentaire Al Boughaz | Av. Moulay Youssef
+        </title>
+        <meta
+          name="description"
+          content="Cabinet dentaire du Dr. Amine Khanboubi à Tanger. Expert en implants, facettes et blanchiment dentaire."
+        />
+        <meta
+          name="keywords"
+          content="dentiste tanger, cabinet dentaire tanger, blanchiment dentaire tanger, implants dentaires tanger"
+        />
 
         {/* AJOUT CONSEILLÉ : Lien Canonique */}
-        <link rel="canonical" href="https://ton-site.com/" />
+        <link rel="canonical" href="https://dentistetanger.org/" />
 
-        <meta property="og:title" content="Dentiste Tanger | Centre Dentaire Al Boughaz" />
-        <meta property="og:description" content="Expert en implants, facettes et blanchiment dentaire à Tanger. Dr. Amine Khanboubi." />
+        <meta
+          property="og:title"
+          content="Dentiste Tanger | Centre Dentaire Al Boughaz"
+        />
+        <meta
+          property="og:description"
+          content="Expert en implants, facettes et blanchiment dentaire à Tanger. Dr. Amine Khanboubi."
+        />
         <meta property="og:type" content="website" />
         {/* AJOUT CONSEILLÉ : Image pour le partage */}
-        <meta property="og:image" content="https://ton-site.com/og-image.jpg" />
+        <meta
+          property="og:image"
+          content="https://dentistetanger.org/og-image.jpg"
+        />
       </Helmet>
 
       <Header />
       <main>
         {/* On ajoute des IDs ici pour être sûr que le scroll les trouve */}
-        <section id="hero"><Hero /></section>
-        <section id="about"><About /></section>
-        <section id="services"><Services /></section>
-        <section id="team"><Team /></section>
-        <section id="gallery"><Gallery /></section>
-        <section id="testimonials"><Testimonials /></section>
-        <section id="blog"><Blog /></section>
+        <section id="hero">
+          <Hero />
+        </section>
+        <section id="about">
+          <About />
+        </section>
+        <section id="services">
+          <Services />
+        </section>
+        <section id="team">
+          <Team />
+        </section>
+        <section id="gallery">
+          <Gallery />
+        </section>
+        <section id="testimonials">
+          <Testimonials />
+        </section>
+        <section id="blog">
+          <Blog />
+        </section>
         <CTA />
 
         {/* L'ID contact est CRUCIAL ici */}

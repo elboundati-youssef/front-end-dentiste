@@ -1,98 +1,98 @@
-import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
-import { Expand, X } from 'lucide-react';
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { Expand, X } from "lucide-react";
 import clinique1 from "@/assets/images/compressed/DSC09118-CT.jpg";
 
 import clinique3 from "@/assets/images/compressed/DSC09542-CT.jpg";
 import clinique4 from "@/assets/images/compressed/DSC09478-CT.jpg";
 
 // Traduction des onglets
-const tabs = ['Tous', 'Avant & Après', 'Clinique', 'Équipe'];
+const tabs = ["Tous", "Avant & Après", "Clinique", "Équipe"];
 
 // Données de la galerie
 const galleryItems = [
-  { 
-    src: clinique1, 
-    category: 'Clinique', 
-    span: 'col-span-2 row-span-2',
-    alt: 'Cabinet dentaire moderne et salle d\'attente'
+  {
+    src: clinique1,
+    category: "Clinique",
+    span: "col-span-2 row-span-2",
+    alt: "Dentiste Khanboubi à Tanger - Cabinet dentaire équipé et moderne",
   },
-// { 
-//    src: clinique2, 
-//    category: 'Clinique', 
-//    span: '',
-//    alt: 'Cabinet dentaire moderne et salle d\'attente'
-//  },
-   { 
-    src: clinique3, 
-    category: 'Clinique', 
-    span: '',
-    alt: 'Cabinet dentaire moderne et salle d\'attente'
+  // {
+  //    src: clinique2,
+  //    category: 'Clinique',
+  //    span: '',
+  //    alt: 'Cabinet dentaire moderne et salle d\'attente'
+  //  },
+  {
+    src: clinique3,
+    category: "Clinique",
+    span: "",
+    alt: "Dentiste Khanboubi à Tanger - Cabinet dentaire équipé et moderne",
   },
-   { 
-    src: clinique4, 
-    category: 'Clinique', 
-    span: '',
-    alt: 'Cabinet dentaire moderne et salle d\'attente'
+  {
+    src: clinique4,
+    category: "Clinique",
+    span: "",
+    alt: "Dentiste Khanboubi à Tanger - Cabinet dentaire équipé et moderne",
   },
- // { 
- //   src: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80', 
- //   category: 'Avant & Après', 
- //   span: '',
- //   alt: 'Résultat blanchiment dentaire professionnel'
- // },
-  { 
-    src: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80', 
-    category: 'Équipe', 
-    span: '',
-    alt: 'Assistantes dentaires et hygiénistes'
+  // {
+  //   src: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80',
+  //   category: 'Avant & Après',
+  //   span: '',
+  //   alt: 'Résultat blanchiment dentaire professionnel'
+  // },
+  {
+    src: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80",
+    category: "Équipe",
+    span: "",
+    alt: "Dentiste Khanboubi à Tanger - Cabinet dentaire équipé et moderne",
   },
- // { 
- //   src: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=600&q=80', 
- //   category: 'Avant & Après', 
- //   span: '',
- //   alt: 'Pose de facettes dentaires céramique'
- // },
- // { 
- //   src: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80', 
- //   category: 'Clinique', 
- //   span: 'col-span-2',
- //   alt: 'Technologie dentaire de pointe'
- // },
-  { 
-    src: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80', 
-    category: 'Avant & Après', 
-    span: '',
-    alt: 'Restaurations dentaires complexes et implants'
+  // {
+  //   src: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=600&q=80',
+  //   category: 'Avant & Après',
+  //   span: '',
+  //   alt: 'Pose de facettes dentaires céramique'
+  // },
+  // {
+  //   src: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80',
+  //   category: 'Clinique',
+  //   span: 'col-span-2',
+  //   alt: 'Technologie dentaire de pointe'
+  // },
+  {
+    src: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    category: "Avant & Après",
+    span: "",
+    alt: "Dentiste Khanboubi à Tanger - Cabinet dentaire équipé et moderne",
   },
 ];
 
 export const Gallery = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [activeTab, setActiveTab] = useState('Tous');
-  
+  const [activeTab, setActiveTab] = useState("Tous");
+
   // État pour gérer l'image sélectionnée (Lightbox)
   const [selectedImage, setSelectedImage] = useState(null);
 
   // Filtrage
-  const filteredItems = activeTab === 'Tous' 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === activeTab);
+  const filteredItems =
+    activeTab === "Tous"
+      ? galleryItems
+      : galleryItems.filter((item) => item.category === activeTab);
 
   // Empêcher le scroll quand la lightbox est ouverte
   useEffect(() => {
     if (selectedImage) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
   }, [selectedImage]);
 
   return (
     <section id="gallery" className="py-24 lg:py-32 bg-card">
       <div className="container mx-auto px-6 lg:px-12">
-        
         {/* Header */}
         <motion.div
           ref={ref}
@@ -102,23 +102,22 @@ export const Gallery = () => {
           className="text-center mb-16 lg:mb-20"
         >
           {/* Sous-titre */}
-        <div className="inline-flex items-center gap-4 mb-8 lg:gap-3 lg:mb-6">
-    {/* Lignes dorées : w-20 sur mobile | lg:w-12 sur PC */}
-    <div className="w-20 lg:w-12 h-px bg-primary" />
-    <span className="text-xl lg:text-sm font-bold lg:font-medium tracking-[0.3em] uppercase text-gradient">
-      Galerie Photos
-    </span>
-    <div className="w-20 lg:w-12 h-px bg-primary" />
-  </div>
+          <div className="inline-flex items-center gap-4 mb-8 lg:gap-3 lg:mb-6">
+            {/* Lignes dorées : w-20 sur mobile | lg:w-12 sur PC */}
+            <div className="w-20 lg:w-12 h-px bg-primary" />
+            <span className="text-xl lg:text-sm font-bold lg:font-medium tracking-[0.3em] uppercase text-gradient">
+              Galerie Photos
+            </span>
+            <div className="w-20 lg:w-12 h-px bg-primary" />
+          </div>
 
-         {/* 2. Titre : Triple Taille sur mobile (text-6xl) | Original sur PC (lg:text-5xl) */}
-  <h2 className="font-serif text-6xl lg:text-5xl xl:text-7xl font-bold lg:font-medium text-foreground mb-10 lg:mb-8 leading-tight">
-    Découvrez 
-    <br />
-    <span className="text-gradient">Nos réalisations</span>
-  </h2>
+          {/* 2. Titre : Triple Taille sur mobile (text-6xl) | Original sur PC (lg:text-5xl) */}
+          <h2 className="font-serif text-6xl lg:text-5xl xl:text-7xl font-bold lg:font-medium text-foreground mb-10 lg:mb-8 leading-tight">
+            Découvrez
+            <br />
+            <span className="text-gradient">Nos réalisations</span>
+          </h2>
 
-        
           {/* Tabs - AGRANDIS sur mobile */}
           <div className="flex flex-wrap items-center justify-center gap-4 lg:gap-4">
             {tabs.map((tab) => (
@@ -127,8 +126,8 @@ export const Gallery = () => {
                 onClick={() => setActiveTab(tab)}
                 className={`px-8 py-5 lg:px-6 lg:py-3 text-2xl lg:text-sm font-bold lg:font-medium transition-all duration-300 ${
                   activeTab === tab
-                    ? 'bg-gradient-gold text-primary-foreground'
-                    : 'bg-transparent text-muted-foreground hover:text-foreground border-2 lg:border border-border hover:border-primary'
+                    ? "bg-gradient-gold text-primary-foreground"
+                    : "bg-transparent text-muted-foreground hover:text-foreground border-2 lg:border border-border hover:border-primary"
                 }`}
               >
                 {tab}
@@ -155,11 +154,14 @@ export const Gallery = () => {
               className={`group relative overflow-hidden cursor-pointer ${item.span}`}
             >
               <img
-
                 width={720}
                 height={720}
                 src={item.src}
-                alt={item.alt ? `${item.alt} - Centre Al Boughaz Tanger` : `Galerie dentaire ${index + 1}`}
+                alt={
+                  item.alt
+                    ? `${item.alt} - Dentiste khanboubi Tanger`
+                    : `Galerie dentaire ${index + 1}`
+                }
                 className="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110"
               />
               {/* Overlay avec icône Expand */}
@@ -174,7 +176,7 @@ export const Gallery = () => {
       </div>
 
       {/* --- LIGHTBOX (MODAL PLEIN ÉCRAN) --- */}
-    <AnimatePresence>
+      <AnimatePresence>
         {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -185,7 +187,7 @@ export const Gallery = () => {
             // MODIFICATION ICI : Ajout de padding plus grand sur desktop (lg:p-20) pour réduire la zone de l'image
             className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-md p-4 lg:p-20"
           >
-           {/* Bouton Fermer - AGRANDI sur mobile */}
+            {/* Bouton Fermer - AGRANDI sur mobile */}
             <button
               onClick={() => setSelectedImage(null)}
               className="absolute top-6 right-6 lg:top-10 lg:right-10 w-20 h-20 lg:w-12 lg:h-12 flex items-center justify-center bg-background border-2 lg:border border-border text-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-300 rounded-full z-50"
@@ -205,15 +207,17 @@ export const Gallery = () => {
               // Empêche la fermeture si on clique sur l'image elle-même
               onClick={(e) => e.stopPropagation()}
             />
-            
-           {/* Légende - AGRANDIE sur mobile */}
-            <motion.div 
+
+            {/* Légende - AGRANDIE sur mobile */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               className="absolute bottom-8 lg:bottom-10 left-0 right-0 text-center px-6 lg:px-4"
             >
-              <p className="text-white/80 text-2xl lg:text-lg font-medium">{selectedImage.alt}</p>
+              <p className="text-white/80 text-2xl lg:text-lg font-medium">
+                {selectedImage.alt}
+              </p>
             </motion.div>
           </motion.div>
         )}

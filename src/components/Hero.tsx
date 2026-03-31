@@ -152,7 +152,7 @@ export const Hero = () => {
           Retrouvez la confiance,<br />
           <span className="text-gradient block md:text-8xl mt-4 lg:mt-2 lg:inline"> d'un sourire éclatant</span>
         </h1>
-<br />
+        <br />
         {/* Subtitle */}
         <p
           ref={subtitleRef}

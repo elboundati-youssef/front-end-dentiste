@@ -96,9 +96,10 @@ export const Blog = () => {
                   <div className="relative h-80 lg:h-64 overflow-hidden">
                     <img 
                       src={post.image} 
-                      alt={`${post.title} - Dr Khanboubi Tanger`}
+                      alt={`${post.title} - Dr Khanboubi Tanger Dentiste`}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
+
                     {/* Badge Catégorie : Agrandis sur mobile */}
                     <div className="absolute top-6 left-6 lg:top-4 lg:left-4 bg-primary text-primary-foreground px-4 py-2 lg:px-3 lg:py-1 text-sm lg:text-xs font-bold lg:font-medium uppercase tracking-wider shadow-md">
                       {post.category}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Facebook, Instagram, Twitter, Linkedin, ArrowUp, Loader2, CheckCircle, AlertCircle, Send } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Linkedin, ArrowUp, Loader2, CheckCircle, AlertCircle, Send, X } from 'lucide-react';
 import api from '../api/axios'; // Assure-toi que le chemin est correct
 
 const footerLinks = {
@@ -28,7 +28,7 @@ const footerLinks = {
 const socials = [
   { icon: Facebook, href: 'https://www.facebook.com/cdentairealboughaz/?locale=fr_FR', label: 'Facebook' },
   { icon: Instagram, href: 'https://www.instagram.com/cdentaire_alboughaz/?hl=ar', label: 'Instagram' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
+  { icon: X, href: '#', label: 'X' },
   { icon: Linkedin, href: 'https://www.linkedin.com/company/centre-dentaire-al-boughaz-dr-khanboubi-amine/posts/?feedView=all', label: 'LinkedIn' },
 ];
 

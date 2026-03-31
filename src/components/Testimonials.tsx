@@ -83,16 +83,15 @@ export const Testimonials = () => {
   );
 
   return (
-    <section 
-      id="testimonials" 
+    <section
+      id="testimonials"
       ref={sectionRef} // 3. On attache la ref ici pour surveiller la section
       className="py-24 lg:py-32 bg-background relative overflow-hidden"
     >
       <div className="absolute top-0 right-0 w-1/3 h-full bg-card hidden lg:block" />
-      
+
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
           {/* GAUCHE : Textes */}
           <motion.div
             ref={textRef}
@@ -115,9 +114,11 @@ export const Testimonials = () => {
             </h2>
 
             <p className="text-muted-foreground text-2xl lg:text-xl mb-14 lg:mb-12 leading-relaxed font-medium lg:font-normal">
-              Ne vous contentez pas de nous croire sur parole. Écoutez ce que nos patients satisfaits disent de leur expérience au Centre Dentaire Al Boughaz.
+              Ne vous contentez pas de nous croire sur parole. Écoutez ce que
+              nos patients satisfaits disent de leur expérience au Centre
+              Dentaire Al Boughaz.
             </p>
-            
+
             <NavigationButtons className="hidden lg:flex" />
           </motion.div>
 
@@ -128,74 +129,84 @@ export const Testimonials = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
             // --- INTERACTION : STOP & GO ---
-            onMouseEnter={() => setIsPaused(true)}  // Souris entre (PC)
+            onMouseEnter={() => setIsPaused(true)} // Souris entre (PC)
             onMouseLeave={() => setIsPaused(false)} // Souris sort (PC)
-            onTouchStart={() => setIsPaused(true)}  // Doigt touche (Mobile)
-            onTouchEnd={() => setIsPaused(false)}   // Doigt lève (Mobile)
+            onTouchStart={() => setIsPaused(true)} // Doigt touche (Mobile)
+            onTouchEnd={() => setIsPaused(false)} // Doigt lève (Mobile)
           >
             {/* AnimatePresence permet d'animer la sortie de l'ancien slide */}
             <div className="bg-card relative shadow-2xl rounded-sm overflow-hidden min-h-[500px] lg:min-h-[400px] flex flex-col justify-center">
-                
-                <AnimatePresence mode='wait'>
-                    <motion.div
-                        key={currentIndex}
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -50 }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="p-12 lg:p-12"
-                    >
-                        <Quote className="w-20 h-20 lg:w-12 lg:h-12 text-primary/20 mb-8 lg:mb-6" />
-                        
-                        <div className="flex items-center gap-2 lg:gap-1 mb-8 lg:mb-6">
-                            {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                            <Star key={i} className="w-8 h-8 lg:w-5 lg:h-5 text-primary fill-primary" />
-                            ))}
-                        </div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="p-12 lg:p-12"
+                >
+                  <Quote className="w-20 h-20 lg:w-12 lg:h-12 text-primary/20 mb-8 lg:mb-6" />
 
-                        <p className="text-foreground text-2xl lg:text-xl leading-relaxed mb-10 lg:mb-8 font-serif">
-                            "{testimonials[currentIndex].content}"
-                        </p>
-
-                        <div className="flex items-center gap-6 lg:gap-4">
-                            <img
-                            src={testimonials[currentIndex].image}
-                            alt={testimonials[currentIndex].name}
-                            className="w-20 h-20 lg:w-14 lg:h-14 object-cover"
-                            />
-                            <div>
-                            <div className="font-bold text-foreground text-2xl lg:text-lg">
-                                {testimonials[currentIndex].name}
-                            </div>
-                            <div className="text-muted-foreground text-xl lg:text-sm">Patient vérifié</div>
-                            </div>
-                        </div>
-                    </motion.div>
-                </AnimatePresence>
-
-                {/* --- BARRE DE PROGRESSION --- */}
-                <div className="absolute bottom-0 left-0 w-full h-2 bg-muted">
-                    {/* La barre s'anime SEULEMENT si ce n'est pas en pause ET si la section est visible */}
-                    {!isPaused && isSectionVisible && (
-                        <motion.div
-                            key={currentIndex}
-                            initial={{ width: "0%" }}
-                            animate={{ width: "100%" }}
-                            transition={{ duration: AUTOPLAY_DELAY / 1000, ease: "linear" }}
-                            className="h-full bg-gradient-gold"
+                  <div className="flex items-center gap-2 lg:gap-1 mb-8 lg:mb-6">
+                    {[...Array(testimonials[currentIndex].rating)].map(
+                      (_, i) => (
+                        <Star
+                          key={i}
+                          className="w-8 h-8 lg:w-5 lg:h-5 text-primary fill-primary"
                         />
+                      ),
                     )}
-                    {/* Feedback visuel de pause */}
-                    {isPaused && (
-                        <div className="h-full bg-primary/50 w-full animate-pulse" />
-                    )}
-                </div>
+                  </div>
 
+                  <p className="text-foreground text-2xl lg:text-xl leading-relaxed mb-10 lg:mb-8 font-serif">
+                    "{testimonials[currentIndex].content}"
+                  </p>
+
+                  <div className="flex items-center gap-6 lg:gap-4">
+                    <img
+                      src={testimonials[currentIndex].image}
+                      alt={
+                        testimonials[currentIndex].name +
+                        "- avis dentiste khanboubi tanger"
+                      }
+                      className="w-20 h-20 lg:w-14 lg:h-14 object-cover"
+                    />
+                    <div>
+                      <div className="font-bold text-foreground text-2xl lg:text-lg">
+                        {testimonials[currentIndex].name}
+                      </div>
+                      <div className="text-muted-foreground text-xl lg:text-sm">
+                        Patient vérifié
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* --- BARRE DE PROGRESSION --- */}
+              <div className="absolute bottom-0 left-0 w-full h-2 bg-muted">
+                {/* La barre s'anime SEULEMENT si ce n'est pas en pause ET si la section est visible */}
+                {!isPaused && isSectionVisible && (
+                  <motion.div
+                    key={currentIndex}
+                    initial={{ width: "0%" }}
+                    animate={{ width: "100%" }}
+                    transition={{
+                      duration: AUTOPLAY_DELAY / 1000,
+                      ease: "linear",
+                    }}
+                    className="h-full bg-gradient-gold"
+                  />
+                )}
+                {/* Feedback visuel de pause */}
+                {isPaused && (
+                  <div className="h-full bg-primary/50 w-full animate-pulse" />
+                )}
+              </div>
             </div>
 
             {/* Bordure décorative décalée */}
             <div className="absolute -bottom-4 -right-4 w-full h-full border border-primary/30 -z-10" />
-
           </motion.div>
 
           {/* Navigation Mobile */}

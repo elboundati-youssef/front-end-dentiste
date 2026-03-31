@@ -6,7 +6,7 @@ import axios, { InternalAxiosRequestConfig } from 'axios';
  * de le gérer automatiquement, notamment pour l'envoi d'images.
  */
 const api = axios.create({
-    baseURL: 'http://localhost:8000/api',
+    baseURL: 'https://dentistetanger.org/api/api',
     timeout: 5000, // Si pas de réponse après 5 secondes, erreur.
     headers: {
         'Accept': 'application/json'

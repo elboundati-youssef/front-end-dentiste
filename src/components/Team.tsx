@@ -56,7 +56,7 @@ export const Team = () => {
               <div className="relative overflow-hidden shadow-2xl">
               <img
                 src={Khanboubi}
-                alt="Dr. Amine Khanboubi"
+                alt="Dentiste Amine Khanboubi"
                 // HAUTEUR MOBILE AGRANDIE : h-[700px] au lieu de h-[500px]
                 className="w-full h-[900px] lg:h-[700px] object-cover transition-all duration-700 ease-in-out group-hover:scale-105"
                width={1280}
