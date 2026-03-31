@@ -13,8 +13,8 @@ export const Blog = () => {
   const postsRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null); // Nouveau ref pour le bouton
 
-  // On prend les 3 premiers articles pour l'accueil
-  const posts = blogData.slice(0, 3);
+  // On prend les 4 premiers articles (le 4ème sera masqué sur bureau)
+  const posts = blogData.slice(0, 4);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -55,40 +55,39 @@ export const Blog = () => {
       <div className="container mx-auto px-6 lg:px-12">
         
         {/* En-tête */}
-       <div ref={headerRef} className="text-center mb-16 lg:mb-20">
-  {/* 1. Sous-titre avec lignes dorées et marge ajustée */}
-  <div className="inline-flex items-center gap-3 mb-6">
-    <div className="w-12 h-px bg-primary" />
-    <span className="text-xl lg:text-sm font-bold lg:font-medium tracking-[0.3em] uppercase text-gradient">
-      Blog Dentaire Tanger
-    </span>
-    <div className="w-12 h-px bg-primary" />
-  </div>
+        <div ref={headerRef} className="text-center mb-16 lg:mb-20">
+          {/* 1. Sous-titre avec lignes dorées et marge ajustée */}
+          <div className="inline-flex items-center gap-3 mb-6">
+            <div className="w-12 h-px bg-primary" />
+            <span className="text-xl lg:text-sm font-bold lg:font-medium tracking-[0.3em] uppercase text-gradient">
+              Blog Dentaire Tanger
+            </span>
+            <div className="w-12 h-px bg-primary" />
+          </div>
 
-  {/* 2. Grand Titre */}
-  <h2 className="font-serif text-6xl lg:text-5xl xl:text-7xl font-bold lg:font-medium text-foreground mb-8 lg:mb-6 leading-tight">
-    Derniers conseils 
-    <br />
-    <span className="text-gradient">Et articles</span>
-  </h2>
+          {/* 2. Grand Titre */}
+          <h2 className="font-serif text-6xl lg:text-5xl xl:text-7xl font-bold lg:font-medium text-foreground mb-8 lg:mb-6 leading-tight">
+            Derniers conseils 
+            <br />
+            <span className="text-gradient">Et articles</span>
+          </h2>
 
-  {/* 3. Description agrandie */}
-  <p className="max-w-2xl mx-auto text-muted-foreground text-2xl lg:text-xl leading-relaxed font-medium lg:font-normal">
-    Les conseils du Dr. Amine Khanboubi pour votre santé bucco-dentaire.
-  </p>
-</div>
+          {/* 3. Description agrandie */}
+          <p className="max-w-2xl mx-auto text-muted-foreground text-2xl lg:text-xl leading-relaxed font-medium lg:font-normal">
+            Les conseils du Dr. Amine Khanboubi pour votre santé bucco-dentaire.
+          </p>
+        </div>
 
         {/* Grille des Articles */}
- {/* Grille des Articles : Style GÉANT sur Mobile */}
+        {/* Grille des Articles : Style GÉANT sur Mobile */}
         {/* Mobile: 1 colonne (grid-cols-1) + Grand écart (gap-12) */}
         {/* Desktop: 3 colonnes (lg:grid-cols-3) + Écart normal (lg:gap-8) */}
         <div ref={postsRef} className="grid grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8 mb-16 lg:mb-16 w-full"> 
-          {posts.map((post) => (
+          {posts.map((post, index) => (
             <article 
               key={post.id} 
-              // Mobile: shadow-2xl + rounded-xl pour détacher la carte
-              // Desktop: Style original (border, hover shadow)
-              className="blog-card group bg-background border border-border/50 lg:border-border overflow-hidden shadow-2xl lg:shadow-none lg:hover:shadow-lg transition-all duration-300 rounded-xl lg:rounded-none"
+              // Le 4ème article (index 3) aura la classe lg:hidden pour disparaître sur PC
+              className={`blog-card group bg-background border border-border/50 lg:border-border overflow-hidden shadow-2xl lg:shadow-none lg:hover:shadow-lg transition-all duration-300 rounded-xl lg:rounded-none ${index === 3 ? 'lg:hidden' : ''}`}
             >
               <Link to={`/blog/${post.id}`} className="block h-full">
                   

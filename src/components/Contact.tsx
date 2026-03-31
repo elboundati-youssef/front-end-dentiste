@@ -234,7 +234,7 @@ export const Contact = () => {
       id="contact"
       className="py-24 lg:py-32 bg-background relative overflow-hidden"
     >
-      {/* Decorative Background Elements (Ceux-ci restent car ils sont sur le fond général, pas sur le formulaire) */}
+      {/* Decorative Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-primary/5 to-transparent" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
@@ -247,40 +247,40 @@ export const Contact = () => {
         <div ref={headerRef} className="text-center mb-16 lg:mb-20">
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-12 h-px bg-primary" />
-            <span className="text-sm font-medium tracking-[0.3em] uppercase text-gradient">
+            <span className="text-base lg:text-sm font-bold lg:font-medium tracking-[0.3em] uppercase text-gradient">
               Prendre Rendez-vous
             </span>
             <div className="w-12 h-px bg-primary" />
           </div>
-          <h2 className="font-serif text-4xl lg:text-5xl xl:text-7xl font-medium text-foreground mb-6 leading-tight">
+          <h2 className="font-serif text-5xl lg:text-5xl xl:text-7xl font-bold lg:font-medium text-foreground mb-8 lg:mb-6 leading-tight">
             Planifiez votre Sourire Parfait
             <br />
             <span className="text-gradient">Consultation Dentaire</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground text-lg lg:text-xl">
+          <p className="max-w-2xl mx-auto text-muted-foreground text-2xl lg:text-xl font-medium lg:font-normal leading-relaxed">
             Découvrez des soins dentaires d'exception. Réservez votre
             consultation dès aujourd'hui et faites le premier pas vers le
             sourire que vous méritez.
           </p>
         </div>
 
-        {/* Features Grid */}
+        {/* Features Grid - 1 colonne sur mobile, 4 sur desktop */}
         <div
           ref={featuresRef}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-16 lg:mb-24"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 lg:mb-24"
         >
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="feature-card group p-6 lg:p-8 bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-glow"
+              className="feature-card group p-8 lg:p-8 bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-glow rounded-xl lg:rounded-none shadow-xl lg:shadow-none"
             >
-              <div className="w-12 h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
-                <feature.icon className="w-5 h-5 lg:w-6 lg:h-6" />
+              <div className="w-16 h-16 lg:w-14 lg:h-14 flex items-center justify-center bg-primary/10 text-primary mb-6 lg:mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 rounded-lg lg:rounded-none">
+                <feature.icon className="w-8 h-8 lg:w-6 lg:h-6" />
               </div>
-              <h4 className="font-serif text-lg lg:text-xl font-medium text-foreground mb-2">
+              <h4 className="font-serif text-2xl lg:text-xl font-bold lg:font-medium text-foreground mb-3 lg:mb-2">
                 {feature.title}
               </h4>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-lg lg:text-sm text-muted-foreground leading-relaxed">
                 {feature.description}
               </p>
             </div>
@@ -289,12 +289,12 @@ export const Contact = () => {
 
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
           {/* Contact Info */}
-          <div ref={contactInfoRef} className="lg:col-span-2 space-y-6">
-            <div className="mb-8">
-              <h3 className="font-serif text-2xl lg:text-3xl font-medium text-foreground mb-4">
+          <div ref={contactInfoRef} className="lg:col-span-2 space-y-8 lg:space-y-6">
+            <div className="mb-10 lg:mb-8 text-center lg:text-left">
+              <h3 className="font-serif text-4xl lg:text-3xl font-bold lg:font-medium text-foreground mb-4">
                 Contactez-nous
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground text-xl lg:text-base leading-relaxed">
                 Une question ? Nous sommes là pour vous aider dans votre
                 parcours de soins.
               </p>
@@ -303,16 +303,16 @@ export const Contact = () => {
             {contactInfo.map((item) => (
               <div
                 key={item.label}
-                className="contact-info-item group flex items-start gap-4 p-4 bg-card border border-border hover:border-primary/50 transition-all duration-500"
+                className="contact-info-item group flex items-start gap-6 lg:gap-4 p-6 lg:p-4 bg-card border border-border hover:border-primary/50 transition-all duration-500 rounded-xl lg:rounded-none shadow-lg lg:shadow-none"
               >
-                <div className="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
-                  <item.icon className="w-5 h-5" />
+                <div className="w-16 h-16 lg:w-12 lg:h-12 flex items-center justify-center bg-primary/10 text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 rounded-lg lg:rounded-none">
+                  <item.icon className="w-8 h-8 lg:w-5 lg:h-5" />
                 </div>
                 <div>
-                  <div className="text-sm text-primary font-medium tracking-wide uppercase mb-1">
+                  <div className="text-base lg:text-sm text-primary font-bold lg:font-medium tracking-wide uppercase mb-2 lg:mb-1">
                     {item.label}
                   </div>
-                  <div className="text-foreground text-sm lg:text-base">
+                  <div className="text-foreground text-xl lg:text-base font-medium lg:font-normal leading-relaxed">
                     {item.value}
                   </div>
                 </div>
@@ -320,7 +320,7 @@ export const Contact = () => {
             ))}
 
             {/* Map */}
-            <div className="contact-info-item relative h-48 lg:h-64 overflow-hidden group rounded-xl border border-border">
+            <div className="contact-info-item relative h-64 lg:h-64 overflow-hidden group rounded-2xl lg:rounded-xl border border-border shadow-xl lg:shadow-none">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.1786107148555!2d-5.810737024895737!3d35.770988672558495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b817dbc95382b%3A0xd578b423d9ff5568!2sCentre%20Dentaire%20Al%20Boughaz.%20DR%20khanboubi%20amine!5e0!3m2!1sfr!2sma!4v1770374968608!5m2!1sfr!2sma"
                 width="100%"
@@ -338,35 +338,33 @@ export const Contact = () => {
           {/* Contact Form */}
           <div
             ref={formContainerRef}
-            className="lg:col-span-3 bg-card border border-border p-8 lg:p-12 relative overflow-hidden"
+            className="lg:col-span-3 bg-card border border-border p-8 lg:p-12 relative overflow-hidden rounded-3xl lg:rounded-none shadow-2xl lg:shadow-none mt-8 lg:mt-0"
           >
-            {/* CORRECTION ICI : J'ai supprimé les 2 divs "decorative corner" qui faisaient l'effet jaune */}
-
             <div className="relative">
-              <div className="flex items-center gap-3 mb-8">
-                <Calendar className="w-6 h-6 text-primary" />
-                <h3 className="font-serif text-2xl lg:text-3xl font-medium text-foreground">
+              <div className="flex items-center justify-center lg:justify-start gap-4 lg:gap-3 mb-10 lg:mb-8">
+                <Calendar className="w-8 h-8 lg:w-6 lg:h-6 text-primary" />
+                <h3 className="font-serif text-3xl lg:text-3xl font-bold lg:font-medium text-foreground">
                   Demande de Consultation
                 </h3>
               </div>
 
               {status === "success" ? (
                 <div className="flex flex-col items-center justify-center py-20 text-center animate-in fade-in zoom-in duration-500">
-                  <div className="w-20 h-20 bg-emerald-500/20 text-emerald-500 rounded-full flex items-center justify-center mb-6">
-                    <CheckCircle className="w-10 h-10" />
+                  <div className="w-24 h-24 lg:w-20 lg:h-20 bg-emerald-500/20 text-emerald-500 rounded-full flex items-center justify-center mb-8 lg:mb-6">
+                    <CheckCircle className="w-12 h-12 lg:w-10 lg:h-10" />
                   </div>
-                  <h4 className="text-2xl font-bold text-foreground mb-2">
+                  <h4 className="text-3xl lg:text-2xl font-bold text-foreground mb-4 lg:mb-2">
                     Demande Envoyée !
                   </h4>
-                  <p className="text-muted-foreground">
+                  <p className="text-xl lg:text-base text-muted-foreground">
                     Nous vous recontacterons sous 24h.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="space-y-8 lg:space-y-6">
+                  <div className="grid md:grid-cols-2 gap-8 lg:gap-6">
                     <div className="form-field">
-                      <label className="block text-sm text-primary font-medium tracking-wide uppercase mb-2">
+                      <label className="block text-base lg:text-sm text-primary font-bold lg:font-medium tracking-wide uppercase mb-3 lg:mb-2">
                         Nom Complet
                       </label>
                       <input
@@ -375,13 +373,13 @@ export const Contact = () => {
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
                         }
-                        className="w-full px-4 py-4 bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:shadow-glow transition-all duration-300"
+                        className="w-full px-6 py-5 lg:px-4 lg:py-4 bg-background border border-border text-foreground text-lg lg:text-base placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:shadow-glow transition-all duration-300 rounded-xl lg:rounded-none"
                         placeholder="Votre nom"
                         required
                       />
                     </div>
                     <div className="form-field">
-                      <label className="block text-sm text-primary font-medium tracking-wide uppercase mb-2">
+                      <label className="block text-base lg:text-sm text-primary font-bold lg:font-medium tracking-wide uppercase mb-3 lg:mb-2">
                         Email
                       </label>
                       <input
@@ -390,16 +388,16 @@ export const Contact = () => {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        className="w-full px-4 py-4 bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:shadow-glow transition-all duration-300"
+                        className="w-full px-6 py-5 lg:px-4 lg:py-4 bg-background border border-border text-foreground text-lg lg:text-base placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:shadow-glow transition-all duration-300 rounded-xl lg:rounded-none"
                         placeholder="exemple@email.com"
                         required
                       />
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 gap-8 lg:gap-6">
                     <div className="form-field">
-                      <label className="block text-sm text-primary font-medium tracking-wide uppercase mb-2">
+                      <label className="block text-base lg:text-sm text-primary font-bold lg:font-medium tracking-wide uppercase mb-3 lg:mb-2">
                         Téléphone
                       </label>
                       <input
@@ -408,13 +406,13 @@ export const Contact = () => {
                         onChange={(e) =>
                           setFormData({ ...formData, phone: e.target.value })
                         }
-                        className="w-full px-4 py-4 bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:shadow-glow transition-all duration-300"
+                        className="w-full px-6 py-5 lg:px-4 lg:py-4 bg-background border border-border text-foreground text-lg lg:text-base placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:shadow-glow transition-all duration-300 rounded-xl lg:rounded-none"
                         placeholder="06 00 00 00 00"
                         required
                       />
                     </div>
                     <div className="form-field">
-                      <label className="block text-sm text-primary font-medium tracking-wide uppercase mb-2">
+                      <label className="block text-base lg:text-sm text-primary font-bold lg:font-medium tracking-wide uppercase mb-3 lg:mb-2">
                         Date Souhaitée
                       </label>
                       <input
@@ -423,14 +421,14 @@ export const Contact = () => {
                         onChange={(e) =>
                           setFormData({ ...formData, date: e.target.value })
                         }
-                        className="date-icon-white w-full px-4 py-4 bg-background border border-border text-foreground focus:outline-none focus:border-primary focus:shadow-glow transition-all duration-300"
+                        className="date-icon-white w-full px-6 py-5 lg:px-4 lg:py-4 bg-background border border-border text-foreground text-lg lg:text-base focus:outline-none focus:border-primary focus:shadow-glow transition-all duration-300 rounded-xl lg:rounded-none"
                         required
                       />
                     </div>
                   </div>
 
                   <div className="form-field">
-                    <label className="block text-sm text-primary font-medium tracking-wide uppercase mb-2">
+                    <label className="block text-base lg:text-sm text-primary font-bold lg:font-medium tracking-wide uppercase mb-3 lg:mb-2">
                       Type de Soin
                     </label>
                     <select
@@ -438,7 +436,7 @@ export const Contact = () => {
                       onChange={(e) =>
                         setFormData({ ...formData, service: e.target.value })
                       }
-                      className="w-full px-4 py-4 bg-background border border-border text-foreground focus:outline-none focus:border-primary focus:shadow-glow transition-all duration-300"
+                      className="w-full px-6 py-5 lg:px-4 lg:py-4 bg-background border border-border text-foreground text-lg lg:text-base focus:outline-none focus:border-primary focus:shadow-glow transition-all duration-300 rounded-xl lg:rounded-none"
                     >
                       <option value="">Sélectionner un motif...</option>
                       <option value="Consultation">
@@ -452,7 +450,7 @@ export const Contact = () => {
                   </div>
 
                   <div className="form-field">
-                    <label className="block text-sm text-primary font-medium tracking-wide uppercase mb-2">
+                    <label className="block text-base lg:text-sm text-primary font-bold lg:font-medium tracking-wide uppercase mb-3 lg:mb-2">
                       Message
                     </label>
                     <textarea
@@ -460,8 +458,8 @@ export const Contact = () => {
                       onChange={(e) =>
                         setFormData({ ...formData, message: e.target.value })
                       }
-                      rows={4}
-                      className="w-full px-4 py-4 bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:shadow-glow transition-all duration-300 resize-none"
+                      rows={5}
+                      className="w-full px-6 py-5 lg:px-4 lg:py-4 bg-background border border-border text-foreground text-lg lg:text-base placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:shadow-glow transition-all duration-300 resize-none rounded-xl lg:rounded-none"
                       placeholder="Détaillez votre besoin..."
                     />
                   </div>
@@ -469,19 +467,19 @@ export const Contact = () => {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="form-field group w-full py-5 bg-gradient-gold text-primary-foreground font-medium text-lg inline-flex items-center justify-center gap-3 hover:bg-foreground hover:text-background transition-all duration-500 hover:shadow-glow disabled:opacity-70"
+                    className="form-field group w-full py-6 lg:py-5 bg-gradient-gold text-primary-foreground font-bold lg:font-medium text-xl lg:text-lg inline-flex items-center justify-center gap-4 lg:gap-3 hover:bg-foreground hover:text-background transition-all duration-500 hover:shadow-glow disabled:opacity-70 rounded-xl lg:rounded-none mt-4"
                   >
                     {status === "loading" ? (
-                      <Loader2 className="w-6 h-6 animate-spin" />
+                      <Loader2 className="w-8 h-8 lg:w-6 lg:h-6 animate-spin" />
                     ) : (
                       <>
                         <span>Confirmer le Rendez-vous</span>
-                        <Send className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                        <Send className="w-7 h-7 lg:w-5 lg:h-5 group-hover:translate-x-2 transition-transform duration-300" />
                       </>
                     )}
                   </button>
 
-                  <p className="form-field text-center text-sm text-muted-foreground">
+                  <p className="form-field text-center text-base lg:text-sm text-muted-foreground mt-6 lg:mt-0 font-medium lg:font-normal">
                     Nous confirmons généralement les rendez-vous sous 24h.
                   </p>
                 </form>
